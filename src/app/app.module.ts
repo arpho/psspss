@@ -7,6 +7,8 @@ import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 
+import firebase from "firebase/app";
+
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
