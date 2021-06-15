@@ -32,3 +32,5 @@ npm-debug.log*
 .firebase/hosting.d3d3.cache
 
 package-lock.json
+
+src/app/configs/

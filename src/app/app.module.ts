@@ -8,6 +8,9 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 
 import firebase from "firebase/app";
+import { configs } from './configs/credentials';
+
+import { Platform } from '@ionic/angular';
 
 @NgModule({
   declarations: [AppComponent],
@@ -16,4 +19,24 @@ import firebase from "firebase/app";
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule {
+
+  constructor(
+    private platform: Platform,
+  ) {
+
+    this.initializeApp(); {
+      firebase.initializeApp(configs.firebase);
+      if (!firebase.apps.length) {
+        firebase.initializeApp(configs.firebase);
+      }
+      else { }
+    }
+  }
+
+  initializeApp() {
+    this.platform.ready().then(() => {
+    });
+
+  }
+}
