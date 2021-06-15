@@ -14,7 +14,6 @@ import { Platform } from '@ionic/angular';
 import { ItemModule } from './modules/item/item.module'
 import { DynamicFormModule } from './modules/dynamic-form/dynamic-form.module'
 import { } from './modules/geo-location/geo-location.module'
-import { BarcodeModule } from './modules/barcode/barcode.module'
 
 @NgModule({
   declarations: [AppComponent],
