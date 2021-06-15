@@ -1,4 +1,8 @@
 import { Component } from '@angular/core';
+import { Platform } from '@ionic/angular';
+import firebase from "firebase/app";
+import { connectableObservableDescriptor } from 'rxjs/internal/observable/ConnectableObservable';
+import {configs} from './configs/credentials'
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
@@ -14,5 +18,28 @@ export class AppComponent {
     { title: 'Spam', url: '/folder/Spam', icon: 'warning' },
   ];
   public labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders'];
-  constructor() {}
+  constructor(
+    private platform: Platform,
+  ){
+
+    this.initializeApp();{
+      console.log('initislizing app')
+      console.log('firebase',firebase.apps)
+  if (!firebase.apps.length) {
+    console.log('initialixing  firebase')
+    // const  cat = this.categoriesService.getDummyItem();
+  }
+  else{
+    console.log('firebase ok ',firebase.auth)
+  }
+      // const  cat = this.categoriesService.getDummyItem();
+    }
+  }
+
+  initializeApp() {
+    this.platform.ready().then(() => {
+    });
+
+  }
 }
+

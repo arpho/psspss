@@ -24,22 +24,4 @@ import {} from './modules/user/user.module'
 })
 export class AppModule {
 
-  constructor(
-    private platform: Platform,
-  ) {
-
-    this.initializeApp(); {
-      firebase.initializeApp(configs.firebase);
-      if (!firebase.apps.length) {
-        firebase.initializeApp(configs.firebase);
-      }
-      else { }
-    }
-  }
-
-  initializeApp() {
-    this.platform.ready().then(() => {
-    });
-
-  }
 }
