@@ -13,7 +13,6 @@ import { configs } from './configs/credentials';
 import { Platform } from '@ionic/angular';
 import { ItemModule } from './modules/item/item.module'
 import { DynamicFormModule } from './modules/dynamic-form/dynamic-form.module'
-import { } from './modules/geo-location/geo-location.module'
 
 @NgModule({
   declarations: [AppComponent],
