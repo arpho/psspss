@@ -11,6 +11,7 @@ import firebase from "firebase/app";
 import { configs } from './configs/credentials';
 
 import { Platform } from '@ionic/angular';
+import {} from './modules/item/item.module'
 
 @NgModule({
   declarations: [AppComponent],
