@@ -11,6 +11,7 @@ import { LoginPage } from "../login/login.page";
 import { SignupPage } from "../signup/signup.page";
 
 const routes: Routes = [
+  
   {
     path: "",
     component: UsersPage
@@ -25,6 +26,5 @@ const routes: Routes = [
     IonicModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [LoginPage,SignupPage]
 })
 export class UsersModule {}
