@@ -22,6 +22,15 @@ const routes: Routes = [
   {
     path: 'login',
     loadChildren: () => import('./pages/login/login.module').then(m => m.LoginPageModule)
+  },
+  {
+    path: "edit-user/:key",
+    loadChildren: () => import('./pages/edit-user/edit-user.module').then(m => m.EditUserPageModule),
+    canActivate: [AuthGuard]
+  }, 
+  {
+    path: "not-authorized/:message",
+    loadChildren: () => import('./pages/not-authorized/not-authorized.module').then(m => m.NotAuthorizedPageModule)
   }
 
 ]
