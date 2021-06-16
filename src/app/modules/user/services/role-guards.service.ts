@@ -29,6 +29,7 @@ export class RoleGuardService implements CanActivate {
       }
     });
     firebase
+      .default
       .auth()
       .currentUser.getIdTokenResult(true)
       .then(token => {
@@ -40,7 +41,7 @@ export class RoleGuardService implements CanActivate {
             "per accedere a questa funzione devi godere almeno dei privilegi di " +
             expectedRole.key +
             ". per chiarimenti rivolgiti all'amministratore";
-          this.router.navigate(["user/not-authorized", message]);
+          this.router.navigate(["users/not-authorized", message]);
         }
       });
 
