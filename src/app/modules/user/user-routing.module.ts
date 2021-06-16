@@ -6,6 +6,10 @@ import { RoleGuardService } from './services/role-guards.service';
 
 const routes: Routes = [
   {
+    path: "login",
+    loadChildren: () => import('./pages/login/login.module').then(m => m.LoginPageModule)
+  },
+  {
     path: "profile",
     loadChildren: () => import('./pages/profile/profile.module').then(m => m.ProfilePageModule),
     canActivate: [AuthGuard]
@@ -13,10 +17,6 @@ const routes: Routes = [
   {
     path: "signup",
     loadChildren: () => import("./pages/signup/signup.module").then(m => m.SignupPageModule)
-  },
-  {
-    path: "login",
-    loadChildren: () => import('./pages/login/login.module').then(m => m.LoginPageModule)
   },
   {
     path: "reset-password",
@@ -31,12 +31,23 @@ const routes: Routes = [
     canActivate: [AuthGuard, RoleGuardService]
   },
   {
+    path: '',
+    redirectTo: 'users',
+    pathMatch: 'full'
+  },
+  {
     path: "edit-user/:key",
     loadChildren: () => import('./pages/edit-user/edit-user.module').then(m => m.EditUserPageModule),
     canActivate: [AuthGuard]
-  },
+  }, 
   {
     path: "not-authorized/:message",
     loadChildren: () => import('./pages/not-authorized/not-authorized.module').then(m => m.NotAuthorizedPageModule)
   }
 ];
+@NgModule({
+  imports:[RouterModule.forChild(routes)],
+  exports:[RouterModule]
+})
+
+export class UsersRoutingModule {}

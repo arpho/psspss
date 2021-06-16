@@ -17,7 +17,7 @@ export class FolderPage implements OnInit {
     this.folder = this.activatedRoute.snapshot.paramMap.get('id');
     console.log('folder',this.folder)
     if(!firebase.auth){
-      this.router.navigateByUrl("user/login")
+      this.router.navigateByUrl("users/login")
     }
   }
 
