@@ -7,6 +7,8 @@ import { IonicModule } from "@ionic/angular";
 
 import { UsersPage } from "./users.page";
 import { ItemModule } from "src/app/modules/item/item.module";
+import { LoginPage } from "../login/login.page";
+import { SignupPage } from "../signup/signup.page";
 
 const routes: Routes = [
   {
@@ -23,6 +25,6 @@ const routes: Routes = [
     IonicModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [UsersPage]
+  declarations: [LoginPage,SignupPage]
 })
 export class UsersModule {}
