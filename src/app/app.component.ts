@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Platform } from '@ionic/angular';
+import { config } from 'firebase-functions';
 import firebase from "firebase/app";
 import { connectableObservableDescriptor } from 'rxjs/internal/observable/ConnectableObservable';
 import {configs} from './configs/credentials'
@@ -37,6 +38,7 @@ export class AppComponent {
   }
 
   initializeApp() {
+    firebase.initializeApp(configs.firebase)
     this.platform.ready().then(() => {
     });
 
