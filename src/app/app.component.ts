@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { Platform } from '@ionic/angular';
 import { config } from 'firebase-functions';
-import firebase from "firebase/app";
+import firebase from 'firebase'
+require('firebase/auth')
 import { connectableObservableDescriptor } from 'rxjs/internal/observable/ConnectableObservable';
 import {configs} from './configs/credentials'
 @Component({
@@ -26,6 +27,11 @@ export class AppComponent {
     this.initializeApp();{
       console.log('initislizing app')
       console.log('firebase',firebase.apps)
+      const auth = firebase.auth()
+      /* const auth= firebase.auth()
+      auth.onAuthStateChanged(user=>{
+        console.log("authenticated user",user)
+      }) */
 
       
   if (!firebase.apps.length) {
