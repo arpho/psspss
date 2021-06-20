@@ -4,26 +4,35 @@ import { QuickAction } from "../modules/item/models/QuickAction";
 import { Value } from "../modules/item/models/value";
 
 export class ReviewsModel implements ItemModelInterface{
-    title: string;
     note?: string;
+    quickActions?: QuickAction[];
+    archived?: boolean;
+    isArchived?(): boolean {
+        throw new Error("Method not implemented.");
+    }
+    initialize(args: any): ItemModelInterface {
+     Object.assign(this,args)
+     return this
+    }
+    title: string;
+    reference:string
     key: string;
+    review:number
+    author:string
     service?: ItemServiceInterface;
     getTitle(): Value {
         return new Value({label:"title",value:this. title})
     }
     getCountingText(): string {
-        return "recenasioni"
+        return "recensioni"
     }
     getNote(): Value {
-        throw new Error("Method not implemented.");
+        return new Value({label:"commento",value:this.reference})
     }
     build?(item: {}) {
         throw new Error("Method not implemented.");
     }
     load?(next?: () => void) {
-        throw new Error("Method not implemented.");
-    }
-    isArchived?(): boolean {
         throw new Error("Method not implemented.");
     }
     archiveItem?(b: boolean) {
@@ -42,7 +51,8 @@ export class ReviewsModel implements ItemModelInterface{
         throw new Error("Method not implemented.");
     }
     setKey?(key: string): ItemModelInterface {
-        throw new Error("Method not implemented.");
+       this.key= key
+       return this
     }
     getEditPopup(item?: ItemModelInterface, service?: ItemServiceInterface) {
         throw new Error("Method not implemented.");
@@ -54,10 +64,10 @@ export class ReviewsModel implements ItemModelInterface{
         throw new Error("Method not implemented.");
     }
     hasQuickActions?(): boolean {
-        throw new Error("Method not implemented.");
+       return false
     }
     serialize() {
-        throw new Error("Method not implemented.");
+        return {author:this.author,review:this.review,reference:this.reference}
     }
     getElement(): { element: string; genere: Genere; } {
         throw new Error("Method not implemented.");

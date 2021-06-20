@@ -23,6 +23,7 @@ export interface ItemModelInterface {
   isArchived?(): boolean;
   archiveItem?(b: boolean);
   isArchivable?(): boolean;
+  initialize(args:any):ItemModelInterface
   getValue2(): Value;
   getValue3(): Value;
   getValue4(): Value;
