@@ -4,15 +4,15 @@ import * as firebase from 'firebase/app';
 import { ItemModelInterface } from '../../item/models/itemModelInterface';
 import { CategoryModel } from '../models/CategoryModel';
 import { Observable, BehaviorSubject } from 'rxjs';
-import { EntityWidgetServiceInterface } from 'src/app/modules/widget/models/EntityWidgetServiceInterface';
-import { PricedCategory } from 'src/app/models/pricedCategory';
-import { PurchaseModel } from 'src/app/models/purchasesModel';
-import { ShoppingKartModel } from 'src/app/models/shoppingKartModel';
+//import { EntityWidgetServiceInterface } from 'src/app/modules/widget/models/EntityWidgetServiceInterface';
+//import { PricedCategory } from 'src/app/models/pricedCategory';
+// import { PurchaseModel } from 'src/app/models/purchasesModel';
+//import { ShoppingKartModel } from 'src/app/models/shoppingKartModel';
 // @offlineWrapper
 @Injectable({
   providedIn: 'root'
 })
-export class CategoriesService implements ItemServiceInterface, EntityWidgetServiceInterface {
+export class CategoriesService implements ItemServiceInterface {
   public readonly key = 'categories'
   public categoriesListRef: firebase.default.database.Reference;
   _items: BehaviorSubject<Array<CategoryModel>> = new BehaviorSubject([])
@@ -65,30 +65,28 @@ export class CategoriesService implements ItemServiceInterface, EntityWidgetServ
 
 
   /**mappa ad ogni ogetto {categorie:CategoriModel[],price:number} con [{category:CategoryModel,price:number}]  */
-  blowupCategories = (item: { categorie: CategoryModel[], price: number }) => item.categorie.map((cat: CategoryModel) => {
+ /*  blowupCategories = (item: { categorie: CategoryModel[], price: number }) => item.categorie.map((cat: CategoryModel) => {
     return new PricedCategory({ category: cat, price: item.price })
-  })
+  }) */
 
   /**
   * trasforma una lista di carrelli in una lista di items
   */
-  ItemskartMapper2 = (pv: PurchaseModel[], cv: ShoppingKartModel) => [...pv, ...cv.items]
+  // ItemskartMapper2 = (pv: PurchaseModel[], cv: ShoppingKartModel) => [...pv, ...cv.items]
 
 
 
-  itemsMapper2 = (item: PurchaseModel) => {
-    /**
-     * 
-     */
+/*   itemsMapper2 = (item: PurchaseModel) => {
+    
     return { categorie: item.categorie, price: item.prezzo }
-  }
+  } */
   flattener = (pv, cv) => {
     return [...pv, ...cv]
   }
 
-  blowCategoriesUp = (karts: ShoppingKartModel[]) => {
-    return karts.reduce(this.ItemskartMapper2, []).map(this.itemsMapper2).map(this.blowupCategories).reduce(this.flattener,[])
-  }
+  /* blowCategoriesUp = (karts: ShoppingKartModel[]) => {
+    //return karts.reduce(this.ItemskartMapper2, []).map(this.itemsMapper2).map(this.blowupCategories).reduce(this.flattener,[])
+  } */
 
 
   async createItem(item: CategoryModel) {
@@ -119,12 +117,12 @@ export class CategoriesService implements ItemServiceInterface, EntityWidgetServ
     this.instatiateItem = (args: {}) => {
       return this.initializeCategory(args)
     }
-    this.counterWidget = (entityKey: string, entities: ShoppingKartModel[]) => {
+  /*   this.counterWidget = (entityKey: string, entities: ShoppingKartModel[]) => {
       return this.blowCategoriesUp(entities).filter((item: PricedCategory) => item.category.key == entityKey).map((item: PricedCategory) => 1).reduce((pv, cv) => { return pv += cv }, 0)
-    }
-    this.adderWidget = (entityKey: string, entities: ShoppingKartModel[]) => {
+    } */
+    /* this.adderWidget = (entityKey: string, entities: ShoppingKartModel[]) => {
       return this.blowCategoriesUp(entities).filter((item: PricedCategory) => item.category.key == entityKey).map((item: PricedCategory) => item.price).reduce((pv, cv) => { return pv += cv }, 0);
-    }
+    } */
     firebase.default.auth().onAuthStateChanged(user => {
       if (user) {
         this.categoriesListRef = firebase.default.database().ref(`/categorie/${user.uid}/`);
