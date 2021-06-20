@@ -3,72 +3,80 @@ import { ItemServiceInterface } from "../modules/item/models/ItemServiceInterfac
 import { QuickAction } from "../modules/item/models/QuickAction";
 import { Value } from "../modules/item/models/value";
 
-export class ReviewsModel implements ItemModelInterface{
+export class ReviewsModel implements ItemModelInterface {
     note?: string;
     quickActions?: QuickAction[];
     archived?: boolean;
     isArchived?(): boolean {
         throw new Error("Method not implemented.");
     }
+
     initialize(args: any): ItemModelInterface {
-     Object.assign(this,args)
-     return this
+        Object.assign(this, args)
+        return this
     }
+
     title: string;
-    reference:string
+    reference: string
     key: string;
-    review:number
-    author:string
+    review: number
+    author: string
     service?: ItemServiceInterface;
     getTitle(): Value {
-        return new Value({label:"title",value:this. title})
+        return new Value({ label: "title", value: this.title })
     }
+
     getCountingText(): string {
         return "recensioni"
     }
+
     getNote(): Value {
-        return new Value({label:"commento",value:this.reference})
+        return new Value({ label: "commento", value: this.reference })
     }
-    build?(item: {}) {
-        throw new Error("Method not implemented.");
-    }
-    load?(next?: () => void) {
-        throw new Error("Method not implemented.");
-    }
-    archiveItem?(b: boolean) {
-        throw new Error("Method not implemented.");
-    }
+
+   
+   
     isArchivable?(): boolean {
-        throw new Error("Method not implemented.");
+        return false
     }
+
     getValue2(): Value {
         throw new Error("Method not implemented.");
     }
+
     getValue3(): Value {
         throw new Error("Method not implemented.");
     }
+
     getValue4(): Value {
         throw new Error("Method not implemented.");
     }
+
     setKey?(key: string): ItemModelInterface {
-       this.key= key
-       return this
+        this.key = key
+        return this
     }
+
     getEditPopup(item?: ItemModelInterface, service?: ItemServiceInterface) {
         throw new Error("Method not implemented.");
     }
+
     getAggregate(): Value {
         throw new Error("Method not implemented.");
     }
+
     aggregateAction?() {
         throw new Error("Method not implemented.");
     }
+
     hasQuickActions?(): boolean {
-       return false
+        return false
     }
+
     serialize() {
-        return {author:this.author,review:this.review,reference:this.reference}
+        return { author: this.author, review: this.review, reference: this.reference }
     }
+    
     getElement(): { element: string; genere: Genere; } {
         throw new Error("Method not implemented.");
     }
