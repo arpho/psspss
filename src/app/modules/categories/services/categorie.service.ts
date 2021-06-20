@@ -1,15 +1,13 @@
 import { Injectable } from '@angular/core';
-import { ItemServiceInterface } from '../../modules/item/models/ItemServiceInterface';
+import { ItemServiceInterface } from '../../item/models/ItemServiceInterface';
 import * as firebase from 'firebase/app';
-import { ItemModelInterface } from '../../modules/item/models/itemModelInterface';
-import { CategoryModel } from 'src/app/models/CategoryModel';
+import { ItemModelInterface } from '../../item/models/itemModelInterface';
+import { CategoryModel } from '../models/CategoryModel';
 import { Observable, BehaviorSubject } from 'rxjs';
 import { EntityWidgetServiceInterface } from 'src/app/modules/widget/models/EntityWidgetServiceInterface';
 import { PricedCategory } from 'src/app/models/pricedCategory';
 import { PurchaseModel } from 'src/app/models/purchasesModel';
 import { ShoppingKartModel } from 'src/app/models/shoppingKartModel';
-import { values } from 'd3';
-import { ComponentsPageModule } from 'src/app/modules/item/components/components.module';
 // @offlineWrapper
 @Injectable({
   providedIn: 'root'
