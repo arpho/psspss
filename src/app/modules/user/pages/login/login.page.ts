@@ -40,9 +40,20 @@ export class LoginPage implements OnInit {
       const password = loginForm.value.password;
       this.authService.loginUser(email, password).then(
         () => {
-          firebase.default.auth().setPersistence(firebase.default.auth.Auth.Persistence.LOCAL).then(()=>{
-            console.log("set persistence local")
-          }) // set persistence
+          firebase.default.auth().setPersistence(firebase.default.auth.Auth.Persistence.SESSION)
+          .then(() => {
+            // Existing and future Auth states are now persisted in the current
+            // session only. Closing the window would clear any existing state even
+            // if a user forgets to sign out.
+            // ...
+            // New sign-in will be persisted with session persistence.
+            return firebase.default.auth().signInWithEmailAndPassword(email, password);
+          })
+          .catch((error) => {
+            // Handle Errors here.
+            var errorCode = error.code;
+            var errorMessage = error.message;
+          });
           
           this.loading.dismiss().then(() => {
             this.router.navigateByUrl("home");

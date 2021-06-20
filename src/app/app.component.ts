@@ -26,8 +26,9 @@ export class AppComponent {
     this.initializeApp();{
       console.log('initislizing app')
       console.log('firebase',firebase.apps)
+
+      
   if (!firebase.apps.length) {
-    console.log('initialixing  firebase')
     // const  cat = this.categoriesService.getDummyItem();
   }
   else{

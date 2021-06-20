@@ -9,8 +9,7 @@ import { ItemFilterOPtions } from '../../item/models/ItemFIlterOptions';
 import { GeneratedFile } from '@angular/compiler';
 import { CategoriesService } from '../services/categories/categorie.service';
 import { WidgetitemInteface } from '../modules/widget/models/widgetItemIterface';
-import { OfflineItemModelInterface } from '../modules/offline/models/OffilineModelInterface';
-export class CategoryModel implements FirebaseObject, ItemModelInterface, WidgetitemInteface, OfflineItemModelInterface {
+export class CategoryModel implements FirebaseObject, ItemModelInterface, WidgetitemInteface{
 
     key: string;
     title: string;
