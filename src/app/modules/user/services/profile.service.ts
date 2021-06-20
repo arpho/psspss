@@ -7,19 +7,19 @@ import "firebase/database";
   providedIn: "root"
 })
 export class ProfileService {
-  public userProfile: firebase.database.Reference;
-  public currentUser: firebase.User;
+  public userProfile: firebase.default.database.Reference;
+  public currentUser: firebase.default.User;
 
   constructor() {
-    firebase.auth().onAuthStateChanged(user => {
+    firebase.default.auth().onAuthStateChanged(user => {
       if (user) {
         this.currentUser = user;
-        this.userProfile = firebase.database().ref(`/userProfile/${user.uid}`);
+        this.userProfile = firebase.default.database().ref(`/userProfile/${user.uid}`);
       }
     });
   }
 
-  getUserProfile(): firebase.database.Reference {
+  getUserProfile(): firebase.default.database.Reference {
     return this.userProfile;
   }
 
@@ -38,7 +38,7 @@ export class ProfileService {
   }
 
   updateEmail(newEmail: string, password: string): Promise<any> {
-    const credential: firebase.auth.AuthCredential = firebase.auth.EmailAuthProvider.credential(
+    const credential: firebase.default.auth.AuthCredential = firebase.default.auth.EmailAuthProvider.credential(
       this.currentUser.email,
       password
     );
@@ -55,7 +55,7 @@ export class ProfileService {
   }
 
   updatePassword(newPassword: string, oldPassword: string): Promise<any> {
-    const credential: firebase.auth.AuthCredential = firebase.auth.EmailAuthProvider.credential(
+    const credential: firebase.default.auth.AuthCredential = firebase.default.auth.EmailAuthProvider.credential(
       this.currentUser.email,
       oldPassword
     );

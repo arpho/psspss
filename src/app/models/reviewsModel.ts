@@ -11,7 +11,7 @@ export class ReviewsModel implements ItemModelInterface {
         throw new Error("Method not implemented.");
     }
 
-    initialize(args: any): ItemModelInterface {
+    initialize(args: any): ReviewsModel {
         Object.assign(this, args)
         return this
     }
