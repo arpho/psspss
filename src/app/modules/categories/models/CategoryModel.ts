@@ -7,7 +7,7 @@ import { Value } from '../../item/models/value';
 import { ItemServiceInterface } from '../../item/models/ItemServiceInterface';
 import { ItemFilterOPtions } from '../../item/models/ItemFIlterOptions';
 import { GeneratedFile } from '@angular/compiler';
-import { CategoriesService } from '../services/categories/categorie.service';
+import { CategoriesService } from '../services/categorie.service';
 import { WidgetitemInteface } from '../modules/widget/models/widgetItemIterface';
 export class CategoryModel implements FirebaseObject, ItemModelInterface, WidgetitemInteface{
 
