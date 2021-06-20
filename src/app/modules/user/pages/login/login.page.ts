@@ -3,6 +3,7 @@ import { FormGroup, Validators, FormBuilder } from "@angular/forms";
 import { LoadingController, AlertController } from "@ionic/angular";
 import { AuthService } from "../../services/auth.service";
 import { Router } from "@angular/router";
+import * as firebase from "firebase";
 
 @Component({
   selector: "app-login",
@@ -31,7 +32,7 @@ export class LoginPage implements OnInit {
   }
   onSubmit() {}
 
-  async loginUser(loginForm: FormGroup): Promise<void> {
+  async loginUser(loginForm: FormGroup, setPersistence?:boolean): Promise<void> {
     if (!loginForm.valid) {
       console.log("Form is not valid yet, current value:", loginForm.value);
     } else {
@@ -39,6 +40,10 @@ export class LoginPage implements OnInit {
       const password = loginForm.value.password;
       this.authService.loginUser(email, password).then(
         () => {
+          firebase.default.auth().setPersistence(firebase.default.auth.Auth.Persistence.LOCAL).then(()=>{
+            console.log("set persistence local")
+          }) // set persistence
+          
           this.loading.dismiss().then(() => {
             this.router.navigateByUrl("home");
           });
