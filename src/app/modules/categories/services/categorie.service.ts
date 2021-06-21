@@ -145,6 +145,9 @@ export class CategoriesService implements ItemServiceInterface {
 
 
   }
+  initializeItems() {
+    throw new Error('Method not implemented.');
+  }
   setFather(category: CategoryModel, categoriesList: CategoryModel[]) {
     if (category && category.fatherKey) {
       const father = this.setFather(categoriesList.filter((f: CategoryModel) => f.key == category.fatherKey)[0], categoriesList)

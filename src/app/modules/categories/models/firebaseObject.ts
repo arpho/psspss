@@ -1,4 +1,4 @@
-import { ItemServiceInterface } from '../modules/item/models/ItemServiceInterface';
+import { ItemServiceInterface } from '../../item/models/ItemServiceInterface';
 
 export interface FirebaseObject {
     serialize();

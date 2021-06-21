@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import firebase from "firebase/app";
+import { CrewUserService } from '../services/crew-user.service';
 
 @Component({
   selector: 'app-folder',
@@ -9,8 +10,9 @@ import firebase from "firebase/app";
 })
 export class FolderPage implements OnInit {
   public folder: string;
+  
 
-  constructor(private activatedRoute: ActivatedRoute,private router:Router) { }
+  constructor(private activatedRoute: ActivatedRoute,private router:Router,service:CrewUserService) { }
 
   ngOnInit() {
     console.log('auth',firebase.auth)
