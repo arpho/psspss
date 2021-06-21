@@ -10,6 +10,11 @@ export enum UserKind {
 
 export class CrewUserprofileModel extends UserModel {
 
+   setKey = (key:string)=>{
+       this.key = key
+       return this
+   }
+
     type: UserKind
     picture: string
     categories: Array<CategoryModel>

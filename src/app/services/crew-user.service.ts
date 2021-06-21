@@ -28,7 +28,12 @@ public UserListRef:firebase.default.database.Reference
   getDummyItem(): ItemModelInterface {
     return new CrewUserprofileModel()
   }
-  createItem(item: ItemModelInterface) {
-    throw new Error('Method not implemented.');
+  async createItem(item: ItemModelInterface) {
+    var User = new CrewUserprofileModel()
+    const user = await this.UserListRef.push(item.serialize())
+    user.on("value", item=>{User.initialize(item.val() );
+    User.key = item.key;
+    this.updateItem(User) //add
+    })
   }
 }

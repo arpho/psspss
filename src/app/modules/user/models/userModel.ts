@@ -15,7 +15,13 @@ export class UserModel implements ItemModelInterface {
   firstName: string;
   lastName: string;
   title: string;
-  key: string;
+  private _key: string;
+    public get key(): string {
+        return this._key;
+    }
+    public set key(value: string) {
+        this._key = value;
+    }
   uid: string;
   level: number;
   quickActions: Array<QuickAction>;
