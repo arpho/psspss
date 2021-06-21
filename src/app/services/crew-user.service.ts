@@ -9,13 +9,30 @@ import { ItemServiceInterface } from '../modules/item/models/ItemServiceInterfac
   providedIn: 'root'
 })
 export class CrewUserService implements ItemServiceInterface {
+
 public UserListRef:firebase.default.database.Reference
-  constructor() { }
+  constructor() { 
+
+    firebase.default.auth().onAuthStateChanged(user=>{
+      if(user){
+        this.suppliersListRef = firebase.default.database().ref("/userprofiles")
+        this.UserListRef.on("value",()=>{
+          this.items_list =[]
+        })
+      }
+    })
+  }
+  categoriesService?: ItemServiceInterface;
+  suppliersService?: ItemServiceInterface;
+  paymentsService?: ItemServiceInterface;
+  initializeItems() {
+    throw new Error('Method not implemented.');
+  }
 
   suppliersListRef?: any;
   _items: BehaviorSubject<CrewUserprofileModel[]>;
-  items_list: ItemModelInterface[];
-  items: Observable<ItemModelInterface[]>;
+  items_list: CrewUserprofileModel[];
+  items: Observable<CrewUserprofileModel[]>;
   getItem(key: string): firebase.default.database.Reference {
    return this.UserListRef.child(key)
   }
@@ -25,10 +42,10 @@ public UserListRef:firebase.default.database.Reference
   deleteItem(key: string) {
     return this.UserListRef.child(key).remove()
   }
-  getDummyItem(): ItemModelInterface {
+  getDummyItem(): CrewUserprofileModel {
     return new CrewUserprofileModel()
   }
-  async createItem(item: ItemModelInterface) {
+  async createItem(item: CrewUserprofileModel) {
     var User = new CrewUserprofileModel()
     const user = await this.UserListRef.push(item.serialize())
     user.on("value", item=>{User.initialize(item.val() );
