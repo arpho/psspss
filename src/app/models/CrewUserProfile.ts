@@ -8,7 +8,7 @@ export enum UserKind {
     enterprise
 }
 
-export class CrewUserprofile extends UserModel {
+export class CrewUserprofileModel extends UserModel {
 
     type: UserKind
     picture: string

@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import  * as firebase from 'firebase';
 import { BehaviorSubject, Observable } from 'rxjs';
+import { CrewUserprofileModel } from '../models/CrewUserProfile';
 import { ItemModelInterface } from '../modules/item/models/itemModelInterface';
 import { ItemServiceInterface } from '../modules/item/models/ItemServiceInterface';
 
@@ -16,16 +17,16 @@ public UserListRef:firebase.default.database.Reference
   items_list: ItemModelInterface[];
   items: Observable<ItemModelInterface[]>;
   getItem(key: string): firebase.default.database.Reference {
-    throw new Error('Method not implemented.');
+   return this.UserListRef.child(key)
   }
   updateItem(item: ItemModelInterface) {
-    throw new Error('Method not implemented.');
+    return this.UserListRef.child(item.key).update(item.serialize())
   }
   deleteItem(key: string) {
-    throw new Error('Method not implemented.');
+    return this.UserListRef.child(key).remove()
   }
   getDummyItem(): ItemModelInterface {
-    throw new Error('Method not implemented.');
+    return new CrewUserprofileModel()
   }
   createItem(item: ItemModelInterface) {
     throw new Error('Method not implemented.');
