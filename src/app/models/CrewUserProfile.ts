@@ -10,29 +10,30 @@ export enum UserKind {
 
 export class CrewUserprofile extends UserModel {
 
-type:UserKind
-categories: Array<CategoryModel>
-categorieId: Array<string>
-references: Array<ReviewsModel>
+    type: UserKind
+    picture: string
+    categories: Array<CategoryModel>
+    categorieId: Array<string>
+    references: Array<ReviewsModel>
 
-instatiateCategories(categorieId: Array<string>) {
-    if (categorieId) {
-        const out = categorieId.map((key: string) => new CategoryModel(key))
-        return out
-    } else { return [] }
-}
+    instatiateCategories(categorieId: Array<string>) {
+        if (categorieId) {
+            const out = categorieId.map((key: string) => new CategoryModel(key))
+            return out
+        } else { return [] }
+    }
 
-initialize(item){
-    super.initialize(item)
-    this.categories = this.categories || this.instatiateCategories(item.categorieId)
-    this.references= this.references.map(item=>new ReviewsModel().initialize(item))
-    return this
-}
-serializeReferences(){
-    return this.references.map((item:ReviewsModel)=>item.serialize())
-}
+    initialize(item) {
+        super.initialize(item)
+        this.categories = this.categories || this.instatiateCategories(item.categorieId)
+        this.references = this.references.map(item => new ReviewsModel().initialize(item))
+        return this
+    }
+    serializeReferences() {
+        return this.references.map((item: ReviewsModel) => item.serialize())
+    }
 
-serialize(){
-    return {...super.serialize(),type:this.type,references:this.serializeReferences()}
-}
+    serialize() {
+        return { ...super.serialize(), type: this.type, references: this.serializeReferences(), picture: this.picture }
+    }
 }
