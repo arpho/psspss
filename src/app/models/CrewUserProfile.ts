@@ -34,6 +34,6 @@ export class CrewUserprofileModel extends UserModel {
     }
 
     serialize() {
-        return { ...super.serialize(), type: this.type, references: this.serializeReferences(), picture: this.picture }
+        return { ...super.serialize(), type: this.type, references: this.serializeReferences(), picture: this.picture ,key:this.key}
     }
 }
