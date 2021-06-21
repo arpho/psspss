@@ -13,7 +13,7 @@ public UserListRef:firebase.default.database.Reference
   constructor() { }
 
   suppliersListRef?: any;
-  _items: BehaviorSubject<ItemModelInterface[]>;
+  _items: BehaviorSubject<CrewUserprofileModel[]>;
   items_list: ItemModelInterface[];
   items: Observable<ItemModelInterface[]>;
   getItem(key: string): firebase.default.database.Reference {
