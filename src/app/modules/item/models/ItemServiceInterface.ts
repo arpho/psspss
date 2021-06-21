@@ -36,5 +36,6 @@ suppliersListRef?
      *
      */
     createItem(item: ItemModelInterface);
+    initializeItems()
 
 }
