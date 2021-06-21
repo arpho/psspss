@@ -22,6 +22,13 @@ export class UsersService implements ItemServiceInterface,OnInit {
     this.loadItems()
     
   }
+  categoriesService?: ItemServiceInterface;
+  suppliersService?: ItemServiceInterface;
+  paymentsService?: ItemServiceInterface;
+  suppliersListRef?: any;
+  initializeItems() {
+    throw new Error("Method not implemented.");
+  }
   populateItems = (UsersListSnapshot) => {
     this.items_list = [];
     UsersListSnapshot.forEach(snap => {
