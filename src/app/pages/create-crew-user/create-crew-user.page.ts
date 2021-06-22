@@ -19,7 +19,7 @@ export class CreateCrewUserPage implements OnInit {
     this.userFields = [
       new TextboxQuestion({ key: 'firstName', label: 'Nome', value: this.userprofile.firstName }),
       new TextboxQuestion({ key: 'lastName', label: 'Cognome', value: this.userprofile.lastName }),
-      new DateQuestion({ key: "dob", label: "Data di nascita", value: this.userprofile.birthDate.formatDate() }),
+      new DateQuestion({ key: "birthDate", label: "Data di nascita", value: this.userprofile.birthDate.formatDate() }),
       new TextboxQuestion({ key: "crewRole", label: "mansione", })
     ]
   }
@@ -34,7 +34,7 @@ export class CreateCrewUserPage implements OnInit {
   submit(arg) {
     console.log("submit", arg)
     this.userprofile.initialize(arg)
-    console.log("profile", this.userprofile)
+    console.log("profile", this.userprofile.birthDate)
     this.service.createItem(this.userprofile).then(value => {
       console.log("created", value)
     })
