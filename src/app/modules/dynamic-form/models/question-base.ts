@@ -33,7 +33,6 @@ export class QuestionBase<T> {
   constructor(
     options: QuestionProperties<any> | { key: string, label: string }
   ) {
-    console.log('options',options)
     this.value = options["value"];
     this.key = options.key || "";
     this.type = options['type'] || ''
@@ -43,7 +42,6 @@ export class QuestionBase<T> {
     this.filterFunction = options['filterFunction']
     this.order = options['order'] === undefined ? 1 : options['order'];
     this.controlType = options['controlType'] || "";
-    // tslint:disable-next-line: prefer-const
     for (let key in options) {
       if (options[key]) {
         this[key] = options[key]

@@ -3,6 +3,7 @@ import { ModalController, NavParams } from '@ionic/angular';
 import { CrewUserprofileModel } from 'src/app/models/CrewUserProfile';
 import { DateQuestion } from 'src/app/modules/dynamic-form/models/question-date';
 import { TextboxQuestion } from 'src/app/modules/item/models/question-textbox';
+import { CrewUserService } from 'src/app/services/crew-user.service';
 import { CreateCrewUserPage } from '../create-crew-user/create-crew-user.page';
 
 @Component({
@@ -15,11 +16,12 @@ export class UpdateCrewUserPage implements OnInit {
   title = " modifica Utente"
   userFields:Array<any>
   userprofile = new CrewUserprofileModel
-  constructor(public navParams:NavParams,modalController:ModalController) { 
+  constructor(public navParams:NavParams, public modalCtrl:ModalController,public service:CrewUserService) { 
     
   }
 
   submit(user){
+    this.service.updateItem(user)
 
   }
   filter(args){
@@ -35,6 +37,10 @@ export class UpdateCrewUserPage implements OnInit {
       new DateQuestion({ key: "birthDate", label: "Data di nascita", value: this.userprofile.birthDate.formatDate() }),
       new TextboxQuestion({ key: "crewRole", label: "mansione",value:this.userprofile.crewRole })
     ]
+  }
+
+  dismiss() {
+    this.modalCtrl.dismiss()
   }
 
 }
