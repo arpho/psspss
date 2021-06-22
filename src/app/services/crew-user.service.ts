@@ -24,17 +24,13 @@ export class CrewUserService implements ItemServiceInterface {
 
   initializeItems() {
     firebase.default.auth().onAuthStateChanged(user => {
-      console.log('jjj',user)
      // if (user) {
         
         this.UserListRef.on('value', usersListSnapshot => {
-          console.log('users list',usersListSnapshot)
           this.items_list = [];
           usersListSnapshot.forEach(snap => {
             const userProfile = new CrewUserprofileModel().initialize(snap.val())
-            console.log('user',snap.val(),userProfile)
             this.items_list.push(userProfile);
-            console.log('users list',this.items_list)
           });
           this._items.next(this.items_list)
         });
