@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CreateCrewUserPage implements OnInit {
 
+  title = "nuovo Utente"
+
   constructor() { }
 
   ngOnInit() {
