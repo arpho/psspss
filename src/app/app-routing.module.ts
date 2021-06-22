@@ -28,6 +28,10 @@ const routes: Routes = [
   {
     path: 'create-crew-user',
     loadChildren: () => import('./pages/create-crew-user/create-crew-user.module').then( m => m.CreateCrewUserPageModule)
+  },
+  {
+    path: 'update-crew-user',
+    loadChildren: () => import('./pages/update-crew-user/update-crew-user.module').then( m => m.UpdateCrewUserPageModule)
   }
 ];
 
