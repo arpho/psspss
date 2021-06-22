@@ -23,6 +23,10 @@ export class CrewUserprofileModel extends UserModel {
         return new Value({label:"ruolo",value:this.crewRole})
     }
 
+    getValue3(){
+        return new Value({label:"data di nascita",value:this.birthDate.formatDate()})
+    }
+
     setKey = (key: string) => {
         this.key = key
         return this
