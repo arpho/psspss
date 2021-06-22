@@ -21,4 +21,12 @@ export class CreateCrewUserPage implements OnInit {
   ngOnInit() {
   }
 
+  filter(ev){
+    console.log('typing',ev)
+  }
+
+  submit(arg){
+    console.log("submit",arg)
+  }
+
 }
