@@ -17,6 +17,7 @@ export class CrewUserService implements ItemServiceInterface {
   readonly items: Observable<Array<CrewUserprofileModel>> = this._items.asObservable()
   items_list: Array<CrewUserprofileModel> = []
   constructor() {
+    this.UserListRef = firebase.default.database().ref('/userProfile');
 
    
   }
@@ -24,7 +25,7 @@ export class CrewUserService implements ItemServiceInterface {
   initializeItems() {
     firebase.default.auth().onAuthStateChanged(user => {
       if (user) {
-        this.UserListRef = firebase.default.database().ref('/userProfile');
+        
         this.UserListRef.on('value', eventCategoriesListSnapshot => {
           this.items_list = [];
           eventCategoriesListSnapshot.forEach(snap => {

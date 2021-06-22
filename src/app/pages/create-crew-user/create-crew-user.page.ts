@@ -11,31 +11,32 @@ import { CrewUserService } from 'src/app/services/crew-user.service';
   styleUrls: ['./create-crew-user.page.scss'],
 })
 export class CreateCrewUserPage implements OnInit {
- userprofile = new CrewUserprofileModel()
+  userprofile = new CrewUserprofileModel()
   title = "nuovo Utente"
-  userFields:Array<any>
+  userFields: Array<any>
 
-  constructor(public service:CrewUserService) {
+  constructor(public service: CrewUserService) {
     this.userFields = [
-      new TextboxQuestion({key:'firstName',label:'Nome',value:this.userprofile.firstName}),
-      new TextboxQuestion({key:'lastName',label:'Cognome',value:this.userprofile.lastName}),
-      new DateQuestion({key:"dob",label:"Data di nascita",value:this.userprofile.birthDate.formatDate()}),
-      new TextboxQuestion({key:"role",label:"mansione",})
+      new TextboxQuestion({ key: 'firstName', label: 'Nome', value: this.userprofile.firstName }),
+      new TextboxQuestion({ key: 'lastName', label: 'Cognome', value: this.userprofile.lastName }),
+      new DateQuestion({ key: "dob", label: "Data di nascita", value: this.userprofile.birthDate.formatDate() }),
+      new TextboxQuestion({ key: "role", label: "mansione", })
     ]
-   }
+  }
 
   ngOnInit() {
   }
 
-  filter(ev){
-    console.log('typing',ev)
+  filter(ev) {
+    console.log('typing', ev)
   }
 
-  submit(arg){
-    console.log("submit",arg)
+  submit(arg) {
+    console.log("submit", arg)
     this.userprofile.initialize(arg)
-    console.log("profile",this.userprofile)
-    //this.service.createItem(this.userprofile)
+    console.log("profile", this.userprofile)
+    this.service.createItem(this.userprofile).then(value => {
+      console.log("created", value)
+    })
   }
-
-}
+  }
