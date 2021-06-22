@@ -7,13 +7,15 @@ import { IonicModule } from '@ionic/angular';
 import { UpdateCrewUserPageRoutingModule } from './update-crew-user-routing.module';
 
 import { UpdateCrewUserPage } from './update-crew-user.page';
+import { DynamicFormModule } from 'src/app/modules/dynamic-form/dynamic-form.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    UpdateCrewUserPageRoutingModule
+    UpdateCrewUserPageRoutingModule,
+    DynamicFormModule
   ],
   declarations: [UpdateCrewUserPage]
 })
