@@ -20,8 +20,8 @@ export class CrewUserprofileModel extends UserModel {
         return this
     }
 
-    type: UserKind
-    picture: string
+    type: UserKind = 1
+    picture: string = ''
     categories: Array<CategoryModel>
     categorieId: Array<string>
     references: Array<ReviewsModel>
@@ -37,7 +37,7 @@ export class CrewUserprofileModel extends UserModel {
     initialize(item) {
         super.initialize(item)
         this.categories = this.categories || this.instatiateCategories(item.categorieId)
-        this.references = this.references ? this.references.map(item => new ReviewsModel().initialize(item)):[]
+        this.references = this.references ? this.references.map(item => new ReviewsModel().initialize(item)) : []
         return this
     }
     serializeReferences() {
@@ -45,6 +45,6 @@ export class CrewUserprofileModel extends UserModel {
     }
 
     serialize() {
-        return { ...super.serialize(), type: this.type, references: this.serializeReferences(), picture: this.picture, key: this.key, crewRole: this.crewRole }
+        return { ...super.serialize(), type: this.type, references: this.serializeReferences(), picture: this.picture, crewRole: this.crewRole }
     }
 }

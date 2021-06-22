@@ -16,20 +16,20 @@ export class UserModel implements ItemModelInterface {
   lastName: string;
   title: string;
   private _key: string;
-    public get key(): string {
-        return this._key;
-    }
-    public set key(value: string) {
-        this._key = value;
-    }
+  public get key(): string {
+    return this._key;
+  }
+  public set key(value: string) {
+    this._key = value;
+  }
   uid: string;
   level: number;
   quickActions: Array<QuickAction>;
-  enabled: boolean;
+  enabled = false;
   role: RoleModel;
   service: ItemServiceInterface;
 
-  constructor(item?: {}, key?: string, ) {
+  constructor(item?: {}, key?: string,) {
     this.key = key;
     this.uid = key
     this.load(item)
@@ -77,16 +77,18 @@ export class UserModel implements ItemModelInterface {
     return ' utenti';
   }
 
+
+  notUndefined = (value) => { return value || '' }
+
   serialize() {
     return {
-      key: this.key,
-      uid: this.uid||this.key,
+      uid: this.notUndefined(this.uid || this.key),
       birthDate: this.birthDate.serialize(),
-      email: this.email,
-      firstName: this.firstName,
-      lastName: this.lastName,
+      email: this.notUndefined(this.email),
+      firstName: this.notUndefined(this.firstName),
+      lastName: this.notUndefined(this.lastName),
       enabled: this.enabled,
-      level: this.role.value
+      level: this.notUndefined(this.role.value)
     };
   }
 
