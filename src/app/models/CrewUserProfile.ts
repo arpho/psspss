@@ -11,20 +11,21 @@ export enum UserKind {
 
 export class CrewUserprofileModel extends UserModel {
 
-    constructor(){
+    constructor() {
         super()
         this.birthDate = new DateModel(new Date())
     }
-   setKey = (key:string)=>{
-       this.key = key
-       return this
-   }
+    setKey = (key: string) => {
+        this.key = key
+        return this
+    }
 
     type: UserKind
     picture: string
     categories: Array<CategoryModel>
     categorieId: Array<string>
     references: Array<ReviewsModel>
+    crewRole: string
 
     instatiateCategories(categorieId: Array<string>) {
         if (categorieId) {
@@ -44,6 +45,6 @@ export class CrewUserprofileModel extends UserModel {
     }
 
     serialize() {
-        return { ...super.serialize(), type: this.type, references: this.serializeReferences(), picture: this.picture ,key:this.key}
+        return { ...super.serialize(), type: this.type, references: this.serializeReferences(), picture: this.picture, key: this.key, crewRole: this.crewRole }
     }
 }

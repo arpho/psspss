@@ -18,7 +18,8 @@ export class CreateCrewUserPage implements OnInit {
     this.userFields = [
       new TextboxQuestion({key:'firstName',label:'Nome',value:this.userprofile.firstName}),
       new TextboxQuestion({key:'lastName',label:'Cognome',value:this.userprofile.lastName}),
-      new DateQuestion({key:"dob",label:"Data di nascita",value:this.userprofile.birthDate.formatDate()})
+      new DateQuestion({key:"dob",label:"Data di nascita",value:this.userprofile.birthDate.formatDate()}),
+      new TextboxQuestion({key:"role",label:"mansione",})
     ]
    }
 
