@@ -29,7 +29,7 @@ export class CrewUserService implements ItemServiceInterface {
         this.UserListRef.on('value', usersListSnapshot => {
           this.items_list = [];
           usersListSnapshot.forEach(snap => {
-            const userProfile = new CrewUserprofileModel().initialize(snap.val())
+            const userProfile = new CrewUserprofileModel().initialize(snap.val()).setKey(snap.key)
             this.items_list.push(userProfile);
           });
           this._items.next(this.items_list)
