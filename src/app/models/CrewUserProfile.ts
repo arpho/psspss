@@ -1,5 +1,6 @@
 
 import { CategoryModel } from "../modules/categories/models/CategoryModel";
+import { Value } from "../modules/item/models/value";
 import { DateModel } from "../modules/user/models/birthDateModel";
 import { UserModel } from "../modules/user/models/userModel";
 import { ReviewsModel } from "./reviewsModel";
@@ -9,12 +10,19 @@ export enum UserKind {
     enterprise
 }
 
+
+
 export class CrewUserprofileModel extends UserModel {
 
     constructor() {
         super()
         this.birthDate = new DateModel(new Date())
     }
+
+    getValue2(){
+        return new Value({label:"ruolo",value:this.crewRole})
+    }
+
     setKey = (key: string) => {
         this.key = key
         return this
@@ -27,17 +35,29 @@ export class CrewUserprofileModel extends UserModel {
     references: Array<ReviewsModel>
     crewRole: string
 
+
+
     instatiateCategories(categorieId: Array<string>) {
         if (categorieId) {
             const out = categorieId.map((key: string) => new CategoryModel(key))
             return out
         } else { return [] }
     }
+    getTitle() {
+        return new Value({
+            label: "title", value: this.title
+        })
+    }
+
+    getNote() {
+        return new Value({ label: "nota", value: "nota" })
+    }
 
     initialize(item) {
         super.initialize(item)
         this.categories = this.categories || this.instatiateCategories(item.categorieId)
         this.references = this.references ? this.references.map(item => new ReviewsModel().initialize(item)) : []
+        this.title = `${this.firstName} ${this.lastName}`
         return this
     }
     serializeReferences() {
