@@ -37,7 +37,7 @@ export class CrewUserprofileModel extends UserModel {
     initialize(item) {
         super.initialize(item)
         this.categories = this.categories || this.instatiateCategories(item.categorieId)
-        this.references = this.references.map(item => new ReviewsModel().initialize(item))
+        this.references = this.references ? this.references.map(item => new ReviewsModel().initialize(item)):[]
         return this
     }
     serializeReferences() {

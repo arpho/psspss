@@ -3,6 +3,7 @@ import { CrewUserprofileModel } from 'src/app/models/CrewUserProfile';
 import { QuestionBase } from 'src/app/modules/dynamic-form/models/question-base';
 import { DateQuestion } from 'src/app/modules/dynamic-form/models/question-date';
 import { TextboxQuestion } from 'src/app/modules/item/models/question-textbox';
+import { CrewUserService } from 'src/app/services/crew-user.service';
 
 @Component({
   selector: 'app-create-crew-user',
@@ -14,7 +15,7 @@ export class CreateCrewUserPage implements OnInit {
   title = "nuovo Utente"
   userFields:Array<any>
 
-  constructor() {
+  constructor(public service:CrewUserService) {
     this.userFields = [
       new TextboxQuestion({key:'firstName',label:'Nome',value:this.userprofile.firstName}),
       new TextboxQuestion({key:'lastName',label:'Cognome',value:this.userprofile.lastName}),
@@ -32,6 +33,9 @@ export class CreateCrewUserPage implements OnInit {
 
   submit(arg){
     console.log("submit",arg)
+    this.userprofile.initialize(arg)
+    console.log("profile",this.userprofile)
+    //this.service.createItem(this.userprofile)
   }
 
 }
