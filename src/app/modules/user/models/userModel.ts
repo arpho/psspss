@@ -147,6 +147,6 @@ export class UserModel implements ItemModelInterface {
 
   getElement() {
     const genere: Genere = 'o';
-    return { element: 'volantinaggio', genere };
+    return { element: 'utente', genere };
   }
 }

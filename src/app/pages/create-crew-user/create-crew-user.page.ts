@@ -32,11 +32,8 @@ export class CreateCrewUserPage implements OnInit {
   }
 
   submit(arg) {
-    console.log("submit", arg)
     this.userprofile.initialize(arg)
-    console.log("profile", this.userprofile.birthDate)
     this.service.createItem(this.userprofile).then(value => {
-      console.log("created", value)
     })
   }
   }
