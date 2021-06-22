@@ -1,5 +1,6 @@
 
 import { CategoryModel } from "../modules/categories/models/CategoryModel";
+import { DateModel } from "../modules/user/models/birthDateModel";
 import { UserModel } from "../modules/user/models/userModel";
 import { ReviewsModel } from "./reviewsModel";
 
@@ -10,6 +11,10 @@ export enum UserKind {
 
 export class CrewUserprofileModel extends UserModel {
 
+    constructor(){
+        super()
+        this.birthDate = new DateModel(new Date())
+    }
    setKey = (key:string)=>{
        this.key = key
        return this

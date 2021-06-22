@@ -36,6 +36,7 @@ export class UserModel implements ItemModelInterface {
   }
   initialize(user: any) {
     Object.assign(this, user)
+    this.birthDate = new DateModel(this.birthDate)
     return this
   }
 
