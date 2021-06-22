@@ -16,7 +16,7 @@ export class FolderPage implements OnInit {
   public editModalPage = UpdateCrewUserPage
   
 
-  constructor(private activatedRoute: ActivatedRoute,private router:Router,service:CrewUserService) { }
+  constructor(private activatedRoute: ActivatedRoute,private router:Router,public service:CrewUserService) { }
 
   ngOnInit() {
     console.log('auth',firebase.auth)

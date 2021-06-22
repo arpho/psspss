@@ -18,23 +18,27 @@ export class CrewUserService implements ItemServiceInterface {
   items_list: Array<CrewUserprofileModel> = []
   constructor() {
     this.UserListRef = firebase.default.database().ref('/userProfile');
-
+    this.initializeItems()
    
   }
 
   initializeItems() {
     firebase.default.auth().onAuthStateChanged(user => {
-      if (user) {
+      console.log('jjj',user)
+     // if (user) {
         
-        this.UserListRef.on('value', eventCategoriesListSnapshot => {
+        this.UserListRef.on('value', usersListSnapshot => {
+          console.log('users list',usersListSnapshot)
           this.items_list = [];
-          eventCategoriesListSnapshot.forEach(snap => {
+          usersListSnapshot.forEach(snap => {
             const userProfile = new CrewUserprofileModel().initialize(snap.val())
+            console.log('user',snap.val(),userProfile)
             this.items_list.push(userProfile);
+            console.log('users list',this.items_list)
           });
           this._items.next(this.items_list)
         });
-      }
+     // }
     });
   }
 
