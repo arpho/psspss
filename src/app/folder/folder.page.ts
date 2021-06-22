@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import firebase from "firebase/app";
+import { CreateCrewUserPage } from '../pages/create-crew-user/create-crew-user.page';
+import { UpdateCrewUserPage } from '../pages/update-crew-user/update-crew-user.page';
 import { CrewUserService } from '../services/crew-user.service';
 
 @Component({
@@ -10,6 +12,8 @@ import { CrewUserService } from '../services/crew-user.service';
 })
 export class FolderPage implements OnInit {
   public folder: string;
+  public createModalPage = CreateCrewUserPage
+  public editModalPage = UpdateCrewUserPage
   
 
   constructor(private activatedRoute: ActivatedRoute,private router:Router,service:CrewUserService) { }
