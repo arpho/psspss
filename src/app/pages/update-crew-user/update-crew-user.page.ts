@@ -19,6 +19,13 @@ export class UpdateCrewUserPage implements OnInit {
     
   }
 
+  submit(user){
+
+  }
+  filter(args){
+    
+  }
+
   ngOnInit() {
     const user  = this.navParams.get("item")
     this.userprofile.initialize(user)

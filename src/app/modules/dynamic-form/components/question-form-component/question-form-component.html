@@ -25,14 +25,7 @@
       </div>
 
 
-    <div *ngSwitchCase="'barcodeScanner'" class="question">
-      <app-barcode-scanner  
-      [formControlName]="question?.key"
-      (ngModelChange)="question?.onChange($event)"
-      [id]="question?.key"
-      [value]="question?.value"
-      ></app-barcode-scanner>
-      </div>
+    
 
     <div *ngSwitchCase="'datebox'" class='question'>
       <ion-datetime [formControlName]="question?.key" [id]="question?.key">
@@ -80,14 +73,6 @@
         opt.key
       }}</option>
     </select>
-    <div *ngSwitchCase="'geobox'">
-      <input-geolocation
-        [id]="question?.key"
-        [address]="question.value?.adress"
-        [formControlName]="question?.key"
-      (ngModelChange)="question?.onChange($event)"
-      ></input-geolocation>
-    </div>
   </div>
 
   <div style="color:red" *ngIf="!isValid">

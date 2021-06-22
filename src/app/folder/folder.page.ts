@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import firebase from "firebase/app";
+import { CrewUserprofileModel } from '../models/CrewUserProfile';
 import { CreateCrewUserPage } from '../pages/create-crew-user/create-crew-user.page';
 import { UpdateCrewUserPage } from '../pages/update-crew-user/update-crew-user.page';
 import { CrewUserService } from '../services/crew-user.service';
@@ -14,6 +15,11 @@ export class FolderPage implements OnInit {
   public folder: string;
   public createModalPage = CreateCrewUserPage
   public editModalPage = UpdateCrewUserPage
+
+  public filterFunction: (item: CrewUserprofileModel) => boolean;
+  public sorterFunction: (a: any, b: any) => number
+
+  secondSpinner = false
   
 
   constructor(private activatedRoute: ActivatedRoute,private router:Router,public service:CrewUserService) { }
