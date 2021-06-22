@@ -59,7 +59,7 @@ export class CrewUserService implements ItemServiceInterface {
       console.log('inserted',)
       User.initialize(createrdItem.val());
       User.key = createrdItem.key;
-      this.updateItem(User) //add
+      return this.updateItem(User) //add
     })
   }
 }
