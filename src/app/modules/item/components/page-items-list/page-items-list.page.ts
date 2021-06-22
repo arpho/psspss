@@ -136,6 +136,7 @@ export class PageItemsListComponent implements OnInit, OnChanges {
   }
 
   editItem(item: ItemModelInterface) {
+    console.log('editing',item)
     this.router.navigate([this.editModalPage, item.key]);
   }
 

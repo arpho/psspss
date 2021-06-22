@@ -33,6 +33,7 @@ export class QuestionBase<T> {
   constructor(
     options: QuestionProperties<any> | { key: string, label: string }
   ) {
+    console.log('options',options)
     this.value = options["value"];
     this.key = options.key || "";
     this.type = options['type'] || ''
