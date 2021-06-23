@@ -25,7 +25,7 @@ import { EditUserPage } from './modules/user/pages/edit-user/edit-user.page';
   FilterPopupPage,
   SelectorItemsPage,
   EditUserPage,
-  UpdateCrewUserPage],
+  ],
   entryComponents: [],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
