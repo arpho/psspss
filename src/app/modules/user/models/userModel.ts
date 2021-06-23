@@ -83,7 +83,7 @@ export class UserModel implements ItemModelInterface {
   serialize() {
     return {
       uid: this.notUndefined(this.uid || this.key),
-      birthDate: this.birthDate.serialize(),
+      birthDate: this.birthDate,
       email: this.notUndefined(this.email),
       firstName: this.notUndefined(this.firstName),
       lastName: this.notUndefined(this.lastName),

@@ -19,12 +19,12 @@ export class CrewUserprofileModel extends UserModel {
         this.birthDate = new DateModel(new Date())
     }
 
-    getValue2(){
-        return new Value({label:"ruolo",value:this.crewRole})
+    getValue2() {
+        return new Value({ label: "ruolo", value: this.crewRole })
     }
 
-    getValue3(){
-        return new Value({label:"data di nascita",value:this.birthDate.formatDate()})
+    getValue3() {
+        return new Value({ label: "data di nascita", value: this.birthDate.formatDate() })
     }
 
     setKey = (key: string) => {

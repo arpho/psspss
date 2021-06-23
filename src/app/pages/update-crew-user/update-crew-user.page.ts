@@ -14,28 +14,37 @@ import { CreateCrewUserPage } from '../create-crew-user/create-crew-user.page';
 export class UpdateCrewUserPage implements OnInit {
 
   title = " modifica Utente"
-  userFields:Array<any>
+  userFields: Array<any>
   userprofile = new CrewUserprofileModel
-  constructor(public navParams:NavParams, public modalCtrl:ModalController,public service:CrewUserService) { 
-    
-  }
-
-  submit(user){
-    this.service.updateItem(user)
+  constructor(public navParams: NavParams, public modalCtrl: ModalController, public service: CrewUserService) {
 
   }
-  filter(args){
-    
+
+  submit(user) {
+    console.log('updating', user)
+    Object.assign(this.userprofile, user)
+    console.log('last', this.userprofile)
+
+    this.service.updateItem(this.userprofile).then((value => {
+      console.log('updated', value)
+      this.dismiss()
+    }))
+
+  }
+  filter(args) {
+
   }
 
   ngOnInit() {
-    const user  = this.navParams.get("item")
+    const user = this.navParams.get("item")
+    console.log("editing", user)
     this.userprofile.initialize(user)
+    console.log("user profile", this.userprofile, this.userprofile.key)
     this.userFields = [
       new TextboxQuestion({ key: 'firstName', label: 'Nome', value: this.userprofile.firstName }),
       new TextboxQuestion({ key: 'lastName', label: 'Cognome', value: this.userprofile.lastName }),
       new DateQuestion({ key: "birthDate", label: "Data di nascita", value: this.userprofile.birthDate.formatDate() }),
-      new TextboxQuestion({ key: "crewRole", label: "mansione",value:this.userprofile.crewRole })
+      new TextboxQuestion({ key: "crewRole", label: "mansione", value: this.userprofile.crewRole })
     ]
   }
 

@@ -10,7 +10,7 @@ import { ItemServiceInterface } from '../modules/item/models/ItemServiceInterfac
 })
 export class CrewUserService implements ItemServiceInterface {
 
-  
+
 
   public UserListRef: firebase.default.database.Reference
   _items: BehaviorSubject<Array<CrewUserprofileModel>> = new BehaviorSubject([])
@@ -19,22 +19,22 @@ export class CrewUserService implements ItemServiceInterface {
   constructor() {
     this.UserListRef = firebase.default.database().ref('/userProfile');
     this.initializeItems()
-   
+
   }
 
   initializeItems() {
     firebase.default.auth().onAuthStateChanged(user => {
-     // if (user) {
-        
-        this.UserListRef.on('value', usersListSnapshot => {
-          this.items_list = [];
-          usersListSnapshot.forEach(snap => {
-            const userProfile = new CrewUserprofileModel().initialize(snap.val()).setKey(snap.key)
-            this.items_list.push(userProfile);
-          });
-          this._items.next(this.items_list)
+      // if (user) {
+
+      this.UserListRef.on('value', usersListSnapshot => {
+        this.items_list = [];
+        usersListSnapshot.forEach(snap => {
+          const userProfile = new CrewUserprofileModel().initialize(snap.val()).setKey(snap.key)
+          this.items_list.push(userProfile);
         });
-     // }
+        this._items.next(this.items_list)
+      });
+      // }
     });
   }
 
@@ -43,7 +43,10 @@ export class CrewUserService implements ItemServiceInterface {
     return this.UserListRef.child(key)
   }
   updateItem(item: ItemModelInterface) {
-    return this.UserListRef.child(item.key).update(item.serialize())
+    const user = new CrewUserprofileModel().initialize(item.serialize())
+    return this.UserListRef.child(item.key).update(item.serialize()).then(value => {
+      console.log("updated", value)
+    })
   }
   deleteItem(key: string) {
     return this.UserListRef.child(key).remove()
