@@ -39,7 +39,7 @@ export class UpdateCrewUserPage implements OnInit {
 
     this.service.updateItem(this.userprofile).then((value => {
       console.log('updated', value)
-      this.presentToast(`utente: ${this.userprofile.getTitle().value} è stato modificato`)
+      this.presentToast(`l'utente: ${this.userprofile.getTitle().value} è stato modificato`)
       this.dismiss()
     }))
 
