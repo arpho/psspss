@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ModalController, NavParams } from '@ionic/angular';
+import { ModalController, NavParams, ToastController } from '@ionic/angular';
 import { CrewUserprofileModel } from 'src/app/models/CrewUserProfile';
 import { DateQuestion } from 'src/app/modules/dynamic-form/models/question-date';
 import { TextboxQuestion } from 'src/app/modules/item/models/question-textbox';
@@ -16,8 +16,20 @@ export class UpdateCrewUserPage implements OnInit {
   title = " modifica Utente"
   userFields: Array<any>
   userprofile = new CrewUserprofileModel
-  constructor(public navParams: NavParams, public modalCtrl: ModalController, public service: CrewUserService) {
+  constructor(public navParams: NavParams,
+     public modalCtrl: ModalController,
+      public service: CrewUserService,
+      public toastCtrl:ToastController) {
 
+  }
+
+  async presentToast(msg) {
+    const toast = await this.toastCtrl.create({
+      message: msg,
+      duration: 2000,
+      position:'top'
+    });
+    toast.present();
   }
 
   submit(user) {
@@ -27,6 +39,7 @@ export class UpdateCrewUserPage implements OnInit {
 
     this.service.updateItem(this.userprofile).then((value => {
       console.log('updated', value)
+      this.presentToast(`utente: ${this.userprofile.getTitle().value} è stato modificato`)
       this.dismiss()
     }))
 
