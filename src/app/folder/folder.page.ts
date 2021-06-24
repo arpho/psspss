@@ -22,30 +22,32 @@ export class FolderPage implements OnInit {
   public sorterFunction: (a: any, b: any) => number
 
   secondSpinner = false
-  
 
-  constructor(private activatedRoute: ActivatedRoute,private router:Router,public service:CrewUserService) {
+
+  constructor(private activatedRoute: ActivatedRoute, private router: Router, public service: CrewUserService) {
 
     this.filterFields = [
-      new TextboxQuestion({key:"nome",label:"Nome"}),
-      new TextboxQuestion({key:"cognome",label:"Cognome"}),
-      new TextboxQuestion({key:"crewRole",label:"mansione"})
+      new TextboxQuestion({ key: "nome", label: "Nome" }),
+      new TextboxQuestion({ key: "cognome", label: "Cognome" }),
+      new TextboxQuestion({ key: "crewRole", label: "mansione" })
     ]
-   }
+  }
 
   ngOnInit() {
     this.folder = this.activatedRoute.snapshot.paramMap.get('id');
-    if(!firebase.auth){
+    if (!firebase.auth) {
       this.router.navigateByUrl("users/login")
     }
   }
 
-  filter(filterParams:any){
+  filter(filterParams: any) {
     console.log('filtering')
-    console.log("param filter:",filterParams)
-    const filter4Nome:(item:CrewUserprofileModel)=>boolean = (!filterParams.nome)? (item:CrewUserprofileModel)=>true //se il campo non è definito  è sempre true
-    :(item:CrewUserprofileModel)=>(item.firstName)? item.firstName.toLocaleLowerCase().includes(filterParams.nome.toLocaleLowerCase()):false
-    this.filterFunction= filter4Nome
+    console.log("param filter:", filterParams)
+    const filter4Nome: (item: CrewUserprofileModel) => boolean = (!filterParams.nome) ? (item: CrewUserprofileModel) => true //se il campo non è definito  è sempre true
+      : (item: CrewUserprofileModel) => (item.firstName) ? item.firstName.toLocaleLowerCase().includes(filterParams.nome.toLocaleLowerCase()) : false
+    const filter4Cognome: (item: CrewUserprofileModel) => boolean = (!filterParams.cognome) ? (item: CrewUserprofileModel) => true //se il campo non è definito  è sempre true
+      : (item: CrewUserprofileModel) => (item.firstName) ? item.lastName.toLocaleLowerCase().includes(filterParams.last.toLocaleLowerCase()) : false
+    this.filterFunction = (item: CrewUserprofileModel) => filter4Nome(item)
   }
 
 }
