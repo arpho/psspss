@@ -8,6 +8,7 @@ import { FolderPageRoutingModule } from './folder-routing.module';
 
 import { FolderPage } from './folder.page';
 import { ItemModule } from '../modules/item/item.module';
+import { DynamicFormModule } from '../modules/dynamic-form/dynamic-form.module';
 
 @NgModule({
   imports: [
@@ -15,7 +16,8 @@ import { ItemModule } from '../modules/item/item.module';
     FormsModule,
     IonicModule,
     FolderPageRoutingModule,
-    ItemModule
+    ItemModule,
+    DynamicFormModule
   ],
   declarations: [FolderPage]
 })
