@@ -4,6 +4,9 @@
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
     <ion-title>Candidati</ion-title>
+    <div slot='end'>
+      <app-items-filter [filterFields]="filterFields"(filterSet)="filter($event)"></app-items-filter>
+      </div>
   </ion-toolbar>
 </ion-header>
 
