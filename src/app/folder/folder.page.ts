@@ -43,6 +43,9 @@ export class FolderPage implements OnInit {
   filter(filterParams:any){
     console.log('filtering')
     console.log("param filter:",filterParams)
+    const filter4Nome:(item:CrewUserprofileModel)=>boolean = (!filterParams.nome)? (item:CrewUserprofileModel)=>true //se il campo non è definito  è sempre true
+    :(item:CrewUserprofileModel)=>(item.firstName)? item.firstName.toLocaleLowerCase().includes(filterParams.nome.toLocaleLowerCase()):false
+    this.filterFunction= filter4Nome
   }
 
 }
