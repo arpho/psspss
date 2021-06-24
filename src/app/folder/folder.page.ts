@@ -7,15 +7,22 @@ import { CreateCrewUserPage } from '../pages/create-crew-user/create-crew-user.p
 import { UpdateCrewUserPage } from '../pages/update-crew-user/update-crew-user.page';
 import { CrewUserService } from '../services/crew-user.service';
 
+
+
+
+interface filterParams{nome:string,cognome:string,crewRole:string} //  define the type returned by the form
 @Component({
   selector: 'app-folder',
   templateUrl: './folder.page.html',
   styleUrls: ['./folder.page.scss'],
 })
+
 export class FolderPage implements OnInit {
   public folder: string;
   public createModalPage = CreateCrewUserPage
   public editModalPage = UpdateCrewUserPage
+
+ 
   filterFields: Array<any>
 
   public filterFunction: (item: CrewUserprofileModel) => boolean;
@@ -40,13 +47,15 @@ export class FolderPage implements OnInit {
     }
   }
 
-  filter(filterParams: any) {
+  filter(filterParams: filterParams) {
     console.log('filtering')
     console.log("param filter:", filterParams)
     const filter4Nome: (item: CrewUserprofileModel) => boolean = (!filterParams.nome) ? (item: CrewUserprofileModel) => true //se il campo non è definito  è sempre true
       : (item: CrewUserprofileModel) => (item.firstName) ? item.firstName.toLocaleLowerCase().includes(filterParams.nome.toLocaleLowerCase()) : false
-    const filter4Cognome: (item: CrewUserprofileModel) => boolean = (!filterParams.cognome) ? (item: CrewUserprofileModel) => true //se il campo non è definito  è sempre true
-      : (item: CrewUserprofileModel) => (item.lastName) ? item.lastName.toLocaleLowerCase().includes(filterParams.cognome.toLocaleLowerCase()) : false
+      const filter4Cognome: (item: CrewUserprofileModel) => boolean = (!filterParams.cognome) ? (item: CrewUserprofileModel) => true 
+        : (item: CrewUserprofileModel) => (item.lastName) ? item.lastName.toLocaleLowerCase().includes(filterParams.cognome.toLocaleLowerCase()) : false
+        const filter4Mansione: (item: CrewUserprofileModel) => boolean = (!filterParams.crewRole) ? (item: CrewUserprofileModel) => true 
+          : (item: CrewUserprofileModel) => (item.crewRole) ? item.crewRole.toLocaleLowerCase().includes(filterParams.crewRole.toLocaleLowerCase()) : false
     this.filterFunction = (item: CrewUserprofileModel) => filter4Nome(item) && filter4Cognome(item)
   }
 
