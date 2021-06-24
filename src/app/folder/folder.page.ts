@@ -10,7 +10,6 @@ import { CrewUserService } from '../services/crew-user.service';
 
 
 
-interface filterParams{nome:string,cognome:string,crewRole:string} //  define the type returned by the form
 @Component({
   selector: 'app-folder',
   templateUrl: './folder.page.html',
@@ -47,7 +46,7 @@ export class FolderPage implements OnInit {
     }
   }
 
-  filter(filterParams: filterParams) {
+  filter(filterParams) {
     console.log('filtering')
     console.log("param filter:", filterParams)
     const filter4Nome: (item: CrewUserprofileModel) => boolean = (!filterParams.nome) ? (item: CrewUserprofileModel) => true //se il campo non è definito  è sempre true
