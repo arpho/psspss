@@ -55,7 +55,7 @@ export class FolderPage implements OnInit {
         : (item: CrewUserprofileModel) => (item.lastName) ? item.lastName.toLocaleLowerCase().includes(filterParams.cognome.toLocaleLowerCase()) : false
         const filter4Mansione: (item: CrewUserprofileModel) => boolean = (!filterParams.crewRole) ? (item: CrewUserprofileModel) => true 
           : (item: CrewUserprofileModel) => (item.crewRole) ? item.crewRole.toLocaleLowerCase().includes(filterParams.crewRole.toLocaleLowerCase()) : false
-    this.filterFunction = (item: CrewUserprofileModel) => filter4Nome(item) && filter4Cognome(item)
+    this.filterFunction = (item: CrewUserprofileModel) => filter4Nome(item) && filter4Cognome(item) && filter4Mansione(item)
   }
 
 }
