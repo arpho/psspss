@@ -31,11 +31,19 @@ export class FolderPage implements OnInit {
 
 
   constructor(private activatedRoute: ActivatedRoute, private router: Router, public service: CrewUserService) {
-
+    const filter4Name=(value:string,item:CrewUserprofileModel)=>(item.firstName)? item.firstName.toLocaleLowerCase().includes(value):true
+    const filter4Lastname=(value:string,item:CrewUserprofileModel)=>(item.lastName)? item.lastName.toLocaleLowerCase().includes(value):true
+    const filter4Mansione=(value:string,item:CrewUserprofileModel)=>(item.crewRole)? item.crewRole.toLocaleLowerCase().includes(value):true
     this.filterFields = [
-      new TextboxQuestion({ key: "nome", label: "Nome" }),
-      new TextboxQuestion({ key: "cognome", label: "Cognome" }),
-      new TextboxQuestion({ key: "crewRole", label: "mansione" })
+      new TextboxQuestion({ key: "nome",
+       label: "Nome",
+      filterFunction:filter4Name }),
+      new TextboxQuestion({ key: "cognome", 
+      label: "Cognome",
+    filterFunction:filter4Lastname }),
+      new TextboxQuestion({ key: "crewRole",
+       label: "mansione",
+      filterFunction:filter4Mansione })
     ]
   }
 
@@ -49,13 +57,12 @@ export class FolderPage implements OnInit {
   filter(filterParams) {
     console.log('filtering')
     console.log("param filter:", filterParams)
-    const filter4Nome: (item: CrewUserprofileModel) => boolean = (!filterParams.nome) ? (item: CrewUserprofileModel) => true //se il campo non è definito  è sempre true
-      : (item: CrewUserprofileModel) => (item.firstName) ? item.firstName.toLocaleLowerCase().includes(filterParams.nome.toLocaleLowerCase()) : false
-      const filter4Cognome: (item: CrewUserprofileModel) => boolean = (!filterParams.cognome) ? (item: CrewUserprofileModel) => true 
-        : (item: CrewUserprofileModel) => (item.lastName) ? item.lastName.toLocaleLowerCase().includes(filterParams.cognome.toLocaleLowerCase()) : false
-        const filter4Mansione: (item: CrewUserprofileModel) => boolean = (!filterParams.crewRole) ? (item: CrewUserprofileModel) => true 
-          : (item: CrewUserprofileModel) => (item.crewRole) ? item.crewRole.toLocaleLowerCase().includes(filterParams.crewRole.toLocaleLowerCase()) : false
-    this.filterFunction = (item: CrewUserprofileModel) => filter4Nome(item) && filter4Cognome(item) && filter4Mansione(item)
+  }
+
+  setFilterFunction(filter) {
+    if (filter) {
+      this.filterFunction = filter
+    }
   }
 
 }
