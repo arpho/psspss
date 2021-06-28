@@ -21,7 +21,7 @@ export class FolderPage implements OnInit {
   public createModalPage = CreateCrewUserPage
   public editModalPage = UpdateCrewUserPage
 
- 
+
   filterFields: Array<any>
 
   public filterFunction: (item: CrewUserprofileModel) => boolean;
@@ -31,19 +31,25 @@ export class FolderPage implements OnInit {
 
 
   constructor(private activatedRoute: ActivatedRoute, private router: Router, public service: CrewUserService) {
-    const filter4Name=(value:string,item:CrewUserprofileModel)=>(item.firstName)? item.firstName.toLocaleLowerCase().includes(value):true
-    const filter4Lastname=(value:string,item:CrewUserprofileModel)=>(item.lastName)? item.lastName.toLocaleLowerCase().includes(value):true
-    const filter4Mansione=(value:string,item:CrewUserprofileModel)=>(item.crewRole)? item.crewRole.toLocaleLowerCase().includes(value):true
+    const filter4Name = (value: string, item: CrewUserprofileModel) =>  item.firstName.toLocaleLowerCase().includes(value) 
+    const filter4Lastname = (value: string, item: CrewUserprofileModel) => (item.lastName) ? item.lastName.toLocaleLowerCase().includes(value) : true
+    const filter4Mansione = (value: string, item: CrewUserprofileModel) => (item.crewRole) ? item.crewRole.toLocaleLowerCase().includes(value) : true
     this.filterFields = [
-      new TextboxQuestion({ key: "nome",
-       label: "Nome",
-      filterFunction:filter4Name }),
-      new TextboxQuestion({ key: "cognome", 
-      label: "Cognome",
-    filterFunction:filter4Lastname }),
-      new TextboxQuestion({ key: "crewRole",
-       label: "mansione",
-      filterFunction:filter4Mansione })
+      new TextboxQuestion({
+        key: "nome",
+        label: "Nome",
+        filterFunction: filter4Name
+      }),
+      new TextboxQuestion({
+        key: "cognome",
+        label: "Cognome",
+        filterFunction: filter4Lastname
+      }),
+      new TextboxQuestion({
+        key: "crewRole",
+        label: "mansione",
+        filterFunction: filter4Mansione
+      })
     ]
   }
 
