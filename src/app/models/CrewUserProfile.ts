@@ -4,6 +4,7 @@ import { Value } from "../modules/item/models/value";
 import { DateModel } from "../modules/user/models/birthDateModel";
 import { UserModel } from "../modules/user/models/userModel";
 import { ReviewsModel } from "./reviewsModel";
+import {Fields} from './enumFields'
 
 export enum UserKind {
     worker = 1,
@@ -38,6 +39,7 @@ export class CrewUserprofileModel extends UserModel {
     categorieId: Array<string>
     references: Array<ReviewsModel>
     crewRole: string
+    field:Fields
 
 
 
