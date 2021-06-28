@@ -13,6 +13,7 @@ import { CrewUserService } from 'src/app/services/crew-user.service';
   templateUrl: './create-crew-user.page.html',
   styleUrls: ['./create-crew-user.page.scss'],
 })
+
 export class CreateCrewUserPage implements OnInit {
   userprofile = new CrewUserprofileModel()
   title = "nuovo Utente"
@@ -30,7 +31,7 @@ export class CreateCrewUserPage implements OnInit {
       new TextboxQuestion({ key: 'lastName', label: 'Cognome', value: this.userprofile.lastName }),
       new DateQuestion({ key: "birthDate", label: "Data di nascita", value: this.userprofile.birthDate.formatDate() }),
       new TextboxQuestion({ key: "crewRole", label: "mansione", }),
-      new DropdownQuestion({key:"field",options:this.activityFields,label:"indirizzo"  })
+      new DropdownQuestion({key:"field",options:this.activityFields,label:"settore"  })
     ]
   }
 
@@ -53,3 +54,4 @@ export class CreateCrewUserPage implements OnInit {
     })
   }
   }
+   

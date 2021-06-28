@@ -66,7 +66,7 @@ export class UpdateCrewUserPage implements OnInit {
       new TextboxQuestion({ key: 'lastName', label: 'Cognome', value: this.userprofile.lastName }),
       new DateQuestion({ key: "birthDate", label: "Data di nascita", value: this.userprofile.birthDate.formatDate() }),
       new TextboxQuestion({ key: "crewRole", label: "mansione", value: this.userprofile.crewRole }),
-      new DropdownQuestion({key:"field",options:this.activityFields,label:"indirizzo", value:this.userprofile.field })
+      new DropdownQuestion({key:"field",options:this.activityFields,label:"settore", value:this.userprofile.field })
     ]
   }
 

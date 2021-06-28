@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import firebase from "firebase/app";
 import { CrewUserprofileModel } from '../models/CrewUserProfile';
+import { ActivityFields } from '../models/enumFields';
+import { DropdownQuestion } from '../modules/dynamic-form/models/question-dropdown';
 import { TextboxQuestion } from '../modules/item/models/question-textbox';
 import { CreateCrewUserPage } from '../pages/create-crew-user/create-crew-user.page';
 import { UpdateCrewUserPage } from '../pages/update-crew-user/update-crew-user.page';
@@ -26,6 +28,12 @@ export class FolderPage implements OnInit {
 
   public filterFunction: (item: CrewUserprofileModel) => boolean;
   public sorterFunction: (a: any, b: any) => number
+  activityFields = [
+    {key:"sala",value:ActivityFields.sala},
+    {key:"accoglienza",value:ActivityFields.accoglienza},
+    {key:"pasticceria",value:ActivityFields.pasticceria},
+    {key:"cucina",value:ActivityFields.cucina}
+  ]
 
   secondSpinner = false
 
@@ -34,6 +42,7 @@ export class FolderPage implements OnInit {
     const filter4Name = (value: string, item: CrewUserprofileModel) =>  item.firstName.toLocaleLowerCase().includes(value) 
     const filter4Lastname = (value: string, item: CrewUserprofileModel) => item.lastName.toLocaleLowerCase().includes(value) 
     const filter4Mansione = (value: string, item: CrewUserprofileModel) => item.crewRole.toLocaleLowerCase().includes(value) 
+    const filter4Field = (value:number,item: CrewUserprofileModel) => item.field== value
     this.filterFields = [
       new TextboxQuestion({
         key: "nome",
@@ -49,6 +58,12 @@ export class FolderPage implements OnInit {
         key: "crewRole",
         label: "mansione",
         filterFunction: filter4Mansione
+      })
+      ,new  DropdownQuestion({
+        key:'field',
+        label:"settore",
+        options:this.activityFields,
+        filterFunction:filter4Field
       })
     ]
   }
