@@ -1,4 +1,4 @@
-export enum Fields {
+export enum ActivityFields {
     accoglienza = 1,
     sala,
     cucina,
