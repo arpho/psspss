@@ -32,8 +32,8 @@ export class FolderPage implements OnInit {
 
   constructor(private activatedRoute: ActivatedRoute, private router: Router, public service: CrewUserService) {
     const filter4Name = (value: string, item: CrewUserprofileModel) =>  item.firstName.toLocaleLowerCase().includes(value) 
-    const filter4Lastname = (value: string, item: CrewUserprofileModel) => (item.lastName) ? item.lastName.toLocaleLowerCase().includes(value) : true
-    const filter4Mansione = (value: string, item: CrewUserprofileModel) => (item.crewRole) ? item.crewRole.toLocaleLowerCase().includes(value) : true
+    const filter4Lastname = (value: string, item: CrewUserprofileModel) => item.lastName.toLocaleLowerCase().includes(value) 
+    const filter4Mansione = (value: string, item: CrewUserprofileModel) => item.crewRole.toLocaleLowerCase().includes(value) 
     this.filterFields = [
       new TextboxQuestion({
         key: "nome",
