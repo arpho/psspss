@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalController, NavParams, ToastController } from '@ionic/angular';
 import { CrewUserprofileModel } from 'src/app/models/CrewUserProfile';
+import { ActivityFields } from 'src/app/models/enumFields';
 import { DateQuestion } from 'src/app/modules/dynamic-form/models/question-date';
+import { DropdownQuestion } from 'src/app/modules/dynamic-form/models/question-dropdown';
 import { TextboxQuestion } from 'src/app/modules/item/models/question-textbox';
 import { CrewUserService } from 'src/app/services/crew-user.service';
 import { CreateCrewUserPage } from '../create-crew-user/create-crew-user.page';
@@ -16,6 +18,12 @@ export class UpdateCrewUserPage implements OnInit {
   title = " modifica Utente"
   userFields: Array<any>
   userprofile = new CrewUserprofileModel
+  activityFields = [
+    {key:"sala",value:ActivityFields.sala},
+    {key:"accoglienza",value:ActivityFields.accoglienza},
+    {key:"pasticceria",value:ActivityFields.pasticceria},
+    {key:"cucina",value:ActivityFields.cucina}
+]
   constructor(public navParams: NavParams,
      public modalCtrl: ModalController,
       public service: CrewUserService,
@@ -57,7 +65,8 @@ export class UpdateCrewUserPage implements OnInit {
       new TextboxQuestion({ key: 'firstName', label: 'Nome', value: this.userprofile.firstName }),
       new TextboxQuestion({ key: 'lastName', label: 'Cognome', value: this.userprofile.lastName }),
       new DateQuestion({ key: "birthDate", label: "Data di nascita", value: this.userprofile.birthDate.formatDate() }),
-      new TextboxQuestion({ key: "crewRole", label: "mansione", value: this.userprofile.crewRole })
+      new TextboxQuestion({ key: "crewRole", label: "mansione", value: this.userprofile.crewRole }),
+      new DropdownQuestion({key:"field",options:this.activityFields,label:"indirizzo", value:this.userprofile.field })
     ]
   }
 
