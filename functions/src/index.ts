@@ -23,3 +23,8 @@ exports.addMessage = functions.https.onRequest(async (req:any, res:any) => {
     // Send back a message that we"ve successfully written the message
     res.json({result: `Message with ID: ${writeResult.id} added.`});
 });
+exports.setRole = functions.https.onRequest(async (req:any,res:any)=>{
+    const role = req.query.role;
+    const uid = req.query.uid;
+    admin.auth().setCustomUserClaims(uid,{role:role})
+})
