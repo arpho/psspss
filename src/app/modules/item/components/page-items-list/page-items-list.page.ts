@@ -54,6 +54,7 @@ export class PageItemsListComponent implements OnInit, OnChanges {
   ngOnInit() {
 
     this.service.items.subscribe(items =>{
+      console.log('items',items)
     })
     if(!this.filterFunction){
     this.filterFunction = this.filterFunction? this.filterFunction: (v: ItemModelInterface) => true;}
