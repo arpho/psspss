@@ -13,6 +13,7 @@ import { CrewUserprofileModel } from "src/app/models/CrewUserProfile";
 export class UsersPage implements OnInit {
   public filterFunction: (item: CrewUserprofileModel) => boolean;
   public sorterFunction: (a: any, b: any) => number
+  title="gestione utenti"
   public usersList: Array<ItemModelInterface>;
   public
   editModalPage = EditUserPage
