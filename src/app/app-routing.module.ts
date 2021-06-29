@@ -33,7 +33,9 @@ const routes: Routes = [
   {
     path: 'update-crew-user',
     loadChildren: () => import('./pages/update-crew-user/update-crew-user.module').then( m => m.UpdateCrewUserPageModule)
-  }
+  },
+  {path:"users/users",
+loadChildren:()=>import('./modules/user/pages/users/users.module').then(m=> m.UsersModule)}
 ];
 
 @NgModule({

@@ -6,6 +6,7 @@ import { UserModel } from "../models/userModel";
 import { ItemModelInterface } from "../../item/models/itemModelInterface";
 import * as admin from "firebase-admin";
 import { BehaviorSubject, Observable } from 'rxjs';
+import { CrewUserprofileModel } from "src/app/models/CrewUserProfile";
 
 @Injectable({
   providedIn: "root"
@@ -13,11 +14,12 @@ import { BehaviorSubject, Observable } from 'rxjs';
 export class UsersService implements ItemServiceInterface,OnInit {
   public usersRef: firebase.default.database.Reference;
   private loggedUser: UserModel;
-  items_list: Array<UserModel> = []
+  items_list: Array<CrewUserprofileModel> = []
   _items: BehaviorSubject<Array<UserModel>> = new BehaviorSubject([])
   readonly items: Observable<Array<UserModel>> = this._items.asObservable()
 
   constructor() {
+
     this.usersRef = firebase.default.database().ref("/userProfile");
     this.loadItems()
     
@@ -32,13 +34,14 @@ export class UsersService implements ItemServiceInterface,OnInit {
   populateItems = (UsersListSnapshot) => {
     this.items_list = [];
     UsersListSnapshot.forEach(snap => {
-      const user = new UserModel(undefined, snap.key).load(snap.val())
+      const user = new CrewUserprofileModel().initialize(snap.val()).setKey(snap.key)
       user.key = snap.key // alcuni item non hanno il campo key
       this.items_list.push(user);
       if (user.key === '') {
       }
     });
     this._items.next(this.items_list)
+    console.log('users',this.items_list)
   }
   ngOnInit(): void {
   }

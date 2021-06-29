@@ -9,6 +9,7 @@ import { UsersPage } from "./users.page";
 import { ItemModule } from "src/app/modules/item/item.module";
 import { LoginPage } from "../login/login.page";
 import { SignupPage } from "../signup/signup.page";
+import { UsersService } from "../../services/users.service";
 
 const routes: Routes = [
   
@@ -27,4 +28,6 @@ const routes: Routes = [
     RouterModule.forChild(routes)
   ],
 })
-export class UsersModule {}
+export class UsersModule {
+  constructor(public service:UsersService){}
+}
