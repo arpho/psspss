@@ -29,6 +29,11 @@ export class AuthService {
           .database()
           .ref(`/userProfile/${newUserCredential.user.uid}/email`)
           .set(email);
+          firebase
+          .default
+            .database()
+            .ref(`/userProfile/${newUserCredential.user.uid}/uid`)
+            .set(newUserCredential.user.uid);
       })
       .catch(error => {
         console.error(error);
