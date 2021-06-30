@@ -30,7 +30,7 @@ import { FileChooser } from '@ionic-native/file-chooser';
   ],
   entryComponents: [],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,ItemModule,DynamicFormModule],
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy },FileChooser],
+  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
 })
 export class AppModule {
