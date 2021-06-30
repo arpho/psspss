@@ -19,7 +19,7 @@ import { SelectorItemsPage } from './modules/item/pages/selector-items/selector-
 import { CreateCrewUserPage } from './pages/create-crew-user/create-crew-user.page';
 import { UpdateCrewUserPage } from './pages/update-crew-user/update-crew-user.page';
 import { EditUserPage } from './modules/user/pages/edit-user/edit-user.page';
-import { AngularFireFunctions } from 'angularfire2/functions';
+import { HttpClient } from '@angular/common/http';
 
 @NgModule({
   declarations: [AppComponent,
@@ -29,8 +29,8 @@ import { AngularFireFunctions } from 'angularfire2/functions';
   FilterPopupPage
   ],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,ItemModule,DynamicFormModule],
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy },AngularFireFunctions],
+  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,ItemModule,DynamicFormModule,HttpClient],
+  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
 })
 export class AppModule {

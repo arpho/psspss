@@ -128,6 +128,9 @@ export class EditUserPage implements OnInit {
       // tslint:disable-next-line: no-unused-expression
       r.value == this.currentUser.level;
     })[0];
+    if(ev.level){
+      console.log("setting role",ev.level)
+    }
     console.log('updating user', user);
     user.role = configs.accessLevel.filter(
       (v: RoleModel) => v.value == ev.level

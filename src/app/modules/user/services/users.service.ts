@@ -7,6 +7,8 @@ import { ItemModelInterface } from "../../item/models/itemModelInterface";
 import * as admin from "firebase-admin";
 import { BehaviorSubject, Observable } from 'rxjs';
 import { CrewUserprofileModel } from "src/app/models/CrewUserProfile";
+import * as functions from "firebase-functions"
+import { HttpClientModule } from "@angular/common/http";
 
 @Injectable({
   providedIn: "root"
@@ -18,8 +20,9 @@ export class UsersService implements ItemServiceInterface,OnInit {
   _items: BehaviorSubject<Array<UserModel>> = new BehaviorSubject([])
   readonly items: Observable<Array<UserModel>> = this._items.asObservable()
 
-  constructor() {
 
+  constructor(public http:HttpClientModule) {
+    
     this.usersRef = firebase.default.database().ref("/userProfile");
     this.loadItems()
     
@@ -66,7 +69,10 @@ export class UsersService implements ItemServiceInterface,OnInit {
   }
 
   setRole(uid:string,role:number){
-
+   const data= {uid,role}
+   this.http.get("https://us-central1-crewdb-49793.cloudfunctions.net/setRole",data).subscribe(result=>{
+     console.log("set role",result)
+   })
   }
 
   setLoggedUser(key: string) {
