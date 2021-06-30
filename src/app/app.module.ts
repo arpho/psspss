@@ -19,6 +19,7 @@ import { SelectorItemsPage } from './modules/item/pages/selector-items/selector-
 import { CreateCrewUserPage } from './pages/create-crew-user/create-crew-user.page';
 import { UpdateCrewUserPage } from './pages/update-crew-user/update-crew-user.page';
 import { EditUserPage } from './modules/user/pages/edit-user/edit-user.page';
+import { AngularFireFunctions } from 'angularfire2/functions';
 
 @NgModule({
   declarations: [AppComponent,
@@ -29,7 +30,7 @@ import { EditUserPage } from './modules/user/pages/edit-user/edit-user.page';
   ],
   entryComponents: [],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,ItemModule,DynamicFormModule],
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
+  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy },AngularFireFunctions],
   bootstrap: [AppComponent],
 })
 export class AppModule {
