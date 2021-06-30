@@ -28,7 +28,7 @@ export class CreateCrewUserPage implements OnInit {
 
   constructor(public service: CrewUserService,public modalCtrl:ModalController) {
     this.userFields = [
-      new PictureBox({key:"picture", label:"fotazza"}),
+      new PictureBox({key:"picture", label:"foto"}),
       new TextboxQuestion({ key: 'firstName', label: 'Nome', value: this.userprofile.firstName }),
       new TextboxQuestion({ key: 'lastName', label: 'Cognome', value: this.userprofile.lastName }),
       new DateQuestion({ key: "birthDate", label: "Data di nascita", value: this.userprofile.birthDate.formatDate() }),
