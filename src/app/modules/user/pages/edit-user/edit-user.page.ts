@@ -13,6 +13,8 @@ import { RoleModel } from '../../models/privilegesLevelModel';
 import { ItemModelInterface } from 'src/app/modules/item/models/itemModelInterface';
 import { NavParams, ModalController } from '@ionic/angular';
 
+
+
 @Component({
   selector: 'app-edit-user',
   templateUrl: './edit-user.page.html',
@@ -117,6 +119,7 @@ export class EditUserPage implements OnInit {
   filter(ev) { }
   submit(ev) {
     console.log('submit', ev);
+
     ev.email = this.currentUser.email; // non modifico email
     const user = new UserModel(ev);
     user.key = this.currentUser.key;
@@ -129,9 +132,7 @@ export class EditUserPage implements OnInit {
     user.role = configs.accessLevel.filter(
       (v: RoleModel) => v.value == ev.level
     )[0];
-    /*admin.auth().setCustomUserClaims(this.currentUser.key, {
-      role: this.currentUser.level
-    });*/
+    // const setRole= functions.
     this.service
       .updateItem(user)
       .then(v => {
