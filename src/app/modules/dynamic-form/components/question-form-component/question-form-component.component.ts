@@ -12,6 +12,7 @@ import {
 } from '@angular/core';
 import { FormGroup, FormControl, NG_VALUE_ACCESSOR, ControlValueAccessor, FormBuilder } from '@angular/forms';
 import { QuestionBase } from '../../models/question-base';
+import { FileChooser } from '@ionic-native/file-chooser/ngx';
 
 @Component({
   selector: 'app-question',
@@ -24,11 +25,21 @@ export class QuestionFormComponent implements OnInit, OnChanges {
 
 
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder,
+    ) { }
 
-  chooseFile()
+/*   chooseFile()
   {
     console.log("choosing file")
+    this.fileChooser.open().then(uri=>{
+      console.log('uri,uri')
+    }).catch(e=>{
+      console.error(e)
+    })
+  } */
+
+  chooseFile(){
+    console.log('choosing')
   }
 
   writeValue(obj: any): void {

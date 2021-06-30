@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { FileChooserOriginal } from '@ionic-native/file-chooser';
 import { ModalController } from '@ionic/angular';
 import { CrewUserprofileModel } from 'src/app/models/CrewUserProfile';
 import { ActivityFields } from 'src/app/models/enumFields';
@@ -9,7 +8,6 @@ import { DropdownQuestion } from 'src/app/modules/dynamic-form/models/question-d
 import { PictureBox } from 'src/app/modules/dynamic-form/models/question-picture';
 import { TextboxQuestion } from 'src/app/modules/item/models/question-textbox';
 import { CrewUserService } from 'src/app/services/crew-user.service';
-import { FileChooser } from '@ionic-native/file-chooser';
 
 @Component({
   selector: 'app-create-crew-user',
