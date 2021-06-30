@@ -19,7 +19,8 @@ import { SelectorItemsPage } from './modules/item/pages/selector-items/selector-
 import { CreateCrewUserPage } from './pages/create-crew-user/create-crew-user.page';
 import { UpdateCrewUserPage } from './pages/update-crew-user/update-crew-user.page';
 import { EditUserPage } from './modules/user/pages/edit-user/edit-user.page';
-import { FileChooser } from '@ionic-native/file-chooser';
+import {  FileChooserOriginal } from '@ionic-native/file-chooser';
+import {Base64} from "@ionic-native/base64";
 
 @NgModule({
   declarations: [AppComponent,
@@ -30,7 +31,10 @@ import { FileChooser } from '@ionic-native/file-chooser';
   ],
   entryComponents: [],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,ItemModule,DynamicFormModule],
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
+  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    File,
+    FileChooserOriginal,
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {

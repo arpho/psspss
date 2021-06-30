@@ -11,7 +11,7 @@ import {
   forwardRef
 } from '@angular/core';
 import { FormGroup, FormControl, NG_VALUE_ACCESSOR, ControlValueAccessor, FormBuilder } from '@angular/forms';
-
+import {  FileChooserOriginal } from '@ionic-native/file-chooser';
 import { QuestionBase } from '../../models/question-base';
 
 @Component({
@@ -25,7 +25,7 @@ export class QuestionFormComponent implements OnInit, OnChanges {
 
 
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder,public fileChooser:FileChooserOriginal) { }
 
   writeValue(obj: any): void {
     throw new Error('Method not implemented.');
