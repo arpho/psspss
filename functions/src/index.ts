@@ -31,5 +31,5 @@ exports.setRole = functions.https.onRequest(async (req: any, res: any) => {
     const role = req.query.role;
     const uid = req.query.uid;
     admin.auth().setCustomUserClaims(uid, {role: role});
-    res.json({result: `user with uid:${uid} set with role:${role}`});
+    res.json({result: `user with uid:${uid} set with role:${role}`}).end();
 });
