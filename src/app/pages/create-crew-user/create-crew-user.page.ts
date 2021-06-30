@@ -8,6 +8,8 @@ import { DropdownQuestion } from 'src/app/modules/dynamic-form/models/question-d
 import { PictureBox } from 'src/app/modules/dynamic-form/models/question-picture';
 import { TextboxQuestion } from 'src/app/modules/item/models/question-textbox';
 import { CrewUserService } from 'src/app/services/crew-user.service';
+import { FileChooser } from '@ionic-native/file-chooser/ngx';
+import { connectableObservableDescriptor } from 'rxjs/internal/observable/ConnectableObservable';
 
 @Component({
   selector: 'app-create-crew-user',
@@ -26,7 +28,14 @@ export class CreateCrewUserPage implements OnInit {
     {key:"cucina",value:ActivityFields.cucina}
 ]
 
-  constructor(public service: CrewUserService,public modalCtrl:ModalController) {
+  constructor(public service: CrewUserService,
+    public modalCtrl:ModalController,
+    private filechooser:FileChooser) {
+      this.filechooser.open().then(uri=>{
+        console.log('uri',uri)
+      }).catch(er=>{
+        console.log('error',er)
+      })
     this.userFields = [
       new PictureBox({key:"picture", label:"foto"}),
       new TextboxQuestion({ key: 'firstName', label: 'Nome', value: this.userprofile.firstName }),
