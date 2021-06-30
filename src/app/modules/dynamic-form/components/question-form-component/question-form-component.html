@@ -47,7 +47,9 @@
     
     <div *ngSwitchCase="'pictureBox'" class="question">
 
-     <p>ciao foto</p>
+    <ion-button (click)="chooseFile()">
+      <ion-icon name="aperture-outline"></ion-icon>
+    </ion-button>
     </div>
  
     <div *ngSwitchCase="'itemSelector'"

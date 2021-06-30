@@ -29,7 +29,6 @@ export class CreateCrewUserPage implements OnInit {
 ]
 
   constructor(public service: CrewUserService,
-    public fileChooser:FileChooser,
     public modalCtrl:ModalController,
     ) {
       
