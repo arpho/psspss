@@ -40,7 +40,7 @@ export class LoginPage implements OnInit {
       const password = loginForm.value.password;
       this.authService.loginUser(email, password).then(
         () => {
-          firebase.default.auth().setPersistence(firebase.default.auth.Auth.Persistence.SESSION)
+          firebase.default.auth().setPersistence(firebase.default.auth.Auth.Persistence.LOCAL)
           .then(() => {
             // Existing and future Auth states are now persisted in the current
             // session only. Closing the window would clear any existing state even

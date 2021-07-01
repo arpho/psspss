@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class FilePickerComponent implements OnInit {
   
 
-  constructor() { }
+  constructor(fileChooser:File) { }
   chooseFile(){
  
     console.log('ciao')
