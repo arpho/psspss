@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ImagePicker, ImagePickerOptions } from '@ionic-native/image-picker/ngx';
+import { FileChooser } from '@ionic-native/file-chooser/ngx';
 @Component({
   selector: 'app-file-picker',
   templateUrl: './file-picker.component.html',
@@ -7,15 +7,14 @@ import { ImagePicker, ImagePickerOptions } from '@ionic-native/image-picker/ngx'
 })
 export class FilePickerComponent implements OnInit {
 
-  constructor(private imagePicker:ImagePicker) { }
+  constructor(private fileChooser:FileChooser) { }
   chooseFile(){
-    const options:ImagePickerOptions={maximumImagesCount:1,
-    allow_video:false,
-  title:"picture"}
+ 
     console.log('ciao')
-    this.imagePicker.getPictures(options
-      
-    ).then(uri=>console.log('picture',uri)).catch(e=>console.error(e))
+    this.fileChooser.open().
+    then(uri=>console.log(uri? uri:'canceled')).
+    catch(e=>console.error(e))
+    
   }
 
   ngOnInit() {}

@@ -19,7 +19,7 @@ import { SelectorItemsPage } from './modules/item/pages/selector-items/selector-
 import { CreateCrewUserPage } from './pages/create-crew-user/create-crew-user.page';
 import { UpdateCrewUserPage } from './pages/update-crew-user/update-crew-user.page';
 import { EditUserPage } from './modules/user/pages/edit-user/edit-user.page';
-import { ImagePicker } from '@ionic-native/image-picker/ngx';
+import { FileChooser } from '@ionic-native/file-chooser/ngx';
 
 @NgModule({
   declarations: [AppComponent,
@@ -31,8 +31,7 @@ import { ImagePicker } from '@ionic-native/image-picker/ngx';
   entryComponents: [],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,ItemModule,DynamicFormModule],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy},
-    ImagePicker
-    
+    FileChooser
     
     
   ],
