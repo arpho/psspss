@@ -4,11 +4,9 @@ import { ModalController, NavParams } from '@ionic/angular';
 import { CategoriesService } from '../../services/categorie.service';
 import { CategoryModel } from '../../models/CategoryModel';
 import { ItemModelInterface } from 'src/app/modules/item/models/itemModelInterface';
-// import { CodegenComponentFactoryResolver } from '@angular/core/src/linker/component_factory_resolver';
 import { ComponentsPageModule } from 'src/app/modules/item/components/components.module';
 import { FormControl } from '@angular/forms';
 import { debounceTime } from 'rxjs/operators'
-// import { iterateListLike } from '@angular/core/src/change_detection/change_detection_util';
 
 @Component({
   selector: 'app-categories-selector-page',
