@@ -1,8 +1,8 @@
 // tslint:disable:semicolon
 import { Component, OnInit, ChangeDetectionStrategy, Input, Output, EventEmitter } from '@angular/core';
 import { ModalController } from '@ionic/angular';
-import { CategoriesSelectorPage } from 'src/app/pages/categories-selector/categories-selector.page';
-import { CategoryModel } from 'src/app/models/CategoryModel';
+import { CategoriesSelectorPage } from '../../pages/categories-selector/categories-selector.page';
+import { CategoryModel } from '../../models/CategoryModel';
 
 @Component({
   selector: 'app-categories-selector',

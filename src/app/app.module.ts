@@ -20,6 +20,7 @@ import { CreateCrewUserPage } from './pages/create-crew-user/create-crew-user.pa
 import { UpdateCrewUserPage } from './pages/update-crew-user/update-crew-user.page';
 import { EditUserPage } from './modules/user/pages/edit-user/edit-user.page';
 import { FileChooser } from '@ionic-native/file-chooser/ngx';
+import { CategoriesModule } from './modules/categories/categories.module';
 
 @NgModule({
   declarations: [AppComponent,
@@ -29,7 +30,7 @@ import { FileChooser } from '@ionic-native/file-chooser/ngx';
   FilterPopupPage
   ],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,ItemModule,DynamicFormModule],
+  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,ItemModule,DynamicFormModule,CategoriesModule],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy},
     FileChooser
     

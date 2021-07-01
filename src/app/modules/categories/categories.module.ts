@@ -9,6 +9,7 @@ import { CategoriesViewerComponent } from './components/categories-viewer/catego
   declarations: [CategoriesSelectorComponent,CategoriesViewerComponent],
   imports: [
     CommonModule
-  ]
+  ],
+  exports:[CategoriesSelectorComponent,CategoriesViewerComponent]
 })
 export class CategoriesModule { }
