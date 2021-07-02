@@ -7,6 +7,7 @@ import { DynamicFormComponent } from './components/dynamic-form/dynamic-form.com
 import { QuestionControlService } from './services/question-control.service';
 import { ItemModule } from '../item/item.module';
 import { FilePickerComponent } from './components/file-picker/file-picker.component';
+import { CategoriesModule } from '../categories/categories.module';
 
 @NgModule({
   declarations: [QuestionFormComponent, DynamicFormComponent,FilePickerComponent],
@@ -14,8 +15,8 @@ import { FilePickerComponent } from './components/file-picker/file-picker.compon
     CommonModule,
     IonicModule.forRoot(),
     ReactiveFormsModule,
-    
     ItemModule,
+    CategoriesModule,
   ],
   exports: [QuestionFormComponent, DynamicFormComponent,],
   providers: [QuestionControlService]
