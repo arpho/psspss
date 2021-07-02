@@ -5,6 +5,7 @@ import { IonicModule } from '@ionic/angular';
 import { CreateCrewUserPage } from './create-crew-user.page';
 import { DynamicFormModule } from 'src/app/modules/dynamic-form/dynamic-form.module';
 import { CategoriesModule } from 'src/app/modules/categories/categories.module';
+import { ItemModule } from 'src/app/modules/item/item.module';
 
 @NgModule({
   imports: [
@@ -13,6 +14,7 @@ import { CategoriesModule } from 'src/app/modules/categories/categories.module';
     IonicModule,
     DynamicFormModule,
     CategoriesModule,
+    ItemModule
   ],
   declarations: [CreateCrewUserPage]
 })
