@@ -2,13 +2,14 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CategoriesSelectorComponent } from './components/categories-selector/categories-selector.component';
 import { CategoriesViewerComponent } from './components/categories-viewer/categories-viewer.component';
+import { ItemModule } from '../item/item.module';
 
 
 
 @NgModule({
   declarations: [CategoriesSelectorComponent,CategoriesViewerComponent],
   imports: [
-    CommonModule
+    CommonModule,ItemModule
   ],
   exports:[CategoriesSelectorComponent,CategoriesViewerComponent]
 })
