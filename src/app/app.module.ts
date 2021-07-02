@@ -21,18 +21,19 @@ import { UpdateCrewUserPage } from './pages/update-crew-user/update-crew-user.pa
 import { EditUserPage } from './modules/user/pages/edit-user/edit-user.page';
 import { FileChooser } from '@ionic-native/file-chooser/ngx';
 import { CategoriesModule } from './modules/categories/categories.module';
+import {File} from '@ionic-native/file'
 
 @NgModule({
-  declarations: [AppComponent,
+  declarations: [
+    AppComponent,
   FilterPopupPage,
   SelectorItemsPage,
   EditUserPage,
-  FilterPopupPage
   ],
   entryComponents: [],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,ItemModule,DynamicFormModule,CategoriesModule],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy},
-    FileChooser
+    FileChooser,
     
     
   ],

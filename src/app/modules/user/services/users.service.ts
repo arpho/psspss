@@ -43,7 +43,6 @@ export class UsersService implements ItemServiceInterface,OnInit {
       }
     });
     this._items.next(this.items_list)
-    console.log('users',this.items_list)
   }
   ngOnInit(): void {
   }
