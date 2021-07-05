@@ -6,6 +6,8 @@ import { CreateCrewUserPage } from './create-crew-user.page';
 import { DynamicFormModule } from 'src/app/modules/dynamic-form/dynamic-form.module';
 import { CategoriesModule } from 'src/app/modules/categories/categories.module';
 import { ItemModule } from 'src/app/modules/item/item.module';
+import { SorterItemsPipe } from 'src/app/modules/item/pipes/sorter-items.pipe';
+import { FilterItemsPipe } from 'src/app/modules/item/pipes/filter-items.pipe';
 
 @NgModule({
   imports: [
@@ -13,8 +15,8 @@ import { ItemModule } from 'src/app/modules/item/item.module';
     FormsModule,
     IonicModule,
     DynamicFormModule,
+    ItemModule,
     CategoriesModule,
-    ItemModule
   ],
   declarations: [CreateCrewUserPage]
 })

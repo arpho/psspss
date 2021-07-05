@@ -9,7 +9,8 @@ import { ItemModule } from '../item/item.module';
 @NgModule({
   declarations: [CategoriesSelectorComponent,CategoriesViewerComponent],
   imports: [
-    CommonModule,ItemModule
+    CommonModule,
+    ItemModule
   ],
   exports:[CategoriesSelectorComponent,CategoriesViewerComponent]
 })

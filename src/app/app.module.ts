@@ -22,6 +22,8 @@ import { EditUserPage } from './modules/user/pages/edit-user/edit-user.page';
 import { FileChooser } from '@ionic-native/file-chooser/ngx';
 import { CategoriesModule } from './modules/categories/categories.module';
 import {File} from '@ionic-native/file'
+import { FilterItemsPipe } from './modules/item/pipes/filter-items.pipe';
+import { SorterItemsPipe } from './modules/item/pipes/sorter-items.pipe';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,12 @@ import {File} from '@ionic-native/file'
   EditUserPage,
   ],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,ItemModule,DynamicFormModule,CategoriesModule],
+  imports: [BrowserModule, IonicModule.forRoot(), 
+    AppRoutingModule,
+    ItemModule,
+    DynamicFormModule,
+    CategoriesModule,
+  ],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy},
     FileChooser,
     
