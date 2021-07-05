@@ -10,6 +10,8 @@ import { ItemModule } from 'src/app/modules/item/item.module';
 import { DynamicFormModule } from 'src/app/modules/dynamic-form/dynamic-form.module';
 import { SorterItemsPipe } from 'src/app/modules/item/pipes/sorter-items.pipe';
 import { FilterItemsPipe } from 'src/app/modules/item/pipes/filter-items.pipe';
+import { BrowserModule } from '@angular/platform-browser';
+import { CategoriesModule } from '../../categories.module';
 
 const routes: Routes = [
   {
@@ -25,6 +27,7 @@ const routes: Routes = [
     IonicModule,
     ItemModule,
     FormsModule,
+    CategoriesModule,
     ReactiveFormsModule,
     DynamicFormModule,
     RouterModule.forChild(routes)
