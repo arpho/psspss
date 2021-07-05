@@ -24,8 +24,6 @@ const routes: Routes = [
     FormsModule,
     IonicModule,
     ItemModule,
-    SorterItemsPipe,
-    FilterItemsPipe,
     FormsModule,
     ReactiveFormsModule,
     DynamicFormModule,
