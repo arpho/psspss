@@ -125,7 +125,7 @@ export class CategoriesService implements ItemServiceInterface {
     } */
     firebase.default.auth().onAuthStateChanged(user => {
       if (user) {
-        this.categoriesListRef = firebase.default.database().ref(`/categorie/${user.uid}/`);
+        this.categoriesListRef = firebase.default.database().ref(`/categorie/`);
         const notHierarchicalCategories: CategoryModel[] = [] // first load cathegories before father is loaded
         this.categoriesListRef.on('value', eventCategoriesListSnapshot => {
           this.items_list = [];
