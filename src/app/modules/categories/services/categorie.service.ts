@@ -64,29 +64,9 @@ export class CategoriesService implements ItemServiceInterface {
 
 
 
-  /**mappa ad ogni ogetto {categorie:CategoriModel[],price:number} con [{category:CategoryModel,price:number}]  */
- /*  blowupCategories = (item: { categorie: CategoryModel[], price: number }) => item.categorie.map((cat: CategoryModel) => {
-    return new PricedCategory({ category: cat, price: item.price })
-  }) */
-
-  /**
-  * trasforma una lista di carrelli in una lista di items
-  */
-  // ItemskartMapper2 = (pv: PurchaseModel[], cv: ShoppingKartModel) => [...pv, ...cv.items]
-
-
-
-/*   itemsMapper2 = (item: PurchaseModel) => {
-    
-    return { categorie: item.categorie, price: item.prezzo }
-  } */
   flattener = (pv, cv) => {
     return [...pv, ...cv]
   }
-
-  /* blowCategoriesUp = (karts: ShoppingKartModel[]) => {
-    //return karts.reduce(this.ItemskartMapper2, []).map(this.itemsMapper2).map(this.blowupCategories).reduce(this.flattener,[])
-  } */
 
 
   async createItem(item: CategoryModel) {
