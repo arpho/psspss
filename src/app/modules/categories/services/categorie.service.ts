@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 import { ItemServiceInterface } from '../../item/models/ItemServiceInterface';
 import * as firebase from 'firebase/app';
 import { ItemModelInterface } from '../../item/models/itemModelInterface';
@@ -12,7 +12,7 @@ import { Observable, BehaviorSubject } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class CategoriesService implements ItemServiceInterface {
+export class CategoriesService implements ItemServiceInterface{
   public readonly key = 'categories'
   public categoriesListRef: firebase.default.database.Reference;
   _items: BehaviorSubject<Array<CategoryModel>> = new BehaviorSubject([])
@@ -94,23 +94,25 @@ export class CategoriesService implements ItemServiceInterface {
   }
 
   constructor() {
+    console.log('ciao')
     this.instatiateItem = (args: {}) => {
       return this.initializeCategory(args)
     }
-  /*   this.counterWidget = (entityKey: string, entities: ShoppingKartModel[]) => {
-      return this.blowCategoriesUp(entities).filter((item: PricedCategory) => item.category.key == entityKey).map((item: PricedCategory) => 1).reduce((pv, cv) => { return pv += cv }, 0)
-    } */
-    /* this.adderWidget = (entityKey: string, entities: ShoppingKartModel[]) => {
-      return this.blowCategoriesUp(entities).filter((item: PricedCategory) => item.category.key == entityKey).map((item: PricedCategory) => item.price).reduce((pv, cv) => { return pv += cv }, 0);
-    } */
+
+
     firebase.default.auth().onAuthStateChanged(user => {
+      console.log('user',user)
       if (user) {
+        console.log('user is ok')
         this.categoriesListRef = firebase.default.database().ref(`/categorie/`);
         const notHierarchicalCategories: CategoryModel[] = [] // first load cathegories before father is loaded
         this.categoriesListRef.on('value', eventCategoriesListSnapshot => {
+          console.log('loading categories')
           this.items_list = [];
           eventCategoriesListSnapshot.forEach(snap => {
-            notHierarchicalCategories.push(new CategoryModel(snap.key).initialize(snap.val()).setKey(snap.key))
+            const cat = new CategoryModel(snap.key).initialize(snap.val()).setKey(snap.key)
+            console.log('cat',cat)
+            notHierarchicalCategories.push(cat)
           }
           );
           // now we load father
@@ -125,6 +127,9 @@ export class CategoriesService implements ItemServiceInterface {
 
 
   }
+
+  
+  
   initializeItems() {
     throw new Error('Method not implemented.');
   }
