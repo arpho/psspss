@@ -70,7 +70,9 @@ export class CategoriesSelectorPage implements OnInit {
     this.filterFunction = this.filterFactory({ selectedCategoriesList: this.selectedCategoriesList })
     this.baseFilter = this.filterFactory({ selectedCategoriesList: this.selectedCategoriesList })
     if (this.service && this.service.items) {
-      this.service.items.subscribe(items => { this.categoriesList = items })
+      this.service.items.subscribe(items => { this.categoriesList = items 
+      console.log('got cat',items)
+      })
     }
 
   }

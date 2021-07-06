@@ -117,9 +117,11 @@ export class CategoriesService implements ItemServiceInterface{
           );
           // now we load father
           notHierarchicalCategories.forEach(category => {
+            console.log('seeting father to ',category)
             const Category = this.setFather(category, notHierarchicalCategories)
             this.items_list.push(Category)
           })
+          console.log('list',this.items_list)
           this._items.next(this.items_list)
         });
       }
