@@ -1,6 +1,6 @@
 // tslint:disable:semicolon
 import { Component, OnInit, ChangeDetectionStrategy, Input, Output, EventEmitter } from '@angular/core';
-import { CategoryModel } from 'src/app/models/CategoryModel';
+import { CategoryModel } from '../../models/CategoryModel';
 
 @Component({
   selector: 'app-category',
