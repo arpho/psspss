@@ -8,6 +8,7 @@ import { UpdateCrewUserPageRoutingModule } from './update-crew-user-routing.modu
 
 import { UpdateCrewUserPage } from './update-crew-user.page';
 import { DynamicFormModule } from 'src/app/modules/dynamic-form/dynamic-form.module';
+import { CategoriesModule } from 'src/app/modules/categories/categories.module';
 
 @NgModule({
   imports: [
@@ -15,7 +16,8 @@ import { DynamicFormModule } from 'src/app/modules/dynamic-form/dynamic-form.mod
     FormsModule,
     IonicModule,
     UpdateCrewUserPageRoutingModule,
-    DynamicFormModule
+    DynamicFormModule,
+    CategoriesModule
   ],
   declarations: [UpdateCrewUserPage]
 })
