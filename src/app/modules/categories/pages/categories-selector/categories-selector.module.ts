@@ -30,7 +30,7 @@ const routes: Routes = [
     CategoriesModule,
     ReactiveFormsModule,
     DynamicFormModule,
-    RouterModule.forChild(routes)
+    RouterModule.forRoot(routes)
   ],
   // declarations: [CategoriesSelectorPage]
 })
