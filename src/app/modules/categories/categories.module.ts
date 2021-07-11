@@ -9,7 +9,7 @@ import { CategoryComponent } from './components/category/category.component';
 
 
 @NgModule({
-  declarations: [CategoriesSelectorComponent,CategoriesViewerComponent],
+  declarations: [CategoriesSelectorComponent,CategoriesViewerComponent,CategoryComponent],
   imports: [
     
     CommonModule,
