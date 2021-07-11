@@ -5,11 +5,12 @@ import { CategoriesViewerComponent } from './components/categories-viewer/catego
 import { ItemModule } from '../item/item.module';
 import { IonicModule } from '@ionic/angular';
 import { CategoryComponent } from './components/category/category.component';
+import { CategoriesSelectorPageModule } from './pages/categories-selector/categories-selector.module';
 
 
 
 @NgModule({
-  declarations: [CategoriesSelectorComponent,CategoriesViewerComponent,CategoryComponent],
+  declarations: [CategoriesSelectorComponent,CategoriesViewerComponent,CategoryComponent,CategoriesSelectorPageModule],
   imports: [
     
     CommonModule,
