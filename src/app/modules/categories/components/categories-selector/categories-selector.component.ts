@@ -33,6 +33,9 @@ export class CategoriesSelectorComponent implements OnInit {
     })
     return await modal.present()
   }
+  setCategories(ev){
+    console.log('categories',ev)
+  }
 
   clickedCategory(cat: CategoryModel) {
   }

@@ -50,6 +50,11 @@ export class CreateCrewUserPage implements OnInit {
     this.modalCtrl.dismiss(purchase)
   }
 
+
+  setCategories(ev){
+    console.log('categories',ev)
+  }
+
   submit(arg) {
     this.userprofile.initialize(arg)
     this.service.createItem(this.userprofile).then(value => {

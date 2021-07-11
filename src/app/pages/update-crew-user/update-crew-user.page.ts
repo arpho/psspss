@@ -52,6 +52,11 @@ export class UpdateCrewUserPage implements OnInit {
     }))
 
   }
+
+
+  setCategories(ev){
+    console.log('categories',ev)
+  }
   filter(args) {
 
   }
