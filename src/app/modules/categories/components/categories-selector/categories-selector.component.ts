@@ -54,7 +54,6 @@ export class CategoriesSelectorComponent implements OnInit,ControlValueAccessor 
     const modal = await this.modalCtrl.create({ component: CategoriesSelectorPage, componentProps: { categories: this.categoriesList } })
     modal.onDidDismiss().then(data => {
       this.categoriesList = [...data.data]
-      console.log('got cate',this.categoriesList)
       this.selectedCategories.emit(data.data)
       this._categories.next(this.categoriesList)
 
