@@ -1,15 +1,20 @@
 // tslint:disable:semicolon
-import { Component, OnInit, ChangeDetectionStrategy, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy, Input, Output, EventEmitter, forwardRef } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { CategoriesSelectorPage } from '../../pages/categories-selector/categories-selector.page';
 import { CategoryModel } from '../../models/CategoryModel';
-import { ControlValueAccessor } from '@angular/forms';
+import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 @Component({
   selector: 'app-categories-selector',
   templateUrl: './categories-selector.component.html',
   styleUrls: ['./categories-selector.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  providers: [{
+    provide: NG_VALUE_ACCESSOR,
+    multi: true,
+    useExisting: forwardRef(() => CategoriesSelectorComponent)
+  }]
 })
 export class CategoriesSelectorComponent implements OnInit,ControlValueAccessor {
   @Input() categoriesList: Array<CategoryModel>
