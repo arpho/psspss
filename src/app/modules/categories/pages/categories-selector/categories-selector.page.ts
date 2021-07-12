@@ -52,12 +52,12 @@ export class CategoriesSelectorPage implements OnInit {
   }
 
   onKeydown(event) {
-    console.log('enter',event);
+    console.log('enter', event);
   }
 
   onInput(ev) {
 
-    console.log('input',ev.detail.value)
+    console.log('input', ev.detail.value)
     this.filterFunction = this.makeFilter(ev.detail.value)
     this.filterString = ev.detail.value // spaghetti code waiting to be refactored
   }
@@ -70,7 +70,8 @@ export class CategoriesSelectorPage implements OnInit {
     this.filterFunction = this.filterFactory({ selectedCategoriesList: this.selectedCategoriesList })
     this.baseFilter = this.filterFactory({ selectedCategoriesList: this.selectedCategoriesList })
     if (this.service && this.service.items) {
-      this.service.items.subscribe(items => { this.categoriesList = items 
+      this.service.items.subscribe(items => {
+        this.categoriesList = items
       })
     }
 

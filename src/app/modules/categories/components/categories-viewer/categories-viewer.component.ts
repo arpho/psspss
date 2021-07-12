@@ -8,7 +8,7 @@ import { CategoryModel } from '../../models/CategoryModel'
   styleUrls: ['./categories-viewer.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class CategoriesViewerComponent implements OnInit,OnChanges {
+export class CategoriesViewerComponent implements OnInit, OnChanges {
   @Input() categorie: Array<CategoryModel>
   @Output() updatedCategories: EventEmitter<Array<CategoryModel>> = new EventEmitter()
   @Output() clickedCategory: EventEmitter<CategoryModel> = new EventEmitter()

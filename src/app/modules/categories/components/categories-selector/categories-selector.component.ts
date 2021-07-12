@@ -1,5 +1,5 @@
 // tslint:disable:semicolon
-import { Component, OnInit, ChangeDetectionStrategy, Input, Output, EventEmitter, forwardRef} from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy, Input, Output, EventEmitter, forwardRef } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { CategoriesSelectorPage } from '../../pages/categories-selector/categories-selector.page';
 import { CategoryModel } from '../../models/CategoryModel';
@@ -17,7 +17,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
     useExisting: forwardRef(() => CategoriesSelectorComponent)
   }]
 })
-export class CategoriesSelectorComponent implements OnInit,ControlValueAccessor {
+export class CategoriesSelectorComponent implements OnInit, ControlValueAccessor {
   @Input() categoriesList: Array<CategoryModel>
   @Input() buttonText = "categorie"
   @Output() selectedCategories: EventEmitter<Array<CategoryModel>> = new EventEmitter()

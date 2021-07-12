@@ -12,7 +12,7 @@ import { Observable, BehaviorSubject } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class CategoriesService implements ItemServiceInterface{
+export class CategoriesService implements ItemServiceInterface {
   public readonly key = 'categories'
   public categoriesListRef: firebase.default.database.Reference;
   _items: BehaviorSubject<Array<CategoryModel>> = new BehaviorSubject([])
@@ -123,8 +123,8 @@ export class CategoriesService implements ItemServiceInterface{
 
   }
 
-  
-  
+
+
   initializeItems() {
     throw new Error('Method not implemented.');
   }
