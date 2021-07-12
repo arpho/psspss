@@ -21,7 +21,7 @@ export class CategoriesSelectorComponent implements OnInit,ControlValueAccessor 
   @Input() buttonText = "categorie"
   @Output() selectedCategories: EventEmitter<Array<CategoryModel>> = new EventEmitter()
   categoryColor = 'orange'
-  categoryIcon = 'pricetag'
+  categoryIcon = 'medal'
   // tslint:disable-next-line: ban-types
   onChange: any = () => { };
   // tslint:disable-next-line: ban-types
@@ -50,7 +50,8 @@ export class CategoriesSelectorComponent implements OnInit,ControlValueAccessor 
   async showPopup() {
     const modal = await this.modalCtrl.create({ component: CategoriesSelectorPage, componentProps: { categories: this.categoriesList } })
     modal.onDidDismiss().then(data => {
-      this.categoriesList = data.data
+      this.categoriesList = [...data.data]
+      console.log('got cate',this.categoriesList)
       this.selectedCategories.emit(data.data)
 
 
@@ -59,7 +60,7 @@ export class CategoriesSelectorComponent implements OnInit,ControlValueAccessor 
     return await modal.present()
   }
   setCategories(ev) {
-    console.log('categories', ev)
+    console.log('set categories', ev)
   }
 
   clickedCategory(cat: CategoryModel) {

@@ -94,34 +94,27 @@ export class CategoriesService implements ItemServiceInterface{
   }
 
   constructor() {
-    console.log('ciao')
     this.instatiateItem = (args: {}) => {
       return this.initializeCategory(args)
     }
 
 
     firebase.default.auth().onAuthStateChanged(user => {
-      console.log('user',user)
       if (user) {
-        console.log('user is ok')
         this.categoriesListRef = firebase.default.database().ref(`/categorie/`);
         const notHierarchicalCategories: CategoryModel[] = [] // first load cathegories before father is loaded
         this.categoriesListRef.on('value', eventCategoriesListSnapshot => {
-          console.log('loading categories')
           this.items_list = [];
           eventCategoriesListSnapshot.forEach(snap => {
             const cat = new CategoryModel(snap.key).initialize(snap.val()).setKey(snap.key)
-            console.log('cat',cat)
             notHierarchicalCategories.push(cat)
           }
           );
           // now we load father
           notHierarchicalCategories.forEach(category => {
-            console.log('seeting father to ',category)
             const Category = this.setFather(category, notHierarchicalCategories)
             this.items_list.push(Category)
           })
-          console.log('list',this.items_list)
           this._items.next(this.items_list)
         });
       }

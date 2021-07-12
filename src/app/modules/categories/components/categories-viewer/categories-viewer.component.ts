@@ -1,24 +1,28 @@
 // tslint:disable: semicolon
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, OnChanges, SimpleChanges, ChangeDetectionStrategy } from '@angular/core';
 import { CategoryModel } from '../../models/CategoryModel'
 
 @Component({
   selector: 'app-categories-viewer',
   templateUrl: './categories-viewer.component.html',
   styleUrls: ['./categories-viewer.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class CategoriesViewerComponent implements OnInit {
+export class CategoriesViewerComponent implements OnInit,OnChanges {
   @Input() categorie: Array<CategoryModel>
   @Output() updatedCategories: EventEmitter<Array<CategoryModel>> = new EventEmitter()
   @Output() clickedCategory: EventEmitter<CategoryModel> = new EventEmitter()
-  @Input() categoryIcon = 'pricetag'
+  @Input() categoryIcon = 'medal'
   @Input() categoryColor = 'blue'
 
   constructor() { }
+  ngOnChanges(changes: SimpleChanges): void {
+    console.log('changes',changes)
+  }
 
   ngOnInit() {
     this.categoryColor = this.categoryColor || 'blue'
-    this.categoryIcon = this.categoryIcon || 'pricetag'
+    this.categoryIcon = this.categoryIcon || 'medal'
   }
 
   clicked(cat) {
