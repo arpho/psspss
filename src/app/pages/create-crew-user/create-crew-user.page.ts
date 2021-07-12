@@ -3,6 +3,7 @@ import { ModalController } from '@ionic/angular';
 import { CrewUserprofileModel } from 'src/app/models/CrewUserProfile';
 import { ActivityFields } from 'src/app/models/enumFields';
 import { QuestionBase } from 'src/app/modules/dynamic-form/models/question-base';
+import { QuestionCategories } from 'src/app/modules/dynamic-form/models/question-categories';
 import { DateQuestion } from 'src/app/modules/dynamic-form/models/question-date';
 import { DropdownQuestion } from 'src/app/modules/dynamic-form/models/question-dropdown';
 import { PictureBox } from 'src/app/modules/dynamic-form/models/question-picture';
@@ -36,7 +37,8 @@ export class CreateCrewUserPage implements OnInit {
       new TextboxQuestion({ key: 'lastName', label: 'Cognome', value: this.userprofile.lastName }),
       new DateQuestion({ key: "birthDate", label: "Data di nascita", value: this.userprofile.birthDate.formatDate() }),
       new TextboxQuestion({ key: "crewRole", label: "mansione", }),
-      new DropdownQuestion({key:"field",options:this.activityFields,label:"settore"  })
+      new DropdownQuestion({key:"field",options:this.activityFields,label:"settore"  }),
+      new QuestionCategories({key:'skill',label:'abilità'})
     ]
   }
 
