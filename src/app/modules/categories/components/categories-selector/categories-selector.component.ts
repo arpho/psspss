@@ -21,6 +21,7 @@ export class CategoriesSelectorComponent implements OnInit {
   constructor(public modalCtrl: ModalController) { }
 
   ngOnInit() {
+    this.buttonText = this.buttonText || "categorie"
   }
 
   async showPopup() {
