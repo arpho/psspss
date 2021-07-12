@@ -27,10 +27,10 @@
 
     
 
-    <div *ngSwitchCase="'datebox'" class='question'>
-      <ion-datetime [formControlName]="question?.key" [id]="question?.key">
+    
+      <ion-datetime *ngSwitchCase="'datebox'" class='question' [formControlName]="question?.key" [id]="question?.key">
       </ion-datetime>
-    </div>
+    
 
     <div *ngSwitchCase="'switchBox'" class="question">
       <p class="switchText">
@@ -45,10 +45,10 @@
       ></ion-toggle>
     </div>
     
-    <div *ngSwitchCase="'pictureBox'" class="question">
+    
 
-      <app-file-picker></app-file-picker>
-    </div>
+      <app-file-picker   *ngSwitchCase="'pictureBox'" class="question"></app-file-picker>
+    
 
     <app-categories-selector  *ngSwitchCase="'categories'" class="question" [buttonText]="question['buttonText']"
     [categoriesList]="question.value"
