@@ -12,6 +12,7 @@ import { CategoryModel } from '../../models/CategoryModel';
 })
 export class CategoriesSelectorComponent implements OnInit {
   @Input() categoriesList: Array<CategoryModel>
+  @Input() buttonText = "categoriee"
   @Output() selectedCategories: EventEmitter<Array<CategoryModel>> = new EventEmitter()
   categoryColor = 'orange'
   categoryIcon = 'pricetag'
@@ -33,8 +34,8 @@ export class CategoriesSelectorComponent implements OnInit {
     })
     return await modal.present()
   }
-  setCategories(ev){
-    console.log('categories',ev)
+  setCategories(ev) {
+    console.log('categories', ev)
   }
 
   clickedCategory(cat: CategoryModel) {
