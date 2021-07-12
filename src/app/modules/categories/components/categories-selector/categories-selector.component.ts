@@ -1,9 +1,10 @@
 // tslint:disable:semicolon
-import { Component, OnInit, ChangeDetectionStrategy, Input, Output, EventEmitter, forwardRef } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy, Input, Output, EventEmitter, forwardRef} from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { CategoriesSelectorPage } from '../../pages/categories-selector/categories-selector.page';
 import { CategoryModel } from '../../models/CategoryModel';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 @Component({
   selector: 'app-categories-selector',
@@ -20,6 +21,8 @@ export class CategoriesSelectorComponent implements OnInit,ControlValueAccessor 
   @Input() categoriesList: Array<CategoryModel>
   @Input() buttonText = "categorie"
   @Output() selectedCategories: EventEmitter<Array<CategoryModel>> = new EventEmitter()
+  _categories: BehaviorSubject<Array<CategoryModel>> = new BehaviorSubject([])
+  readonly categories2Subscribe: Observable<Array<CategoryModel>> = this._categories.asObservable()
   categoryColor = 'orange'
   categoryIcon = 'medal'
   // tslint:disable-next-line: ban-types
