@@ -50,8 +50,10 @@
       <app-file-picker></app-file-picker>
     </div>
 
-    <app-categories-selector  *ngSwitchCase="'categories'" class="question"[buttonText]="question.buttonText"
-    [categoriesList]="question.value">
+    <app-categories-selector  *ngSwitchCase="'categories'" class="question" [buttonText]="question.buttonText"
+    [categoriesList]="question.value"
+    [formControlName]="question?.key" [id]="question?.key"
+        >
       </app-categories-selector>
     
  
