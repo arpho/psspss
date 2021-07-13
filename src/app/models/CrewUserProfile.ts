@@ -5,6 +5,8 @@ import { DateModel } from "../modules/user/models/birthDateModel";
 import { UserModel } from "../modules/user/models/userModel";
 import { ReviewsModel } from "./reviewsModel";
 import {ActivityFields} from './enumFields'
+import { ItemServiceInterface } from "../modules/item/models/ItemServiceInterface";
+import { CategoriesService } from "../modules/categories/services/categorie.service";
 
 export enum UserKind {
     worker = 1,
@@ -59,6 +61,14 @@ export class CrewUserprofileModel extends UserModel {
 
     getNote() {
         return new Value({ label: "nota", value: "nota" })
+    }
+
+    async initializeSkills(service:CategoriesService){
+        this.skillsList = [] //reset array
+        this.skillsId.forEach((skill_id:string)=>{
+            service.fetchItem(skill_id,(skill:CategoryModel)=>{this.skillsList.push(skill)})
+        })
+
     }
 
     initialize(item) {
