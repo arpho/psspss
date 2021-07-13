@@ -1,5 +1,5 @@
 import { QuestionBase } from '../models/question-base';
-import { CategoryModel } from 'src/app/models/CategoryModel';
+import { CategoryModel } from '../../categories/models/CategoryModel';
 import { SelectorProperties } from '../../item/models/selectorItemsProperties';
 import { ItemModule } from '../../item/item.module';
 import { ItemModelInterface } from '../../item/models/itemModelInterface';

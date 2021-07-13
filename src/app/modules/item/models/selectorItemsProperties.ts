@@ -1,5 +1,5 @@
 import { QuestionProperties } from '../../dynamic-form/models/questionproperties';
-import { CategoryModel } from 'src/app/models/CategoryModel';
+import { CategoryModel } from '../../categories/models/CategoryModel';
 import { ItemServiceInterface } from './ItemServiceInterface';
 import { ItemModelInterface } from './itemModelInterface';
 // tslint:disable:semicolon

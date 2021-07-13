@@ -3,7 +3,10 @@ import { ActivatedRoute, Router } from '@angular/router';
 import firebase from "firebase/app";
 import { CrewUserprofileModel } from '../models/CrewUserProfile';
 import { ActivityFields } from '../models/enumFields';
+import { CategoryModel } from '../modules/categories/models/CategoryModel';
+import { CategoriesService } from '../modules/categories/services/categorie.service';
 import { DropdownQuestion } from '../modules/dynamic-form/models/question-dropdown';
+import { SelectorQuestion } from '../modules/dynamic-form/models/question-selector';
 import { TextboxQuestion } from '../modules/item/models/question-textbox';
 import { CreateCrewUserPage } from '../pages/create-crew-user/create-crew-user.page';
 import { UpdateCrewUserPage } from '../pages/update-crew-user/update-crew-user.page';
@@ -38,11 +41,12 @@ export class FolderPage implements OnInit {
   secondSpinner = false
 
 
-  constructor(private activatedRoute: ActivatedRoute, private router: Router, public service: CrewUserService) {
+  constructor(private activatedRoute: ActivatedRoute, private router: Router, public service: CrewUserService,public categories:CategoriesService) {
     const filter4Name = (value: string, item: CrewUserprofileModel) =>  item.firstName.toLocaleLowerCase().includes(value) 
     const filter4Lastname = (value: string, item: CrewUserprofileModel) => item.lastName.toLocaleLowerCase().includes(value) 
     const filter4Mansione = (value: string, item: CrewUserprofileModel) => item.crewRole.toLocaleLowerCase().includes(value) 
     const filter4Field = (value:number,item: CrewUserprofileModel) => item.field== value
+    const filter4Skill =(value:CategoryModel,item:CrewUserprofileModel)=>item.skilled(value.key)
     this.filterFields = [
       new TextboxQuestion({
         key: "nome",
@@ -64,7 +68,7 @@ export class FolderPage implements OnInit {
         label:"settore",
         options:this.activityFields,
         filterFunction:filter4Field
-      })
+      }),new SelectorQuestion({key:'skill',label:"filtra per abilità",filterFunction:filter4Skill,service:this.categories,text:'Abilità',createPopup:''})
     ]
   }
 
