@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import * as firebase from 'firebase';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { CrewUserprofileModel } from '../models/CrewUserProfile';
+import { CategoriesService } from '../modules/categories/services/categorie.service';
 import { ItemModelInterface } from '../modules/item/models/itemModelInterface';
 import { ItemServiceInterface } from '../modules/item/models/ItemServiceInterface';
 
@@ -16,7 +17,8 @@ export class CrewUserService implements ItemServiceInterface {
   _items: BehaviorSubject<Array<CrewUserprofileModel>> = new BehaviorSubject([])
   readonly items: Observable<Array<CrewUserprofileModel>> = this._items.asObservable()
   items_list: Array<CrewUserprofileModel> = []
-  constructor() {
+ 
+  constructor( public skillService: CategoriesService) {
     this.UserListRef = firebase.default.database().ref('/userProfile');
     this.initializeItems()
 
@@ -30,6 +32,7 @@ export class CrewUserService implements ItemServiceInterface {
         this.items_list = [];
         usersListSnapshot.forEach(snap => {
           const userProfile = new CrewUserprofileModel().initialize(snap.val()).setKey(snap.key)
+          userProfile.initializeSkills(this.skillService)
           this.items_list.push(userProfile);
         });
         this._items.next(this.items_list)

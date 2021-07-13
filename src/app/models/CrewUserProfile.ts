@@ -43,7 +43,7 @@ export class CrewUserprofileModel extends UserModel {
     crewRole: string
     field:ActivityFields
     skillsList:Array<CategoryModel>
-    skillsId:Array<string> // used to store skills id on db
+    skillsId:Array<string> =[]// used to store skills id on db
 
 
 
@@ -65,7 +65,7 @@ export class CrewUserprofileModel extends UserModel {
 
     async initializeSkills(service:CategoriesService){
         this.skillsList = [] //reset array
-        this.skillsId.forEach((skill_id:string)=>{
+        this?.skillsId.forEach((skill_id:string)=>{
             service.fetchItem(skill_id,(skill:CategoryModel)=>{this.skillsList.push(skill)})
         })
 
