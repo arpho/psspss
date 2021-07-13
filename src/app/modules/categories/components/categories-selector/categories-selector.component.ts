@@ -34,7 +34,7 @@ export class CategoriesSelectorComponent implements OnInit, ControlValueAccessor
 
   constructor(public modalCtrl: ModalController) { }
 
-  
+
 
   writeValue(obj: any): void {
     this.categoriesList = obj

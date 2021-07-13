@@ -38,9 +38,10 @@ export class CategoriesService implements ItemServiceInterface {
 
   fetchItem(key: string, next) {
     this.items.subscribe((items: CategoryModel[]) => {
-      if(items.length>0){
-      const Item = items.filter((item: CategoryModel) => item && item.key == key)[0]
-      next(Item)}
+      if (items.length > 0) {
+        const Item = items.filter((item: CategoryModel) => item && item.key == key)[0]
+        next(Item)
+      }
 
     })
   }
