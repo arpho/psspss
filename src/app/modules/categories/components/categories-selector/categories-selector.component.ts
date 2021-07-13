@@ -65,6 +65,7 @@ export class CategoriesSelectorComponent implements OnInit, ControlValueAccessor
       this.categoriesList = [...data.data]
       this.selectedCategories.emit(data.data)
       this._categories.next(this.categoriesList)
+      this.onChange(data.data)
 
 
 
