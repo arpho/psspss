@@ -40,6 +40,8 @@ export class CrewUserprofileModel extends UserModel {
     references: Array<ReviewsModel>
     crewRole: string
     field:ActivityFields
+    skillsList:Array<CategoryModel>
+    skillsId:Array<string> // used to store skills id on db
 
 
 
@@ -71,6 +73,6 @@ export class CrewUserprofileModel extends UserModel {
     }
 
     serialize() {
-        return { ...super.serialize(), type: this.type, references: this.serializeReferences(), picture: this.picture, crewRole: this.crewRole,field: this.field }
+        return { ...super.serialize(), type: this.type, references: this.serializeReferences(), picture: this.picture, crewRole: this.crewRole,field: this.field,skillsId:this.skillsList.map((item:CategoryModel)=>item.key) }
     }
 }
