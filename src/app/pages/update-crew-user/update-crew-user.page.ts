@@ -64,9 +64,7 @@ export class UpdateCrewUserPage implements OnInit {
 
   ngOnInit() {
     const user = this.navParams.get("item")
-    console.log("editing", user)
     this.userprofile.initialize(user)
-    console.log("user profile", this.userprofile, this.userprofile.key)
     this.userFields = [
       new TextboxQuestion({ key: 'firstName', label: 'Nome', value: this.userprofile.firstName }),
       new TextboxQuestion({ key: 'lastName', label: 'Cognome', value: this.userprofile.lastName }),

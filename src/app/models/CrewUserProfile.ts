@@ -66,7 +66,10 @@ export class CrewUserprofileModel extends UserModel {
     async initializeSkills(service:CategoriesService){
         this.skillsList = [] //reset array
         this?.skillsId.forEach((skill_id:string)=>{
-            service.fetchItem(skill_id,(skill:CategoryModel)=>{this.skillsList.push(skill)})
+            console.log( 'fetching skill',skill_id)
+            service.fetchItem(skill_id,(skill:CategoryModel)=>{this.skillsList.push(skill)
+            console.log('list',this.skillsList)
+            })
         })
 
     }
