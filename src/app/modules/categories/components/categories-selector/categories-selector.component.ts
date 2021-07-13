@@ -37,7 +37,9 @@ export class CategoriesSelectorComponent implements OnInit, ControlValueAccessor
   
 
   writeValue(obj: any): void {
+    console.log('writing value',obj)
     this.categoriesList = obj
+    this._categories.next(this.categoriesList) //we have  to publish the next value
   }
 
   registerOnChange(fn: any): void {
