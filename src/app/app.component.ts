@@ -25,8 +25,6 @@ export class AppComponent {
   ){
 
     this.initializeApp();{
-      console.log('initislizing app')
-      console.log('firebase',firebase.apps)
       const auth = firebase.auth()
       auth.onAuthStateChanged(user=>{
         console.log("authenticated user",user)
