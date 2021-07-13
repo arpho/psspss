@@ -61,6 +61,7 @@ export class CreateCrewUserPage implements OnInit {
   submit(arg) {
     console.log('submit',arg)
     this.userprofile.initialize(arg)
+    this.userprofile.skillsList = arg.skill
     console.log('user',this.userprofile,this.userprofile.serialize())
  /*    this.service.createItem(this.userprofile).then(value => {
       console.log("creato",value)
