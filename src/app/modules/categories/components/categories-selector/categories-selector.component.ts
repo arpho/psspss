@@ -34,10 +34,7 @@ export class CategoriesSelectorComponent implements OnInit, ControlValueAccessor
 
   constructor(public modalCtrl: ModalController) { }
 
-  get value():Array<CategoryModel>
-  {
-    return this.categoriesList
-  }
+  
 
   writeValue(obj: any): void {
     this.categoriesList = obj
@@ -74,7 +71,7 @@ export class CategoriesSelectorComponent implements OnInit, ControlValueAccessor
     })
     return await modal.present()
   }
-  
+
   setCategories(ev) {
     console.log('set categories', ev)
   }
