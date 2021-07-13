@@ -4,7 +4,7 @@ import { Value } from "../modules/item/models/value";
 import { DateModel } from "../modules/user/models/birthDateModel";
 import { UserModel } from "../modules/user/models/userModel";
 import { ReviewsModel } from "./reviewsModel";
-import {ActivityFields} from './enumFields'
+import { ActivityFields } from './enumFields'
 import { ItemServiceInterface } from "../modules/item/models/ItemServiceInterface";
 import { CategoriesService } from "../modules/categories/services/categorie.service";
 
@@ -41,9 +41,9 @@ export class CrewUserprofileModel extends UserModel {
     categorieId: Array<string>
     references: Array<ReviewsModel>
     crewRole: string
-    field:ActivityFields
-    skillsList:Array<CategoryModel>
-    skillsId:Array<string> =[]// used to store skills id on db
+    field: ActivityFields
+    skillsList: Array<CategoryModel>
+    skillsId: Array<string> = []// used to store skills id on db
 
 
 
@@ -63,12 +63,11 @@ export class CrewUserprofileModel extends UserModel {
         return new Value({ label: "nota", value: "nota" })
     }
 
-    async initializeSkills(service:CategoriesService){
+    async initializeSkills(service: CategoriesService) {
         this.skillsList = [] //reset array
-        this?.skillsId.forEach((skill_id:string)=>{
-            console.log( 'fetching skill',skill_id)
-            service.fetchItem(skill_id,(skill:CategoryModel)=>{this.skillsList.push(skill)
-            console.log('list',this.skillsList)
+        this?.skillsId.forEach((skill_id: string) => {
+            service.fetchItem(skill_id, (skill: CategoryModel) => {
+                this.skillsList.push(skill)
             })
         })
 
@@ -86,6 +85,6 @@ export class CrewUserprofileModel extends UserModel {
     }
 
     serialize() {
-        return { ...super.serialize(), type: this.type, references: this.serializeReferences(), picture: this.picture, crewRole: this.crewRole,field: this.field,skillsId:this.skillsList.map((item:CategoryModel)=>item.key) }
+        return { ...super.serialize(), type: this.type, references: this.serializeReferences(), picture: this.picture, crewRole: this.crewRole, field: this.field, skillsId: this.skillsList.map((item: CategoryModel) => item.key) }
     }
 }
