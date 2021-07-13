@@ -45,7 +45,7 @@ export class UpdateCrewUserPage implements OnInit {
     console.log('updating', user)
     Object.assign(this.userprofile, user)
     console.log('last', this.userprofile)
-
+    this.userprofile.skillsList = user.skill
     this.service.updateItem(this.userprofile).then((value => {
       console.log('updated', value)
       this.presentToast(`l'utente: ${this.userprofile.getTitle().value} è stato modificato`)
