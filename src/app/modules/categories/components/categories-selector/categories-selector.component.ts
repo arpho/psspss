@@ -29,22 +29,31 @@ export class CategoriesSelectorComponent implements OnInit, ControlValueAccessor
   onChange: any = () => { };
   // tslint:disable-next-line: ban-types
   onTouched: any = () => { };
-  disabled = false
+  @Input() disabled = false
 
 
   constructor(public modalCtrl: ModalController) { }
+
+  get value():Array<CategoryModel>
+  {
+    return this.categoriesList
+  }
+
   writeValue(obj: any): void {
     this.categoriesList = obj
     console.log('written',obj)
   }
+
   registerOnChange(fn: any): void {
     console.log('chasnged',fn)
     this.onChange = fn
   }
+
   registerOnTouched(fn: any): void {
     console.log('touched',fn)
     this.onTouched = fn
   }
+
   setDisabledState?(disabled: boolean): void {
     this.disabled = disabled
   }
@@ -65,6 +74,7 @@ export class CategoriesSelectorComponent implements OnInit, ControlValueAccessor
     })
     return await modal.present()
   }
+  
   setCategories(ev) {
     console.log('set categories', ev)
   }
