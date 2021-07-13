@@ -38,16 +38,13 @@ export class CategoriesSelectorComponent implements OnInit, ControlValueAccessor
 
   writeValue(obj: any): void {
     this.categoriesList = obj
-    console.log('written',obj)
   }
 
   registerOnChange(fn: any): void {
-    console.log('chasnged',fn)
     this.onChange = fn
   }
 
   registerOnTouched(fn: any): void {
-    console.log('touched',fn)
     this.onTouched = fn
   }
 
