@@ -46,6 +46,7 @@ export class CreateCrewUserPage implements OnInit {
   }
 
   filter(ev) {
+    console.log('editing',ev)
   }
 
   dismiss(purchase?) {
@@ -58,12 +59,14 @@ export class CreateCrewUserPage implements OnInit {
   }
 
   submit(arg) {
+    console.log('submit',arg)
     this.userprofile.initialize(arg)
-    this.service.createItem(this.userprofile).then(value => {
+    console.log('user',this.userprofile)
+ /*    this.service.createItem(this.userprofile).then(value => {
       console.log("creato",value)
       this.dismiss()
 
-    })
+    }) */
   }
   }
    

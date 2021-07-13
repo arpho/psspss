@@ -35,11 +35,14 @@ export class CategoriesSelectorComponent implements OnInit, ControlValueAccessor
   constructor(public modalCtrl: ModalController) { }
   writeValue(obj: any): void {
     this.categoriesList = obj
+    console.log('written',obj)
   }
   registerOnChange(fn: any): void {
+    console.log('chasnged',fn)
     this.onChange = fn
   }
   registerOnTouched(fn: any): void {
+    console.log('touched',fn)
     this.onTouched = fn
   }
   setDisabledState?(disabled: boolean): void {
@@ -47,7 +50,7 @@ export class CategoriesSelectorComponent implements OnInit, ControlValueAccessor
   }
 
   ngOnInit() {
-    this.buttonText = this.buttonText || "categorie"
+    this.buttonText = this.buttonText || "Categorie"
   }
 
   async showPopup() {
