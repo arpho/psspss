@@ -14,7 +14,12 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
   ]
 })
 export class RatingInputComponent implements OnInit,ControlValueAccessor {
+  // Function to call when the rating changes.
   onChange = (rating: number) => {};
+
+  // Function to call when the input is touched (when a star is clicked).
+  onTouched = () => {};
+
 
   constructor() {
 
