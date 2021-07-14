@@ -7,6 +7,7 @@ import { QuestionCategories } from 'src/app/modules/dynamic-form/models/question
 import { DateQuestion } from 'src/app/modules/dynamic-form/models/question-date';
 import { DropdownQuestion } from 'src/app/modules/dynamic-form/models/question-dropdown';
 import { PictureBox } from 'src/app/modules/dynamic-form/models/question-picture';
+import { QuestionRate } from 'src/app/modules/dynamic-form/models/question-rate';
 import { TextboxQuestion } from 'src/app/modules/item/models/question-textbox';
 import { CrewUserService } from 'src/app/services/crew-user.service';
 
@@ -38,7 +39,8 @@ export class CreateCrewUserPage implements OnInit {
       new DateQuestion({ key: "birthDate", label: "Data di nascita", value: this.userprofile.birthDate.formatDate() }),
       new TextboxQuestion({ key: "crewRole", label: "mansione", }),
       new DropdownQuestion({key:"field",options:this.activityFields,label:"settore"  }),
-      new QuestionCategories({key:'skill',label:'abilità',buttonText:"Abilità",value:this.userprofile.categories})
+      new QuestionCategories({key:'skill',label:'abilità',buttonText:"Abilità",value:this.userprofile.categories}),
+      new QuestionRate({key:'rate',label:'rate',value:3})
     ]
   }
 
