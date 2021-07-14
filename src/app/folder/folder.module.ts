@@ -10,6 +10,7 @@ import { FolderPage } from './folder.page';
 import { ItemModule } from '../modules/item/item.module';
 import { DynamicFormModule } from '../modules/dynamic-form/dynamic-form.module';
 import { CategoriesModule } from '../modules/categories/categories.module';
+import { RatingsModule } from '../modules/ratings/ratings.module';
 
 @NgModule({
   imports: [
@@ -19,7 +20,8 @@ import { CategoriesModule } from '../modules/categories/categories.module';
     FolderPageRoutingModule,
     ItemModule,
     DynamicFormModule,
-    CategoriesModule
+    CategoriesModule,
+    RatingsModule,
   ],
   declarations: [FolderPage]
 })
