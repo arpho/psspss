@@ -40,7 +40,7 @@ export class CreateCrewUserPage implements OnInit {
       new TextboxQuestion({ key: "crewRole", label: "mansione", }),
       new DropdownQuestion({key:"field",options:this.activityFields,label:"settore"  }),
       new QuestionCategories({key:'skill',label:'abilità',buttonText:"Abilità",value:this.userprofile.categories}),
-      new QuestionRate({key:'rate',label:'rate',value:3})
+      new QuestionRate({key:'rate',label:'rate mi',value:3})
     ]
   }
 

@@ -8,6 +8,7 @@ import { QuestionControlService } from './services/question-control.service';
 import { ItemModule } from '../item/item.module';
 import { FilePickerComponent } from './components/file-picker/file-picker.component';
 import { CategoriesModule } from '../categories/categories.module';
+import { RatingsModule } from '../ratings/ratings.module';
 
 @NgModule({
   declarations: [QuestionFormComponent, DynamicFormComponent,FilePickerComponent],
@@ -17,6 +18,7 @@ import { CategoriesModule } from '../categories/categories.module';
     ReactiveFormsModule,
     ItemModule,
     CategoriesModule,
+    RatingsModule
   ],
   exports: [QuestionFormComponent, DynamicFormComponent,],
   providers: [QuestionControlService]

@@ -6,6 +6,7 @@ import { CreateCrewUserPage } from './create-crew-user.page';
 import { DynamicFormModule } from 'src/app/modules/dynamic-form/dynamic-form.module';
 import { CategoriesModule } from 'src/app/modules/categories/categories.module';
 import { ItemModule } from 'src/app/modules/item/item.module';
+import { RatingsModule } from 'src/app/modules/ratings/ratings.module';
 
 @NgModule({
   imports: [
@@ -15,6 +16,7 @@ import { ItemModule } from 'src/app/modules/item/item.module';
     DynamicFormModule,
     ItemModule,
     CategoriesModule,
+    RatingsModule
   ],
   declarations: [CreateCrewUserPage]
 })

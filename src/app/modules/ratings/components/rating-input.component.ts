@@ -1,5 +1,6 @@
 import { Component, forwardRef, OnInit } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { Console } from 'console';
 
 @Component({
   selector: 'rating-input',
@@ -30,10 +31,13 @@ export class RatingInputComponent implements OnInit,ControlValueAccessor {
     this.onChange(this.value);
   }
   registerOnChange(fn: any): void {
-    throw new Error('Method not implemented.');
+    this.onChange = fn
+    console.log('changed rating')
+    this.onChange(4) // 4 just to debug
   }
   registerOnTouched(fn: any): void {
-    throw new Error('Method not implemented.');
+    console.log('touch')
+    this.onTouched = fn
   }
   setDisabledState?(isDisabled: boolean): void {
     throw new Error('Method not implemented.');
@@ -51,6 +55,7 @@ export class RatingInputComponent implements OnInit,ControlValueAccessor {
 
   rate(rating: number) {
     this.stars = this.stars.map((_, i) => rating > i);
+    this.onChange(this.value)
   }
 
 }

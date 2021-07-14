@@ -30,8 +30,10 @@
 
 
     <app-file-picker *ngSwitchCase="'pictureBox'" class="question"></app-file-picker>
-
-
+    <div *ngSwitchCase ="'rate-input'" >
+    <rating-input class="question" [formControlName]="question?.key" [id]="question?.key"> </rating-input>
+    </div>
+ 
     <app-categories-selector *ngSwitchCase="'categories'" class="question" [buttonText]="question['buttonText']"
       [categoriesList]="question.value" [formControlName]="question?.key" [id]="question?.key" ngDefaultControl>
     </app-categories-selector>
