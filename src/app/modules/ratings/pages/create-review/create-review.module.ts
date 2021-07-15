@@ -12,9 +12,9 @@ import { CreateReviewPage } from './create-review.page';
   imports: [
     CommonModule,
     FormsModule,
-    IonicModule,
+    IonicModule.forRoot(),
     CreateReviewPageRoutingModule
   ],
-  declarations: [CreateReviewPage]
+  declarations: []
 })
 export class CreateReviewPageModule {}
