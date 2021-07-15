@@ -5,3 +5,10 @@
     </app-listable-item>
   </ion-item>
 </ion-list>
+<div *ngIf="createModalPage">
+  <ion-fab class="addItem" vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="createItem()">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+  </div>
