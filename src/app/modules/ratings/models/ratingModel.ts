@@ -14,7 +14,6 @@ export class RatingModel implements ListableItemInterface {
     }
 
     get middleField() {
-        console.log('getting middleField', this.reference)
         return new Value({ value: this.reference, label: "giudizio" })
     }
 

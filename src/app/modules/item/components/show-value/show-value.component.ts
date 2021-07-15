@@ -13,7 +13,6 @@ export class ShowValueComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    console.log('show label',this.showLabel)
   }
 
 }

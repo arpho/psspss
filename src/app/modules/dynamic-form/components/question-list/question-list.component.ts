@@ -37,7 +37,6 @@ export class QuestionListComponent implements OnInit, ControlValueAccessor {
   }
 
   ngOnInit() { 
-    console.log('init list',this.itemsList)
   }
 
 }
