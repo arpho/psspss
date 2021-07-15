@@ -13,7 +13,7 @@ import { QuestionListComponent } from './components/question-list/question-list.
 import {ListableItemComponent} from './components/listable-item/listable-item.component'
 
 @NgModule({
-  declarations: [QuestionFormComponent, DynamicFormComponent,FilePickerComponent,QuestionListComponent],
+  declarations: [QuestionFormComponent, DynamicFormComponent,FilePickerComponent,QuestionListComponent,ListableItemComponent],
   imports: [
     CommonModule,
     IonicModule.forRoot(),

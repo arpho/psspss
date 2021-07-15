@@ -5,5 +5,6 @@ export class QuestionList extends QuestionBase<string>{
     constructor(options:QuestionProperties<string>){
         super(options)
         this.controlType ="itemsList"
+        console.log('value',this.value)
     }
 }

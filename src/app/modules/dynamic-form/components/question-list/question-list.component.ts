@@ -14,7 +14,7 @@ import { ListableItemInterface } from '../../models/listableItemInterface';
   }]
 })
 export class QuestionListComponent implements OnInit, ControlValueAccessor {
-  @Input() itemsList: Array<ListableItemInterface>
+  @Input() itemsList: Array<ListableItemInterface> = []
   // tslint:disable-next-line: ban-types
   onChange: any = () => { };
   // tslint:disable-next-line: ban-types
@@ -36,6 +36,8 @@ export class QuestionListComponent implements OnInit, ControlValueAccessor {
     this.disabled = isDisabled
   }
 
-  ngOnInit() { }
+  ngOnInit() { 
+    console.log('init list',this.itemsList)
+  }
 
 }

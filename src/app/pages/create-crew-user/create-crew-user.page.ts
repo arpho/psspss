@@ -32,7 +32,7 @@ export class CreateCrewUserPage implements OnInit {
 ]
 
 testList = [
-  new RatingModel().initialize({rate:5,reference:"testing",Date:new DateModel(new Date).formatFullDate()})
+  new RatingModel().initialize({rate:5,reference:"testing",date:new DateModel(new Date).formatFullDate()})
 ]
 
   constructor(public service: CrewUserService,
