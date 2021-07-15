@@ -11,6 +11,8 @@ import { PictureBox } from 'src/app/modules/dynamic-form/models/question-picture
 import { QuestionRate } from 'src/app/modules/dynamic-form/models/question-rate';
 import { TextboxQuestion } from 'src/app/modules/item/models/question-textbox';
 import { CrewUserService } from 'src/app/services/crew-user.service';
+import { RatingModel } from 'src/app/modules/ratings/models/ratingModel';
+import { DateModel } from 'src/app/modules/user/models/birthDateModel';
 
 @Component({
   selector: 'app-create-crew-user',
@@ -30,7 +32,7 @@ export class CreateCrewUserPage implements OnInit {
 ]
 
 testList = [
-  new RatingModel
+  new RatingModel().initialize({rate:5,reference:"testing",Date:new DateModel(new Date).formatFullDate()})
 ]
 
   constructor(public service: CrewUserService,
@@ -46,7 +48,7 @@ testList = [
       new DropdownQuestion({key:"field",options:this.activityFields,label:"settore"  }),
       new QuestionCategories({key:'skill',label:'abilità',buttonText:"Abilità",value:this.userprofile.categories}),
       new QuestionRate({key:'rate',label:'rate mi',value:3}),
-      new QuestionList({key:"references",label:"testing list"})
+      new QuestionList({key:"references",label:"testing list",value:this.testList})
     ]
   }
 

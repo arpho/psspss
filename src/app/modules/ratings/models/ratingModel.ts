@@ -2,7 +2,7 @@ import { ListableItemInterface } from "../../dynamic-form/models/listableItemInt
 import { Value } from "../../item/models/value";
 import { DateModel } from "../../user/models/birthDateModel";
 
-export class Rating implements ListableItemInterface {
+export class RatingModel implements ListableItemInterface {
     date: DateModel
     author: string
     reference: string
@@ -22,8 +22,9 @@ export class Rating implements ListableItemInterface {
     }
 
 
-    initialize(arg) {
-        Object.assign(this, arg)
+    initialize(args) {
+        Object.assign(this, args)
+        this.date = new Date(args.date) ? new DateModel(new Date(this.date)) : new DateModel(new Date())
         return this
     }
     serialize() {
