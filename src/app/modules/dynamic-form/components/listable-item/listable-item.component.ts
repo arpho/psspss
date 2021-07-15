@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { ListableItemInterface } from '../../models/listableItemInterface';
 
 @Component({
   selector: 'app-listable-item',
@@ -6,9 +7,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./listable-item.component.scss'],
 })
 export class ListableItemComponent implements OnInit {
+  @Input() item: ListableItemInterface
 
   constructor() { }
 
-  ngOnInit() {}
+  ngOnInit() { }
 
 }
