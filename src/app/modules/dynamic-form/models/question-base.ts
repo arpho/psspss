@@ -41,6 +41,7 @@ export class QuestionBase<T> {
     this.label = options.label || "";
     this.required = !!options['required'];
     this.value = options['value']
+    this.createPopupPage = options['createPopupPage']
     this.filterFunction = options['filterFunction']
     this.order = options['order'] === undefined ? 1 : options['order'];
     this.controlType = options['controlType'] || "";

@@ -18,7 +18,7 @@ import { ComponentRef } from '@ionic/core';
 })
 export class QuestionListComponent implements OnInit, ControlValueAccessor {
   @Input() itemsList: Array<ListableItemInterface> = []
-  @Input() createModalPage: ComponentRef
+  @Input() createPopupPage: ComponentRef
   // tslint:disable-next-line: ban-types
   onChange: any = () => { };
   // tslint:disable-next-line: ban-types
@@ -26,7 +26,7 @@ export class QuestionListComponent implements OnInit, ControlValueAccessor {
   disabled = false
 
 ngOnInit() { 
-  console.log('createModalPage',this.createModalPage)
+  console.log('createModalPage',this.createPopupPage)
   }
 
   constructor(public modalController:ModalController) { }
@@ -48,7 +48,7 @@ ngOnInit() {
   }
 
   async createItem() {
-    const modal = await this.modalController.create({ component: this.createModalPage })
+    const modal = await this.modalController.create({ component: this.createPopupPage })
     return await modal.present()
 
   }
