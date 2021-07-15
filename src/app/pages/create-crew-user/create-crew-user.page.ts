@@ -29,6 +29,10 @@ export class CreateCrewUserPage implements OnInit {
     {key:"cucina",value:ActivityFields.cucina}
 ]
 
+testList = [
+  new RatingModel
+]
+
   constructor(public service: CrewUserService,
     public modalCtrl:ModalController,
     ) {
