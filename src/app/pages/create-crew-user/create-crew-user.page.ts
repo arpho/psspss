@@ -13,6 +13,7 @@ import { TextboxQuestion } from 'src/app/modules/item/models/question-textbox';
 import { CrewUserService } from 'src/app/services/crew-user.service';
 import { RatingModel } from 'src/app/modules/ratings/models/ratingModel';
 import { DateModel } from 'src/app/modules/user/models/birthDateModel';
+import { CreateReviewPage } from 'src/app/modules/ratings/pages/create-review/create-review.page';
 
 @Component({
   selector: 'app-create-crew-user',
@@ -49,7 +50,7 @@ testList = [
       new DropdownQuestion({key:"field",options:this.activityFields,label:"settore"  }),
       new QuestionCategories({key:'skill',label:'abilità',buttonText:"Abilità",value:this.userprofile.categories}),
       new QuestionRate({key:'rate',label:'rate mi',value:3}),
-      new QuestionList({key:"references",label:"testing list",value:this.testList})
+      new QuestionList({key:"references",label:"testing list",value:this.testList,createPopupPage:CreateReviewPage})
     ]
   }
 
