@@ -6,6 +6,7 @@ import { QuestionBase } from 'src/app/modules/dynamic-form/models/question-base'
 import { QuestionCategories } from 'src/app/modules/dynamic-form/models/question-categories';
 import { DateQuestion } from 'src/app/modules/dynamic-form/models/question-date';
 import { DropdownQuestion } from 'src/app/modules/dynamic-form/models/question-dropdown';
+import { QuestionList } from 'src/app/modules/dynamic-form/models/question-list';
 import { PictureBox } from 'src/app/modules/dynamic-form/models/question-picture';
 import { QuestionRate } from 'src/app/modules/dynamic-form/models/question-rate';
 import { TextboxQuestion } from 'src/app/modules/item/models/question-textbox';
@@ -40,7 +41,8 @@ export class CreateCrewUserPage implements OnInit {
       new TextboxQuestion({ key: "crewRole", label: "mansione", }),
       new DropdownQuestion({key:"field",options:this.activityFields,label:"settore"  }),
       new QuestionCategories({key:'skill',label:'abilità',buttonText:"Abilità",value:this.userprofile.categories}),
-      new QuestionRate({key:'rate',label:'rate mi',value:3})
+      new QuestionRate({key:'rate',label:'rate mi',value:3}),
+      new QuestionList({key:"references",label:"testing list"})
     ]
   }
 
