@@ -8,6 +8,7 @@ import { ListableItemInterface } from '../../models/listableItemInterface';
 })
 export class ListableItemComponent implements OnInit {
   @Input() item: ListableItemInterface
+  showLabel = true
 
   constructor() { }
 

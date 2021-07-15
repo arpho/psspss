@@ -8,11 +8,12 @@ import { Value } from '../../models/value';
 })
 export class ShowValueComponent implements OnInit {
   @Input() value: Value;
-  @Input() showLabel = false
+  @Input() showLabel 
 
   constructor() { }
 
   ngOnInit() {
+    console.log('show label',this.showLabel)
   }
 
 }

@@ -1,7 +1,7 @@
 <div>
   <span [ngSwitch]="value?.value">
     <p slot="start" *ngSwitchCase="!''"></p>
-    <p class="label">  {{value?.label}}</p>
+    <p *ngIf="showLabel" class="label">  {{value?.label}}</p>
     <p>
       {{ value?.value }}
     </p>
