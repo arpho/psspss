@@ -38,10 +38,6 @@ const routes: Routes = [
 loadChildren:()=>import('./modules/user/pages/users/users.module').then(m=> m.UsersModule)},
   {
     path: 'create-review',
-    loadChildren: () => import('./modules/rating/pages/create-review/create-review.module').then( m => m.CreateReviewPageModule)
-  },
-  {
-    path: 'create-review',
     loadChildren: () => import('./modules/ratings/pages/create-review/create-review.module').then( m => m.CreateReviewPageModule)
   }
 ];
