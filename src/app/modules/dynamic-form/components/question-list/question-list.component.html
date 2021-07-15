@@ -1,3 +1,7 @@
-<p>
-  question-list works!
-</p>
+<ion-list>
+  <ion-item *ngFor="let item of itemsList">
+    <app-listable-item' [item]="item" >
+
+    </app-listable-item>
+  </ion-item>
+</ion-list>
