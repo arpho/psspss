@@ -6,6 +6,7 @@ import { QuestionProperties } from './questionproperties';
 import { ItemServiceInterface } from '../../item/models/ItemServiceInterface';
 import { ComboValue } from './ComboValueinterface';
 //import { Options } from 'selenium-webdriver';
+import { ComponentRef } from '@ionic/core';
 
 export class QuestionBase<T> {
   value: T;
@@ -21,6 +22,7 @@ export class QuestionBase<T> {
   service: ItemServiceInterface
   labelFalse: string;
   text: string;
+  createPopupPage:ComponentRef
   disabled: boolean
   options: ComboValue[]
   onChange: any = () => { };
