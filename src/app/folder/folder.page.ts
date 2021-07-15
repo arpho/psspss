@@ -46,7 +46,7 @@ export class FolderPage implements OnInit {
     const filter4Lastname = (value: string, item: CrewUserprofileModel) => item.lastName.toLocaleLowerCase().includes(value)
     const filter4Mansione = (value: string, item: CrewUserprofileModel) => item.crewRole.toLocaleLowerCase().includes(value)
     const filter4Field = (value: number, item: CrewUserprofileModel) => item.field == value
-    const filter4Skill = (value: CategoryModel, item: CrewUserprofileModel) => item.skilled(value.key)
+    const filter4Skill = (value: CategoryModel, item: CrewUserprofileModel) => item.isSkilled(value.key)
     this.filterFields = [
       new TextboxQuestion({
         key: "nome",

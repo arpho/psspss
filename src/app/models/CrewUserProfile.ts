@@ -30,7 +30,7 @@ export class CrewUserprofileModel extends UserModel {
         return new Value({ label: "data di nascita", value: this.birthDate.formatDate() })
     }
 
-    skilled(key: string) {
+    isSkilled(key: string) {
         return this.skillsList.map((skill: CategoryModel) => skill.key).indexOf(key) > -1
     }
 
