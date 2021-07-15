@@ -7,7 +7,8 @@ import { Value } from '../../models/value';
   styleUrls: ['./show-value.component.scss'],
 })
 export class ShowValueComponent implements OnInit {
-  @Input() value:Value;
+  @Input() value: Value;
+  @Input() showLabel = false
 
   constructor() { }
 
