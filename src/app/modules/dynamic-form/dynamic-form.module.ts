@@ -21,7 +21,6 @@ import { RatingInput2Component } from './components/rating-input2/rating-input2.
     ReactiveFormsModule,
     ItemModule,
     CategoriesModule,
-    RatingsModule
   ],
   exports: [QuestionFormComponent, DynamicFormComponent,RatingInput2Component],
   providers: [QuestionControlService]
