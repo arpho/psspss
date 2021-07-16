@@ -11,9 +11,10 @@ import { CategoriesModule } from '../categories/categories.module';
 import { RatingsModule } from '../ratings/ratings.module';
 import { QuestionListComponent } from './components/question-list/question-list.component';
 import {ListableItemComponent} from './components/listable-item/listable-item.component'
+import { RatingInput2Component } from './components/rating-input2/rating-input2.component';
 
 @NgModule({
-  declarations: [QuestionFormComponent, DynamicFormComponent,FilePickerComponent,QuestionListComponent,ListableItemComponent],
+  declarations: [QuestionFormComponent, DynamicFormComponent,FilePickerComponent,QuestionListComponent,ListableItemComponent,RatingInput2Component],
   imports: [
     CommonModule,
     IonicModule.forRoot(),
@@ -22,7 +23,7 @@ import {ListableItemComponent} from './components/listable-item/listable-item.co
     CategoriesModule,
     RatingsModule
   ],
-  exports: [QuestionFormComponent, DynamicFormComponent,],
+  exports: [QuestionFormComponent, DynamicFormComponent,RatingInput2Component],
   providers: [QuestionControlService]
 })
 export class DynamicFormModule { }
