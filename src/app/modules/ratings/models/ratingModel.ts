@@ -5,7 +5,7 @@ import { DateModel } from "../../user/models/birthDateModel";
 export class RatingModel implements ListableItemInterface {
     date: DateModel
     author: string
-    reference: string
+    review: string
     rate: number
     key: string
 
@@ -14,7 +14,7 @@ export class RatingModel implements ListableItemInterface {
     }
 
     get middleField() {
-        return new Value({ value: this.reference, label: "giudizio" })
+        return new Value({ value: this.review, label: "giudizio" })
     }
 
     get rightField() {
@@ -28,6 +28,6 @@ export class RatingModel implements ListableItemInterface {
         return this
     }
     serialize() {
-        return { "key": this.key, "author": this.author, "reference": this.reference, "rate": this.rate, "date": this.date.formatFullDate() }
+        return { "key": this.key, "author": this.author, "reference": this.review, "rate": this.rate, "date": this.date.formatFullDate() }
     }
 }
