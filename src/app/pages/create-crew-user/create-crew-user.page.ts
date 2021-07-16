@@ -14,6 +14,7 @@ import { CrewUserService } from 'src/app/services/crew-user.service';
 import { RatingModel } from 'src/app/modules/ratings/models/ratingModel';
 import { DateModel } from 'src/app/modules/user/models/birthDateModel';
 import { CreateReviewPage } from 'src/app/modules/ratings/pages/create-review/create-review.page';
+import { CategoriesService } from 'src/app/modules/categories/services/categorie.service';
 
 @Component({
   selector: 'app-create-crew-user',
@@ -37,7 +38,7 @@ testList = [
   new RatingModel().initialize({rate:4,reference:"testing 2",date:new DateModel(new Date).formatFullDate()})
 ]
 
-  constructor(public service: CrewUserService,
+  constructor(public service: CrewUserService, public categories:CategoriesService,
     public modalCtrl:ModalController,
     ) {
       
@@ -73,13 +74,14 @@ testList = [
   submit(arg) {
     console.log('submit',arg)
     this.userprofile.initialize(arg)
-    this.userprofile.skillsList = arg.skill
+    this.userprofile.initializeSkills(this.categories)
+    this.userprofile.skillsList = arg.skill? arg.skill : this.userprofile.skillsList
     console.log('user',this.userprofile,this.userprofile.serialize())
- /*    this.service.createItem(this.userprofile).then(value => {
+     this.service.createItem(this.userprofile).then(value => {
       console.log("creato",value)
       this.dismiss()
 
-    }) */
+    }) 
   }
   }
    

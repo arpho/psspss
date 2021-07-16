@@ -20,6 +20,7 @@ export class CrewUserprofileModel extends UserModel {
     constructor() {
         super()
         this.birthDate = new DateModel(new Date())
+        this.skillsList = []
     }
 
     getValue2() {
@@ -79,8 +80,10 @@ export class CrewUserprofileModel extends UserModel {
 
     initialize(item) {
         super.initialize(item)
+        
         this.categories = this.categories || this.instatiateCategories(item.categorieId)
         this.references = this.references ? this.references.map(item => new ReviewsModel().initialize(item)) : []
+        
         this.title = `${this.firstName} ${this.lastName}`
         return this
     }
@@ -89,6 +92,7 @@ export class CrewUserprofileModel extends UserModel {
     }
 
     serialize() {
+        console.log('serializing',this)
         return { ...super.serialize(), type: this.type, references: this.serializeReferences(), picture: this.picture, crewRole: this.crewRole, field: this.field, skillsId: this.skillsList.map((item: CategoryModel) => item.key) }
     }
 }
