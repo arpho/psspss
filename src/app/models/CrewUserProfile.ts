@@ -7,6 +7,7 @@ import { ReviewsModel } from "./reviewsModel";
 import { ActivityFields } from './enumFields'
 import { ItemServiceInterface } from "../modules/item/models/ItemServiceInterface";
 import { CategoriesService } from "../modules/categories/services/categorie.service";
+import { RatingModel } from "../modules/ratings/models/ratingModel";
 
 export enum UserKind {
     worker = 1,
@@ -44,7 +45,7 @@ export class CrewUserprofileModel extends UserModel {
     picture: string = ''
     categories: Array<CategoryModel>
     categorieId: Array<string>
-    references: Array<ReviewsModel>
+    references: Array<RatingModel>
     crewRole: string
     field: ActivityFields
     skillsList: Array<CategoryModel>
@@ -82,13 +83,13 @@ export class CrewUserprofileModel extends UserModel {
         super.initialize(item)
         
         this.categories = this.categories || this.instatiateCategories(item.categorieId)
-        this.references = this.references ? this.references.map(item => new ReviewsModel().initialize(item)) : []
+        this.references = this.references ? this.references.map(item => new RatingModel().initialize(item)) : []
         
         this.title = `${this.firstName} ${this.lastName}`
         return this
     }
     serializeReferences() {
-        return this.references.map((item: ReviewsModel) => item.serialize())
+        return this.references.map((item: RatingModel) => item.serialize())
     }
 
     serialize() {
