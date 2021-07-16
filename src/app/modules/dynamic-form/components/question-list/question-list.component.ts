@@ -57,7 +57,7 @@ ngOnInit() {
         console.log('pusdhing',data.data)
         this.itemsList.push(data.data)
         this.writeValue(this.itemsList)
-        this.onChange(data.data)
+        this.onChange(this.itemsList)
         this._itemsList.next(this.itemsList)
       }
     })
