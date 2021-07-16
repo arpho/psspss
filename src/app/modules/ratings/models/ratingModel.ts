@@ -24,7 +24,10 @@ export class RatingModel implements ListableItemInterface {
 
     initialize(args) {
         Object.assign(this, args)
-        this.date = new Date(args.date) ? new DateModel(new Date(this.date)) : new DateModel(new Date())
+        this.date = new DateModel(new Date(args.date))
+        if (!this.date.day){
+            this.date = new DateModel(new Date())
+        }
         return this
     }
     serialize() {
