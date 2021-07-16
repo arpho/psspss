@@ -4,6 +4,7 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { ModalController } from '@ionic/angular';
 import { ListableItemInterface } from '../../models/listableItemInterface';
 import { ComponentRef } from '@ionic/core';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 @Component({
   selector: 'app-question-list',
@@ -19,6 +20,8 @@ import { ComponentRef } from '@ionic/core';
 export class QuestionListComponent implements OnInit, ControlValueAccessor {
   @Input() itemsList: Array<ListableItemInterface> = []
   @Input() createPopupPage: ComponentRef
+  _itemsList:BehaviorSubject<Array<ListableItemInterface>> = new BehaviorSubject([])
+  readonly itemsList2subscribe:Observable<Array<ListableItemInterface>> =this._itemsList.asObservable()
   // tslint:disable-next-line: ban-types
   onChange: any = () => { };
   // tslint:disable-next-line: ban-types
@@ -33,6 +36,7 @@ ngOnInit() {
   writeValue(obj: any): void {
     this.itemsList = obj
     this.onChange(obj)
+
   }
 
   registerOnChange(fn: any): void {
@@ -46,13 +50,15 @@ ngOnInit() {
   setDisabledState?(isDisabled: boolean): void {
     this.disabled = isDisabled
   }
-
   async createItem() {
     const modal = await this.modalController.create({ component: this.createPopupPage })
     modal.onDidDismiss().then(data =>{
       if (data.data){
+        console.log('pusdhing',data.data)
         this.itemsList.push(data.data)
-        this.onChange(this.itemsList)
+        this.writeValue(this.itemsList)
+        this.onChange(data.data)
+        this._itemsList.next(this.itemsList)
       }
     })
     return modal.present()
