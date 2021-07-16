@@ -61,7 +61,7 @@ export class CrewUserService implements ItemServiceInterface {
     var User = new CrewUserprofileModel().initialize(item)
 
     const user = await this.UserListRef.push(item.serialize())
-    user.on("value", createdItem => {
+    user.once("value", createdItem => {
       User.initialize(createdItem.val());
       User.key = createdItem.key;
       return this.updateItem(User) //add
