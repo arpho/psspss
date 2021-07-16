@@ -21,7 +21,7 @@ export class QuestionListComponent implements OnInit, ControlValueAccessor {
   @Input() itemsList: Array<ListableItemInterface> = []
   @Input() createPopupPage: ComponentRef
   _itemsList:BehaviorSubject<Array<ListableItemInterface>> = new BehaviorSubject([])
-  readonly itemsList2subscribe:Observable<Array<ListableItemInterface>> =this._itemsList.asObservable()
+  readonly itemsList2Subscribe:Observable<Array<ListableItemInterface>> =this._itemsList.asObservable()
   // tslint:disable-next-line: ban-types
   onChange: any = () => { };
   // tslint:disable-next-line: ban-types
@@ -35,6 +35,7 @@ ngOnInit() {
   constructor(public modalController:ModalController) { }
   writeValue(obj: any): void {
     this.itemsList = obj
+    this._itemsList.next(obj)
     this.onChange(obj)
 
   }
