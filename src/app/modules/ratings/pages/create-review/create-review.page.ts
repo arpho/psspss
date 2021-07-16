@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
+import { ReviewsModel } from 'src/app/models/reviewsModel';
 import { QuestionRate } from 'src/app/modules/dynamic-form/models/question-rate';
 import { TextAreaBox } from 'src/app/modules/dynamic-form/models/question-textArea';
 
@@ -26,6 +27,8 @@ export class CreateReviewPage implements OnInit {
 
   submit(ev){
     console.log('sumit',ev)
+    const review = new ReviewsModel().initialize(ev)
+    console.log(review)
   }
 
   dismiss() {
