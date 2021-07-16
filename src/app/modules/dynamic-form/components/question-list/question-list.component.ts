@@ -49,7 +49,13 @@ ngOnInit() {
 
   async createItem() {
     const modal = await this.modalController.create({ component: this.createPopupPage })
-    return await modal.present()
+    modal.onDidDismiss().then(data =>{
+      if (data.data){
+        this.itemsList.push(data.data)
+        this.onChange(this.itemsList)
+      }
+    })
+    return modal.present()
 
   }
 
