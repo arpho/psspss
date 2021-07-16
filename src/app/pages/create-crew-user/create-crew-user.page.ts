@@ -51,7 +51,7 @@ testList = [
       new DropdownQuestion({key:"field",options:this.activityFields,label:"settore"  }),
       new QuestionCategories({key:'skill',label:'abilità',buttonText:"Abilità",value:this.userprofile.categories}),
       new QuestionRate({key:'rate',label:'rate mi',value:3}),
-      new QuestionList({key:"references",label:"testing list",value:this.testList,createPopupPage:CreateReviewPage})
+      new QuestionList({key:"references",label:"testing list",value:[],createPopupPage:CreateReviewPage})
     ]
   }
 

@@ -29,7 +29,6 @@ export class QuestionListComponent implements OnInit, ControlValueAccessor {
   disabled = false
 
 ngOnInit() { 
-  console.log('createModalPage',this.createPopupPage)
   }
 
   constructor(public modalController:ModalController) { }

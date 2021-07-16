@@ -8,7 +8,5 @@ export class QuestionList extends QuestionBase<string>{
     constructor(options:ListProperties){
         super(options)
         this.controlType ="itemsList"
-        console.log('value',this.value)
-        console.log('createModalPage',this.createPopupPage)
     }
 }

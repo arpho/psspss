@@ -31,6 +31,6 @@ export class RatingModel implements ListableItemInterface {
         return this
     }
     serialize() {
-        return { "key": this.key, "author": this.author, "reference": this.review, "rate": this.rate, "date": this.date.formatFullDate() }
+        return { "key": this.key, "author": this.author, "review": this.review, "rate": this.rate, "date": this.date.formatFullDate() }
     }
 }
