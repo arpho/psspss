@@ -68,17 +68,13 @@ testList = [
 
 
   setCategories(ev){
-    console.log('categories',ev)
   }
 
   submit(arg) {
-    console.log('submit',arg)
     this.userprofile.initialize(arg)
     this.userprofile.initializeSkills(this.categories)
     this.userprofile.skillsList = arg.skill? arg.skill : this.userprofile.skillsList
-    console.log('user',this.userprofile,this.userprofile.serialize())
      this.service.createItem(this.userprofile).then(value => {
-      console.log("creato",value)
       this.dismiss()
 
     }) 

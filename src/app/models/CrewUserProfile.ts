@@ -92,7 +92,6 @@ export class CrewUserprofileModel extends UserModel {
     }
 
     serialize() {
-        console.log('serializing',this)
         return { ...super.serialize(), type: this.type, references: this.serializeReferences(), picture: this.picture, crewRole: this.crewRole, field: this.field, skillsId: this.skillsList.map((item: CategoryModel) => item.key) }
     }
 }
