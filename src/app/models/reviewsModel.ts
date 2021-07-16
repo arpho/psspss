@@ -19,7 +19,7 @@ export class ReviewsModel implements ItemModelInterface {
     title: string;
     reference: string
     key: string;
-    review: number
+    rate: number
     author: string
     service?: ItemServiceInterface;
     getTitle(): Value {
@@ -74,7 +74,7 @@ export class ReviewsModel implements ItemModelInterface {
     }
 
     serialize() {
-        return { author: this.author, review: this.review, reference: this.reference }
+        return { author: this.author||'', review: this.rate||0, reference: this.reference||0 }
     }
     
     getElement(): { element: string; genere: Genere; } {
