@@ -30,7 +30,7 @@ export class CreateReviewPage implements OnInit {
   submit(ev){
     console.log('sumit',ev)
     const review = new RatingModel().initialize(ev)
-    console.log(review)
+    console.log('new review',review)
 
     const auth = firebase.auth()
     auth.onAuthStateChanged(user=>{
