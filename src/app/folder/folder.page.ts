@@ -90,8 +90,6 @@ export class FolderPage implements OnInit {
   }
 
   filter(filterParams) {
-    console.log('filtering')
-    console.log("param filter:", filterParams)
   }
 
   setFilterFunction(filter) {
