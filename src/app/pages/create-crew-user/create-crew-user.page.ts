@@ -55,7 +55,6 @@ export class CreateCrewUserPage implements OnInit {
   }
 
   filter(ev) {
-    console.log('editing',ev)
   }
 
   dismiss(purchase?) {
