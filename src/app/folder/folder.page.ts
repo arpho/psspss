@@ -47,6 +47,7 @@ export class FolderPage implements OnInit {
     const filter4Mansione = (value: string, item: CrewUserprofileModel) => item.crewRole.toLocaleLowerCase().includes(value)
     const filter4Field = (value: number, item: CrewUserprofileModel) => item.field == value
     const filter4Skill = (value: CategoryModel, item: CrewUserprofileModel) => item.isSkilled(value.key)
+    const filter4Rating = (value:number,item:CrewUserprofileModel)=> item.rate>=value-1 &&item.rate<= value
     
     this.filterFields = [
       new TextboxQuestion({
@@ -74,6 +75,10 @@ export class FolderPage implements OnInit {
       options:this.activityFields,
       filterFunction:filter4Field,
       label:"cerca per indirizzo"  }),
+      new DropdownQuestion({key:"rate",label:"filtra per valutazione",
+    filterFunction:filter4Rating,
+   options:[ {key:"eccellente",value:5},{key:"ottimo",value:4},{key:"buono",value:3},{key:"scarso",value:2},{key:"pessimo",value:1}]
+  })
     ]
   }
 
