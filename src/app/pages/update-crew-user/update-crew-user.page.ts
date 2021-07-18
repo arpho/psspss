@@ -5,7 +5,9 @@ import { ActivityFields } from 'src/app/models/enumFields';
 import { QuestionCategories } from 'src/app/modules/dynamic-form/models/question-categories';
 import { DateQuestion } from 'src/app/modules/dynamic-form/models/question-date';
 import { DropdownQuestion } from 'src/app/modules/dynamic-form/models/question-dropdown';
+import { QuestionList } from 'src/app/modules/dynamic-form/models/question-list';
 import { TextboxQuestion } from 'src/app/modules/item/models/question-textbox';
+import { CreateReviewPage } from 'src/app/modules/ratings/pages/create-review/create-review.page';
 import { CrewUserService } from 'src/app/services/crew-user.service';
 import { CreateCrewUserPage } from '../create-crew-user/create-crew-user.page';
 
@@ -46,11 +48,12 @@ export class UpdateCrewUserPage implements OnInit {
     Object.assign(this.userprofile, user)
     console.log('last', this.userprofile)
     this.userprofile.skillsList = user.skill
-    this.service.updateItem(this.userprofile).then((value => {
+    console.log('check user',this.userprofile)
+   /*  this.service.updateItem(this.userprofile).then((value => {
       console.log('updated', value)
       this.presentToast(`l'utente: ${this.userprofile.getTitle().value} è stato modificato`)
       this.dismiss()
-    }))
+    })) */
 
   }
 
@@ -71,7 +74,8 @@ export class UpdateCrewUserPage implements OnInit {
       new DateQuestion({ key: "birthDate", label: "Data di nascita", value: this.userprofile.birthDate.formatDate() }),
       new TextboxQuestion({ key: "crewRole", label: "mansione", value: this.userprofile.crewRole }),
       new DropdownQuestion({key:"field",options:this.activityFields,label:"settore", value:this.userprofile.field }),
-      new QuestionCategories({key:'skill',label:'abilità',buttonText:"Abilità",value:this.userprofile.skillsList})
+      new QuestionCategories({key:'skill',label:'abilità',buttonText:"Abilità",value:this.userprofile.skillsList}),
+      new QuestionList({key:"references",label:"testing list",value:this.userprofile.references,createPopupPage:CreateReviewPage})
     ]
   }
 
