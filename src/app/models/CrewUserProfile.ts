@@ -78,20 +78,20 @@ export class CrewUserprofileModel extends UserModel {
         })
 
     }
-    get rate(){
-        const sum =this.references.map ((rev:RatingModel)=>rev.rate).reduce((acc,value,index,arr)=>{
-            return acc+value
-        },0)
-        return sum/this.references.length
+    get rate() {
+        const sum = this.references.map((rev: RatingModel) => rev.rate).reduce((acc, value, index, arr) => {
+            return acc + value
+        }, 0)
+        return sum / this.references.length
     }
 
 
     initialize(item) {
         super.initialize(item)
-        
+
         this.categories = this.categories || this.instatiateCategories(item.categorieId)
         this.references = this.references ? this.references.map(item => new RatingModel().initialize(item)) : []
-        
+
         this.title = `${this.firstName} ${this.lastName}`
         return this
     }
