@@ -75,7 +75,7 @@ export class UpdateCrewUserPage implements OnInit {
       new TextboxQuestion({ key: "crewRole", label: "mansione", value: this.userprofile.crewRole }),
       new DropdownQuestion({key:"field",options:this.activityFields,label:"settore", value:this.userprofile.field }),
       new QuestionCategories({key:'skill',label:'abilità',buttonText:"Abilità",value:this.userprofile.skillsList}),
-      new QuestionList({key:"references",label:"testing list",value:this.userprofile.references,createPopupPage:CreateReviewPage})
+      new QuestionList({key:"references",label:"recensioni",value:this.userprofile.references,createPopupPage:CreateReviewPage})
     ]
   }
 
