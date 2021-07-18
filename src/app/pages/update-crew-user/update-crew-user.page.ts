@@ -49,11 +49,11 @@ export class UpdateCrewUserPage implements OnInit {
     console.log('last', this.userprofile)
     this.userprofile.skillsList = user.skill
     console.log('check user',this.userprofile)
-   /*  this.service.updateItem(this.userprofile).then((value => {
+     this.service.updateItem(this.userprofile).then((value => {
       console.log('updated', value)
       this.presentToast(`l'utente: ${this.userprofile.getTitle().value} è stato modificato`)
       this.dismiss()
-    })) */
+    })) 
 
   }
 
