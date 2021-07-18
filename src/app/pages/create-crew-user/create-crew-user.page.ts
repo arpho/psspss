@@ -33,10 +33,7 @@ export class CreateCrewUserPage implements OnInit {
     {key:"cucina",value:ActivityFields.cucina}
 ]
 
-testList = [
-  new RatingModel().initialize({rate:5,reference:"testing",date:new DateModel(new Date).formatFullDate()}),
-  new RatingModel().initialize({rate:4,reference:"testing 2",date:new DateModel(new Date).formatFullDate()})
-]
+
 
   constructor(public service: CrewUserService, public categories:CategoriesService,
     public modalCtrl:ModalController,
