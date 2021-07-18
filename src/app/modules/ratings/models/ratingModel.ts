@@ -6,7 +6,7 @@ export class RatingModel implements ListableItemInterface {
     date: DateModel
     author: string
     review: string
-    rate: number
+    rate: number=0 
     key: string
 
     get leftField() {
@@ -31,6 +31,6 @@ export class RatingModel implements ListableItemInterface {
         return this
     }
     serialize() {
-        return { "key": this.key, "author": this.author, "review": this.review, "rate": this.rate, "date": this.date.formatFullDate() }
+        return { "key": this.key||'', "author": this.author||'', "review": this.review||'', "rate": this.rate||0, "date": this.date.formatFullDate() }
     }
 }
