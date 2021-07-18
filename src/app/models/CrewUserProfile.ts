@@ -36,6 +36,10 @@ export class CrewUserprofileModel extends UserModel {
         return this.skillsList.map((skill: CategoryModel) => skill.key).indexOf(key) > -1
     }
 
+    apexField(){
+        return  (this.rate >0)? new Value({label:"⭐",value:`⭐ ${this.rate}`}): new Value({value:'',label:''})
+    }
+
     setKey = (key: string) => {
         this.key = key
         return this
@@ -82,7 +86,7 @@ export class CrewUserprofileModel extends UserModel {
         const sum = this.references.map((rev: RatingModel) => rev.rate).reduce((acc, value, index, arr) => {
             return acc + value
         }, 0)
-        return sum / this.references.length
+        return sum / this.references.length ||0
     }
 
 
