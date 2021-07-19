@@ -27,6 +27,7 @@ export interface ItemModelInterface {
   getValue2(): Value;
   getValue3(): Value;
   getValue4(): Value;
+  apexField?(): Value
   setKey?(key:string):ItemModelInterface
   getEditPopup(item?: ItemModelInterface, service?: ItemServiceInterface);
 
