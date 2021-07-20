@@ -12,6 +12,7 @@
     *ngFor="let item of service?.items |async | filterItems: filterFunction| sorterItems: sorterFunction"
     #sliding_item
   >
+  <div tabindex="0"></div>
     <app-page-item [Item]="item" ></app-page-item>
 
     <ion-item-options side="start">
