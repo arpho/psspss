@@ -84,6 +84,7 @@ export class PageItemsListComponent implements OnInit, OnChanges {
 
   setItems4Page(ev){
     this.paginationConfig.items4page = ev
+    console.log('setting',ev)
     this.paginationConfig = {...this.paginationConfig}
   }
 

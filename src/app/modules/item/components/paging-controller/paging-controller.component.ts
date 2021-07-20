@@ -69,7 +69,7 @@ this.currentPage =this.paginationConfig.currentPage
         cssClass: 'my-custom-class',
         header: 'impostazioni di paginazione',
         subHeader: 'quanti candidati per pagina?',
-        message: 'This is an alert message.',
+        message: `1-${this.countItems}`,
         inputs:[{name:"items4Page",
       type:'number'}],
         buttons: ['OK']
@@ -77,7 +77,7 @@ this.currentPage =this.paginationConfig.currentPage
     })
     alert.onDidDismiss().then(v=>{
       console.log('got',v)
-      this.items4Page.emit(v.data.values.item4Page)
+      this.items4Page.emit(Number(v.data.values.items4Page))
     })
     await alert.present()
     
