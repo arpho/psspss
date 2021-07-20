@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { paginationConfig } from '../../models/paginationConfig';
 
 @Component({
@@ -9,11 +9,39 @@ import { paginationConfig } from '../../models/paginationConfig';
 export class PagingControllerComponent implements OnInit {
   @Input() paginationConfig:paginationConfig
   @Input() countItems:number
+  @Output() currentPageEvent: EventEmitter<number> = new EventEmitter()
+  currentPage:number
 
-  currentPage=0
+  
 
   display(){
-    return `pagina${this.currentPage} di ${Math.floor(this.countItems/this.paginationConfig.items4page)}`
+    return `pag ${this.currentPage} di ${Math.floor(this.countItems/this.paginationConfig.items4page)}`
+  }
+
+  previousPage(){
+    if(this.currentPage>0){
+      this.currentPage-=1
+      this.currentPageEvent.emit(this.currentPage)
+  
+    }
+  }
+  nextPage(){
+    if(this.currentPage>0){
+      this.currentPage+=1
+      this.currentPageEvent.emit(this.currentPage)
+  
+    }
+  }
+
+  firstPage(){
+    if(this.currentPage>0){
+      this.currentPage =0
+      this.currentPageEvent.emit(this.currentPage)
+  
+    }
+  }
+  lastPage(){
+    this.currentPage= Math.floor(this.countItems/this.paginationConfig.items4page)
   }
  
 
@@ -22,7 +50,7 @@ export class PagingControllerComponent implements OnInit {
    }
 
   ngOnInit() {
-
+this.currentPage =this.paginationConfig.currentPage
 
   }
 
