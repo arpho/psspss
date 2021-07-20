@@ -78,7 +78,8 @@ export class PageItemsListComponent implements OnInit, OnChanges {
   }
 
   setCurrentPage(ev){
-    console.log('page',ev)
+    this.paginationConfig.currentPage = ev
+    this.paginationConfig = {...this.paginationConfig}
   }
 
   async updateItem(item: ItemModelInterface, slide: {}) {
