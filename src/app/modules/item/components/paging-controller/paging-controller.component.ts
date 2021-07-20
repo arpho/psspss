@@ -35,7 +35,7 @@ this.currentPage =this.paginationConfig.currentPage
     }
   }
   nextPage(){
-    if(this.currentPage<this.numberOfPage()){
+    if(this.currentPage+1<this.numberOfPage()){
       this.currentPage+=1
       console.log('current',this.currentPage)
       this.currentPageEvent.emit(this.currentPage)
