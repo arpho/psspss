@@ -76,7 +76,7 @@ this.currentPage =this.paginationConfig.currentPage
       
     })
     alert.onDidDismiss().then(v=>{
-      console.log('got',v)
+     this.firstPage() //we move to the first page
       this.items4Page.emit(Number(v.data.values.items4Page))
     })
     await alert.present()
