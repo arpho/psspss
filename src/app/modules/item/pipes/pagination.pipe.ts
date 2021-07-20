@@ -11,11 +11,14 @@ import { paginationConfig } from '../models/paginationConfig';
 export class PaginationPipe implements PipeTransform {
 
   getPage = (a: Array<ItemModelInterface>, currentPage = 0, item4page = 5) => {
-    return a.slice((currentPage - 1) * item4page, currentPage * item4page)
+    return a.slice((currentPage ) * item4page, (currentPage+1) * item4page)
   }
 
   transform(allItems: ItemModelInterface[], args?: paginationConfig): unknown {
 
+    console.log('pagination',args,allItems)
+    console.log('page',)
+    console.log('result', args.paginationActive ? this.getPage(allItems, args.currentPage, args.items4page) : allItems)
     return args.paginationActive ? this.getPage(allItems, args.currentPage, args.items4page) : allItems
   }
 

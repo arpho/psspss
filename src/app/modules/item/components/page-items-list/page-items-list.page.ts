@@ -16,6 +16,7 @@ import { ItemServiceInterface } from "../../models/ItemServiceInterface";
 import { Router } from "@angular/router";
 import { connectableObservableDescriptor } from 'rxjs/internal/observable/ConnectableObservable';
 import { ComponentRef } from '@ionic/core';
+import { paginationConfig } from "../../models/paginationConfig";
 
 @Component({
   selector: "app-page-items-list",
@@ -32,6 +33,7 @@ export class PageItemsListComponent implements OnInit, OnChanges {
   public dummyItem: ItemModelInterface;
   @Input() filterFunction: (item: ItemModelInterface) => boolean;
   @Input() sorterFunction: (a: ItemModelInterface, b: ItemModelInterface) => number
+  paginationConfig:paginationConfig={paginationActive:true,currentPage:0,items4page:5}
   public showSpinner = true;
   public showSpinner2 = false;
   @Input() createModalPage: ComponentRef;
