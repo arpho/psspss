@@ -1,7 +1,7 @@
-<ion-button><ion-icon name="play-skip-back-circle-outline"></ion-icon></ion-button>
-<ion-button><ion-icon name= "caret-back-circle-outline"></ion-icon></ion-button>
+<ion-button (click)="firstPage()"><ion-icon name="play-skip-back-circle-outline"></ion-icon></ion-button>
+<ion-button (click)="previousPage()"><ion-icon name= "caret-back-circle-outline"></ion-icon></ion-button>
 <div class="display">{{display()}}</div>
-<ion-button><ion-icon name= "caret-forward-circle-outline"></ion-icon></ion-button>
-<ion-button><ion-icon name= "play-skip-forward-circle-outline"></ion-icon></ion-button>
+<ion-button (click)="nextPage()"><ion-icon name= "caret-forward-circle-outline"></ion-icon></ion-button>
+<ion-button (click)="lastPage()"><ion-icon name= "play-skip-forward-circle-outline"></ion-icon></ion-button>
 
 <ion-icon name=""></ion-icon>
