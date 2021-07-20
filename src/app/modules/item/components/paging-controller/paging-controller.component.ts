@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { AlertController } from '@ionic/angular';
 import { paginationConfig } from '../../models/paginationConfig';
 
 @Component({
@@ -12,7 +13,13 @@ export class PagingControllerComponent implements OnInit {
   @Output() currentPageEvent: EventEmitter<number> = new EventEmitter<number>()
   currentPage:number
 
-  
+  constructor(private alertCtrl:AlertController) {
+   }
+
+  ngOnInit() {
+this.currentPage =this.paginationConfig.currentPage
+
+  }
 
   display(){
     return `pag ${this.currentPage} di ${Math.floor(this.countItems/this.paginationConfig.items4page)}`
@@ -49,16 +56,24 @@ export class PagingControllerComponent implements OnInit {
     this.currentPageEvent.emit(this.currentPage)
   }
 
-  constructor() {
-   }
-
-  ngOnInit() {
-this.currentPage =this.paginationConfig.currentPage
-
-  }
+  
 
   numberOfPage(){
     return Math.floor(this.countItems/this.paginationConfig.items4page)
+  }
+
+  async settings(){
+    let alert =  await this.alertCtrl.create(
+      {
+        cssClass: 'my-custom-class',
+        header: 'Alert',
+        subHeader: 'Subtitle',
+        message: 'This is an alert message.',
+        buttons: ['OK']
+      
+    })
+    await alert.present()
+    
   }
 
 }
