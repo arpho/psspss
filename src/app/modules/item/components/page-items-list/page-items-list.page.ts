@@ -55,6 +55,7 @@ export class PageItemsListComponent implements OnInit, OnChanges {
 
   }
   ngOnInit() {
+    console.log('page items',this.paginationActive)
 
     this.service.items.subscribe(items =>{
     })
