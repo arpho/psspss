@@ -13,6 +13,7 @@ import { ItemsFilterComponent } from './components/items-filter/items-filter.com
 import { FilterPopupPage } from './pages/filter-popup/filter-popup.page';
 import { FilterPopupPageModule } from './pages/filter-popup/filter-popup.module';
 import { SelectorItemsComponent } from './components/selector-items/selector-items.component';
+import { PaginationPipe } from './pipes/pagination.pipe';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { SelectorItemsComponent } from './components/selector-items/selector-ite
     PageItemsListComponent,
     ShowValueComponent,
     ItemsFilterComponent,
+    PaginationPipe,
   ],
   imports: [CommonModule, IonicModule.forRoot(), ReactiveFormsModule],
   // entryComponents:[FilterPopupPage],
