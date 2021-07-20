@@ -9,7 +9,7 @@ import { paginationConfig } from '../../models/paginationConfig';
 export class PagingControllerComponent implements OnInit {
   @Input() paginationConfig:paginationConfig
   @Input() countItems:number
-  @Output() currentPageEvent: EventEmitter<number> = new EventEmitter()
+  @Output() currentPageEvent: EventEmitter<number> = new EventEmitter<number>()
   currentPage:number
 
   
@@ -21,13 +21,15 @@ export class PagingControllerComponent implements OnInit {
   previousPage(){
     if(this.currentPage>0){
       this.currentPage-=1
+      console.log('current',this.currentPage)
       this.currentPageEvent.emit(this.currentPage)
   
     }
   }
   nextPage(){
-    if(this.currentPage>0){
+    if(this.currentPage<this.numberOfPage()){
       this.currentPage+=1
+      console.log('current',this.currentPage)
       this.currentPageEvent.emit(this.currentPage)
   
     }
@@ -36,22 +38,27 @@ export class PagingControllerComponent implements OnInit {
   firstPage(){
     if(this.currentPage>0){
       this.currentPage =0
+      console.log('current',this.currentPage)
       this.currentPageEvent.emit(this.currentPage)
   
     }
   }
   lastPage(){
-    this.currentPage= Math.floor(this.countItems/this.paginationConfig.items4page)
+    this.currentPage= this.numberOfPage()
+    console.log('current',this.currentPage)
+    this.currentPageEvent.emit(this.currentPage)
   }
- 
 
   constructor() {
-    console.log("ciao co")
    }
 
   ngOnInit() {
 this.currentPage =this.paginationConfig.currentPage
 
+  }
+
+  numberOfPage(){
+    return Math.floor(this.countItems/this.paginationConfig.items4page)
   }
 
 }
