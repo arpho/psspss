@@ -9,7 +9,7 @@
     <div class="dot2"></div>
   </div>
   <ion-item-sliding
-    *ngFor="let item of service?.items |async | filterItems: filterFunction| sorterItems: sorterFunction|pagination:paginationConfig"
+    *ngFor="let item of service?.items |async | filterItems: filterFunction| sorterItems: sorterFunction|pagination:paginationConfig:paginationActive"
     #sliding_item
   >
   <div tabindex="0"></div>

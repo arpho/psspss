@@ -33,6 +33,7 @@ export class PageItemsListComponent implements OnInit, OnChanges {
   public dummyItem: ItemModelInterface;
   @Input() filterFunction: (item: ItemModelInterface) => boolean;
   @Input() sorterFunction: (a: ItemModelInterface, b: ItemModelInterface) => number
+  @Input() paginationActive:boolean
   paginationConfig:paginationConfig={paginationActive:true,currentPage:0,items4page:5}
   public showSpinner = true;
   public showSpinner2 = false;
