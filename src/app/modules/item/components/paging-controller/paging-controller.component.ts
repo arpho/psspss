@@ -29,7 +29,6 @@ this.currentPage =this.paginationConfig.currentPage
   previousPage(){
     if(this.currentPage>0){
       this.currentPage-=1
-      console.log('current',this.currentPage)
       this.currentPageEvent.emit(this.currentPage)
   
     }
@@ -37,7 +36,6 @@ this.currentPage =this.paginationConfig.currentPage
   nextPage(){
     if(this.currentPage+1<this.numberOfPage()){
       this.currentPage+=1
-      console.log('current',this.currentPage)
       this.currentPageEvent.emit(this.currentPage)
   
     }
@@ -46,14 +44,12 @@ this.currentPage =this.paginationConfig.currentPage
   firstPage(){
     if(this.currentPage>0){
       this.currentPage =0
-      console.log('current',this.currentPage)
       this.currentPageEvent.emit(this.currentPage)
   
     }
   }
   lastPage(){
     this.currentPage= this.numberOfPage()
-    console.log('current',this.currentPage)
     this.currentPageEvent.emit(this.currentPage)
   }
 
