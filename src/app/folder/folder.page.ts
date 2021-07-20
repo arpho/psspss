@@ -48,6 +48,7 @@ export class FolderPage implements OnInit {
     const filter4Field = (value: number, item: CrewUserprofileModel) => item.field == value
     const filter4Skill = (value: CategoryModel, item: CrewUserprofileModel) => item.isSkilled(value.key)
     const filter4Rating = (value:number,item:CrewUserprofileModel)=> item.rate>=value-1 &&item.rate<= value
+    const paginationActive= true
     
     this.filterFields = [
       new TextboxQuestion({
