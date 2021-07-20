@@ -16,9 +16,6 @@ export class PaginationPipe implements PipeTransform {
 
   transform(allItems: ItemModelInterface[], args?: paginationConfig): unknown {
 
-    console.log('pagination',args,allItems)
-    console.log('page',)
-    console.log('result', args.paginationActive ? this.getPage(allItems, args.currentPage, args.items4page) : allItems)
     return args.paginationActive ? this.getPage(allItems, args.currentPage, args.items4page) : allItems
   }
 

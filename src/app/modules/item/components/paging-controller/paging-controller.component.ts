@@ -10,7 +10,9 @@ export class PagingControllerComponent implements OnInit {
 
  
 
-  constructor() { }
+  constructor() {
+    console.log("ciao co")
+   }
 
   ngOnInit() {}
 
