@@ -14,7 +14,7 @@ export class PaginationPipe implements PipeTransform {
     return a.slice((currentPage ) * item4page, (currentPage+1) * item4page)
   }
 
-  transform(allItems: ItemModelInterface[], args?: paginationConfig): unknown {
+  transform(allItems: ItemModelInterface[], args?: paginationConfig): ItemModelInterface[] {
 
     return args.paginationActive ? this.getPage(allItems, args.currentPage, args.items4page) : allItems
   }
