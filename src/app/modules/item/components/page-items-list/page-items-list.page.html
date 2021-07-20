@@ -37,7 +37,7 @@
     </ion-item-options>
   </ion-item-sliding>
 </ion-list>
-<app-paging-controller [paginationConfig]="paginationConfig" [countItems]="countItems()" (currentPageEvent)="setCurrentPage($event)"></app-paging-controller>
+<app-paging-controller [paginationConfig]="paginationConfig" [countItems]="countItems()" (currentPageEvent)="setCurrentPage($event)"(items4Page)="setItems4Page($event)")></app-paging-controller>
 <div *ngIf="createModalPage">
 <ion-fab class="addItem" vertical="bottom" horizontal="end" slot="fixed">
   <ion-fab-button (click)="createItem()">

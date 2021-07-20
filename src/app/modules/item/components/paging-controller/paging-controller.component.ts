@@ -11,6 +11,7 @@ export class PagingControllerComponent implements OnInit {
   @Input() paginationConfig:paginationConfig
   @Input() countItems:number
   @Output() currentPageEvent: EventEmitter<number> = new EventEmitter<number>()
+  @Output() items4Page:EventEmitter<number>= new EventEmitter<number>()
   currentPage:number
 
   constructor(private alertCtrl:AlertController) {
@@ -66,11 +67,17 @@ this.currentPage =this.paginationConfig.currentPage
     let alert =  await this.alertCtrl.create(
       {
         cssClass: 'my-custom-class',
-        header: 'Alert',
-        subHeader: 'Subtitle',
+        header: 'impostazioni di paginazione',
+        subHeader: 'quanti candidati per pagina?',
         message: 'This is an alert message.',
+        inputs:[{name:"items4Page",
+      type:'number'}],
         buttons: ['OK']
       
+    })
+    alert.onDidDismiss().then(v=>{
+      console.log('got',v)
+      this.items4Page.emit(v.data.values.item4Page)
     })
     await alert.present()
     

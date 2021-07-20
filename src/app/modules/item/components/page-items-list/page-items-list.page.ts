@@ -82,6 +82,11 @@ export class PageItemsListComponent implements OnInit, OnChanges {
     this.paginationConfig = {...this.paginationConfig}
   }
 
+  setItems4Page(ev){
+    this.paginationConfig.items4page = ev
+    this.paginationConfig = {...this.paginationConfig}
+  }
+
   async updateItem(item: ItemModelInterface, slide: {}) {
     const modal = await this.modalController.create({ component: this.editModalPage, componentProps: { item } })
     // tslint:disable-next-line: no-string-literal
