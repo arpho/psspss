@@ -5,6 +5,10 @@
     </ion-buttons>
     <ion-title>Candidati</ion-title>
     <div slot='end'>
+      <ion-item>
+        <ion-label>paginazione</ion-label>
+      <ion-toggle></ion-toggle>
+      </ion-item>
       <app-items-filter [filterFields]="filterFields"(filterSet)="filter($event)"(filterFunction)="setFilterFunction($event)" ></app-items-filter>
       </div>
   </ion-toolbar>
