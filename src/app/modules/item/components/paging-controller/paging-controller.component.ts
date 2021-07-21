@@ -24,7 +24,7 @@ export class PagingControllerComponent implements OnInit {
   }
 
   display() {
-    return `pag ${this.currentPage + 1} di ${Math.floor(this.countItems / this.paginationConfig.items4page)}`
+    return `pag ${this.currentPage + 1} di ${this.numberOfPage()}`
   }
 
   previousPage() {
