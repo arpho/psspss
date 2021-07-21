@@ -50,7 +50,7 @@ export class PagingControllerComponent implements OnInit {
     }
   }
   lastPage() {
-    this.currentPage = this.numberOfPage()
+    this.currentPage = this.numberOfPage()-1
     this.currentPageEvent.emit(this.currentPage)
   }
 
