@@ -15,6 +15,7 @@ export class ItemsFilterComponent implements OnInit {
   @Input() filterFields: Array<QuestionBase<any>>
   @Output() filterSet: EventEmitter<{}> = new EventEmitter()
   @Output() filterFunction: EventEmitter<(item: ItemModelInterface) => boolean> = new EventEmitter()
+  filterActive = false
 
   constructor(public modal: ModalController) { }
 
@@ -23,6 +24,7 @@ export class ItemsFilterComponent implements OnInit {
   async showPopup() {
     const modal = await this.modal.create({ component: FilterPopupPage, componentProps: { filterFields: this.filterFields } })
     modal.onDidDismiss().then(data => {
+      this.filterActive= true
       this.filterSet.emit(data.data)
       this.filterFunction.emit(this.filterFactory(data.data, this.filterFields))
     })
@@ -36,6 +38,11 @@ export class ItemsFilterComponent implements OnInit {
     return fields.map(questionMapper).reduce(filterFunctionReducer, (item: ItemModelInterface) => true)
   }
 
+  resetFilter(){
+    this.filterActive = false
+    const neutral =(item:ItemModelInterface)=> true
+    this.filterFunction.emit(neutral)
+  }
 
 
 }
