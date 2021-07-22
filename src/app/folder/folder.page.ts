@@ -32,7 +32,7 @@ export class FolderPage implements OnInit {
 
   public filterFunction: (item: CrewUserprofileModel) => boolean;
   public sorterFunction: (a: any, b: any) => number
-  paginationStatus = "paginazion e on "
+  paginationStatus = "paginazione on "
   activityFields = [
     { key: "sala", value: ActivityFields.sala },
     { key: "accoglienza", value: ActivityFields.accoglienza },
