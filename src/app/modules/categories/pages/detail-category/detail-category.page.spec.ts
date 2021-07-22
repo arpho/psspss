@@ -6,11 +6,7 @@ import { ModalController, AngularDelegate, NavParams, NavController } from '@ion
 import { MockNavParams } from 'src/app/modules/item/pages/selector-items/mockNavParams';
 import { HttpClientModule } from '@angular/common/http';
 import { CategoriesService } from '../../services/categorie.service';
- // import { MockBackend, MockConnection } from '@angular/common/http/testing/';
-/* import {
-  Http, HttpModule, XHRBackend, ResponseOptions,
-  Response, BaseRequestOptions
-} from '@angular/common/http/testing/testing'; */
+
 
 describe('DetailCategoryPage', () => {
   let component: DetailCategoryPage;
