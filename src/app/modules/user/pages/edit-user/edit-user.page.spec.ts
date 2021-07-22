@@ -4,6 +4,8 @@ import { RouterTestingModule } from "@angular/router/testing";
 import { EditUserPage } from "./edit-user.page";
 import { ModalController, AngularDelegate, NavParams } from '@ionic/angular';
 import { MockNavParams } from './mockNavParams';
+import firebase from 'firebase'
+import {configs} from '../../../../configs/credentials'
 
 describe("EditUserPage", () => {
   let component: EditUserPage;
@@ -19,6 +21,10 @@ describe("EditUserPage", () => {
   }));
 
   beforeEach(() => {
+
+    if(firebase.apps.length===0){
+      firebase.initializeApp(configs.firebase)
+    }
     fixture = TestBed.createComponent(EditUserPage);
     component = fixture.componentInstance;
     fixture.detectChanges();
