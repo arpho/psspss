@@ -6,8 +6,8 @@
     <ion-title>Candidati</ion-title>
     <div slot='end'>
       <ion-item>
-        <ion-label>paginazione</ion-label>
-      <ion-toggle [(ngModel)]="paginationActive"></ion-toggle>
+        <ion-label>{{paginationStatus}}</ion-label>
+      <ion-toggle [(ngModel)]="paginationActive" (ionChange)="change($event)"></ion-toggle>
       </ion-item>
       <app-items-filter [filterFields]="filterFields"(filterSet)="filter($event)"(filterFunction)="setFilterFunction($event)" ></app-items-filter>
       </div>

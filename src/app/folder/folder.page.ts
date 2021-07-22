@@ -31,6 +31,7 @@ export class FolderPage implements OnInit {
 
   public filterFunction: (item: CrewUserprofileModel) => boolean;
   public sorterFunction: (a: any, b: any) => number
+  paginationStatus = "paginazion e on "
   activityFields = [
     { key: "sala", value: ActivityFields.sala },
     { key: "accoglienza", value: ActivityFields.accoglienza },
@@ -41,6 +42,10 @@ export class FolderPage implements OnInit {
   secondSpinner = false
   paginationActive= true
 
+  change(ev){
+    this.paginationStatus = this.paginationActive? "paginazione on":"paginazione off"
+    console.log('change',this.paginationActive,ev)
+  }
 
   constructor(private activatedRoute: ActivatedRoute, private router: Router, public service: CrewUserService, public categories: CategoriesService) {
     const filter4Name = (value: string, item: CrewUserprofileModel) => item.firstName.toLocaleLowerCase().includes(value)
