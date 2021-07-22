@@ -5,7 +5,7 @@ import { DetailCategoryPage } from './detail-category.page';
 import { ModalController, AngularDelegate, NavParams, NavController } from '@ionic/angular';
 import { MockNavParams } from 'src/app/modules/item/pages/selector-items/mockNavParams';
 import { HttpClientModule } from '@angular/common/http';
-import { CategoriesService } from 'src/app/services/categories/categorie.service';
+import { CategoriesService } from '../../services/categorie.service';
  // import { MockBackend, MockConnection } from '@angular/common/http/testing/';
 /* import {
   Http, HttpModule, XHRBackend, ResponseOptions,
