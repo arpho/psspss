@@ -8,10 +8,11 @@ import { SwitchQuestion } from 'src/app/modules/item/models/question-switch';
 import { DateQuestion } from 'src/app/modules/dynamic-form/models/question-date';
 import { DateModel } from '../../models/birthDateModel';
 import { DropdownQuestion } from 'src/app/modules/dynamic-form/models/question-dropdown';
-import { configs } from 'src/app/configs/configs';
 import { RoleModel } from '../../models/privilegesLevelModel';
 import { ItemModelInterface } from 'src/app/modules/item/models/itemModelInterface';
 import { NavParams, ModalController } from '@ionic/angular';
+import firebase from 'firebase'
+import {configs} from '../../../../configs/credentials'
 
 
 
@@ -34,7 +35,11 @@ export class EditUserPage implements OnInit {
     public service: UsersService,
     public navParams: NavParams,
     public modalCtrl: ModalController
-  ) { }
+  ) {
+    if(firebase.apps.length===0){
+      firebase.initializeApp(configs.firebase)
+    }
+   }
 
 
 
