@@ -104,7 +104,7 @@ export class EditUserPage implements OnInit {
       new DropdownQuestion({
         key: 'level',
         label: 'Ruolo utente',
-        options: configs.accessLevel,
+        options: configs['accessLevel'],
         value:this.currentUser? this.currentUser.level:3
       }),
       new SwitchQuestion({
@@ -128,7 +128,7 @@ export class EditUserPage implements OnInit {
     ev.email = this.currentUser.email; // non modifico email
     const user = new UserModel(ev);
     user.key = this.currentUser.key;
-    user.role = configs.accessLevel.filter((r: RoleModel) => {
+    user.role = configs['accessLevel'].filter((r: RoleModel) => {
       // tslint:disable: triple-equals
       // tslint:disable-next-line: no-unused-expression
       r.value == this.currentUser.level;
@@ -137,7 +137,7 @@ export class EditUserPage implements OnInit {
       console.log("setting role",ev.level)
     }
     console.log('updating user', user);
-    user.role = configs.accessLevel.filter(
+    user.role = configs['accessLevel'].filter(
       (v: RoleModel) => v.value == ev.level
     )[0];
     // const setRole= functions.
