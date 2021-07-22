@@ -7,6 +7,7 @@ import { CategoryModel } from '../modules/categories/models/CategoryModel';
 import { CategoriesService } from '../modules/categories/services/categorie.service';
 import { DropdownQuestion } from '../modules/dynamic-form/models/question-dropdown';
 import { SelectorQuestion } from '../modules/dynamic-form/models/question-selector';
+import { ItemModelInterface } from '../modules/item/models/itemModelInterface';
 import { TextboxQuestion } from '../modules/item/models/question-textbox';
 import { CreateCrewUserPage } from '../pages/create-crew-user/create-crew-user.page';
 import { UpdateCrewUserPage } from '../pages/update-crew-user/update-crew-user.page';
@@ -91,6 +92,7 @@ export class FolderPage implements OnInit {
 
   ngOnInit() {
     this.folder = this.activatedRoute.snapshot.paramMap.get('id');
+    this.sorterFunction= (a:ItemModelInterface,b:ItemModelInterface)=> a.getTitle().value.toLocaleString().localeCompare(b.getTitle().value.toLocaleString())
     if (!firebase.auth) {
       this.router.navigateByUrl("users/login")
     }
