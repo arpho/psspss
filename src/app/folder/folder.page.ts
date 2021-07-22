@@ -45,7 +45,6 @@ export class FolderPage implements OnInit {
 
   change(ev){
     this.paginationStatus = this.paginationActive? "paginazione on":"paginazione off"
-    console.log('change',this.paginationActive,ev)
   }
 
   constructor(private activatedRoute: ActivatedRoute, private router: Router, public service: CrewUserService, public categories: CategoriesService) {
