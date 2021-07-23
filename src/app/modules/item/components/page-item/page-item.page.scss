@@ -30,9 +30,11 @@ span.value2 {
 }
 
 span.value4 {
-    position: relative;
-    top:-0.5em;
-    left:2em
+    span.value4 {
+        position: absolute;
+        left: 0em;
+        top: 1em;
+    }
 }
 
 p.note {
