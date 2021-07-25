@@ -17,7 +17,8 @@ import { Value } from '../../models/value';
   selector: "app-page-item",
   templateUrl: "./page-item.page.html",
   styleUrls: ["./page-item.page.scss"],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  
 })
 export class PageItemComponent extends MyItemComponent implements OnInit {
   @Input() Item: ItemModelInterface;
