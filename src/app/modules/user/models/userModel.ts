@@ -113,7 +113,7 @@ export class UserModel implements ItemModelInterface {
     return value;
   }
 
-  getValue2() {
+  getunderTitleField() {
     const value = new Value({
       value: this.enabled ? '' : ' non abilitato',
       label: ' abilitato'

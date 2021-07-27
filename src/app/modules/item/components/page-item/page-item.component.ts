@@ -24,7 +24,7 @@ export class PageItemComponent extends MyItemComponent implements OnInit {
   @Input() Item: ItemModelInterface;
   title: string
   note: string
-  value2: Value
+  underTitleField: Value
   value3: Value
   value4: Value
   Note:Value
@@ -44,7 +44,7 @@ export class PageItemComponent extends MyItemComponent implements OnInit {
   setValue() {
     this.title = String(this.Item?this.Item.getTitle().value:'')
     this.note = String(this.Item?this.Item.getNote().value:'')
-    this.value2 = this.Item.getValue2()
+    this.underTitleField = this.Item.getunderTitleField()
     this.value3 = this.Item.getValue3()
     this.value4 = this.Item.getValue4()
   }

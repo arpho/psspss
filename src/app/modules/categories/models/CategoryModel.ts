@@ -217,7 +217,7 @@ export class CategoryModel implements FirebaseObject, ItemModelInterface{
 
     aggregateAction() { }
 
-    getValue2() {
+    getunderTitleField() {
         const value = new Value();
         return value;
     }

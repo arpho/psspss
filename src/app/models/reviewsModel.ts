@@ -40,7 +40,7 @@ export class ReviewsModel implements ItemModelInterface {
         return false
     }
 
-    getValue2(): Value {
+    getunderTitleField(): Value {
         throw new Error("Method not implemented.");
     }
 

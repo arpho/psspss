@@ -24,7 +24,7 @@ export interface ItemModelInterface {
   archiveItem?(b: boolean);
   isArchivable?(): boolean;
   initialize(args:any):ItemModelInterface
-  getValue2(): Value;
+  getunderTitleField(): Value;
   getValue3(): Value;
   getValue4(): Value;
   middleFrontField?(): Value

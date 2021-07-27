@@ -24,7 +24,7 @@ export class CrewUserprofileModel extends UserModel {
         this.skillsList = []
     }
 
-    getValue2() {
+    getunderTitleField() {
         return new Value({ label: "ruolo", value: this.crewRole })
     }
 
