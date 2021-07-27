@@ -124,7 +124,6 @@ export class PageItemsListComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges(changes: SimpleChanges) {
-    console.log('change',this.countItems())
     if (this.service && this.service.items) {
       this.service.items.subscribe((items) => {
         if (items) {
@@ -139,6 +138,7 @@ export class PageItemsListComponent implements OnInit, OnChanges {
     }
     if (changes.filterFunction) {
       this.filterFunction = changes.filterFunction.currentValue;
+      this._countingItems.next(this.countItems())
     }
   }
 
@@ -146,16 +146,16 @@ export class PageItemsListComponent implements OnInit, OnChanges {
     var count
     if (this.service) {
       this.service.items.subscribe(items => {
-        if(items)
-       { count = items.filter(this.filterFunction).length || 0}
+        if(items && this.filterFunction)
+       {
+         
+        count = items.filter(this.filterFunction).length || 0}
       })
     }
-    console.log('conteggio',count)
     return (count) ? count : "loading";
   }
 
   editItem(item: ItemModelInterface) {
-    console.log('editing', item)
     this.router.navigate([this.editModalPage, item.key]);
   }
 

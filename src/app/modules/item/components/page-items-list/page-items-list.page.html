@@ -1,5 +1,6 @@
+<div *ngIf="countingItems2Subscribe|async as count">
 <p class="counter">{{ countItems() }}{{ dummyItem?.getCountingText() }}</p>
-
+<div *ngIf="countingItems2Subscribe|async as count">
 <ion-list>
   <div>
     <ion-spinner name="Bubbles" [style.display]="showSpinner2?'block':'none'"></ion-spinner>
@@ -8,13 +9,14 @@
     <div class="dot1"></div>
     <div class="dot2"></div>
   </div>
+
   <ion-item-sliding
     *ngFor="let item of service?.items |async | filterItems: filterFunction| sorterItems: sorterFunction|pagination:paginationConfig:paginationActive"
     #sliding_item
   >
   <div tabindex="0"></div>
     <app-page-item [Item]="item" ></app-page-item>
-    <div *ngIf="count$| async as count">ciao </div>
+  
 
     <ion-item-options side="start">
       <ion-button
@@ -39,6 +41,8 @@
   </ion-item-sliding>
 </ion-list>
 <app-paging-controller *ngIf="paginationActive" [paginationConfig]="paginationConfig" [countItems]="countItems()" (currentPageEvent)="setCurrentPage($event)"(items4Page)="setItems4Page($event)"></app-paging-controller>
+</div>
+
 <div *ngIf="createModalPage">
 <ion-fab class="addItem" vertical="bottom" horizontal="end" slot="fixed">
   <ion-fab-button (click)="createItem()">
