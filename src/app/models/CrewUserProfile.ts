@@ -36,7 +36,7 @@ export class CrewUserprofileModel extends UserModel {
         return this.skillsList.map((skill: CategoryModel) => skill.key).indexOf(key) > -1
     }
 
-    apexField(){
+    middleFrontField(){
         return  (this.rate >0)? new Value({label:"⭐",value:`⭐ ${this.rate}`}): new Value({value:'',label:''})
     }
 
