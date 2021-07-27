@@ -33,7 +33,7 @@ export class PageItemsListComponent implements OnInit, OnChanges {
   @Input() secondSpinner
   @Input() service: ItemServiceInterface;
   @Input() editModalPage: ComponentRef
-  public dummyItem: ItemModelInterface;
+  public dummyItem: ItemModelInterface; // used in template
   @Input() filterFunction: (item: ItemModelInterface) => boolean;
   @Input() sorterFunction: (a: ItemModelInterface, b: ItemModelInterface) => number
   @Input() paginationActive: boolean
@@ -124,6 +124,7 @@ export class PageItemsListComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges(changes: SimpleChanges) {
+    console.log('change',this.countItems())
     if (this.service && this.service.items) {
       this.service.items.subscribe((items) => {
         if (items) {
@@ -145,10 +146,11 @@ export class PageItemsListComponent implements OnInit, OnChanges {
     var count
     if (this.service) {
       this.service.items.subscribe(items => {
-        count = items.filter(this.filterFunction).length || 0
-        console.log("count",count,items.filter(this.filterFunction))
+        if(items)
+       { count = items.filter(this.filterFunction).length || 0}
       })
     }
+    console.log('conteggio',count)
     return (count) ? count : "loading";
   }
 

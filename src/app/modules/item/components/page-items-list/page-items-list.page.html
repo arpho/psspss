@@ -14,6 +14,7 @@
   >
   <div tabindex="0"></div>
     <app-page-item [Item]="item" ></app-page-item>
+    <div *ngIf="count$| async as count">ciao </div>
 
     <ion-item-options side="start">
       <ion-button
