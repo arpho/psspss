@@ -17,6 +17,7 @@ import { Router } from "@angular/router";
 import { connectableObservableDescriptor } from 'rxjs/internal/observable/ConnectableObservable';
 import { ComponentRef } from '@ionic/core';
 import { paginationConfig } from "../../models/paginationConfig";
+import { BehaviorSubject, Observable } from 'rxjs';
 
 @Component({
   selector: "app-page-items-list",
@@ -25,6 +26,8 @@ import { paginationConfig } from "../../models/paginationConfig";
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class PageItemsListComponent implements OnInit, OnChanges {
+  _countingItems: BehaviorSubject<number>  = new BehaviorSubject(0)
+  readonly countingItems2Subscribe: Observable<number>= this._countingItems.asObservable()
   // tslint:disable-next-line: variable-name
   @Input() items_list: ItemModelInterface[];
   @Input() secondSpinner
