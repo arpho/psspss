@@ -29,7 +29,7 @@ export class CrewUserprofileModel extends UserModel {
     }
 
     getValue3() {
-        return new Value({ label: "data di nascita", value: this.birthDate.formatDate() })
+        return new Value({ label: "nascita:", value: this.birthDate.formatDate() })
     }
 
     isSkilled(key: string) {
