@@ -33,8 +33,8 @@ export class PageItemsListComponent implements OnInit, OnChanges {
   public dummyItem: ItemModelInterface;
   @Input() filterFunction: (item: ItemModelInterface) => boolean;
   @Input() sorterFunction: (a: ItemModelInterface, b: ItemModelInterface) => number
-  @Input() paginationActive:boolean
-  paginationConfig:paginationConfig={paginationActive:true,currentPage:0,items4page:5}
+  @Input() paginationActive: boolean
+  paginationConfig: paginationConfig = { paginationActive: true, currentPage: 0, items4page: 5 }
   public showSpinner = true;
   public showSpinner2 = false;
   @Input() createModalPage: ComponentRef;
@@ -56,10 +56,11 @@ export class PageItemsListComponent implements OnInit, OnChanges {
   }
   ngOnInit() {
 
-    this.service.items.subscribe(items =>{
+    this.service.items.subscribe(items => {
     })
-    if(!this.filterFunction){
-    this.filterFunction = this.filterFunction? this.filterFunction: (v: ItemModelInterface) => true;}
+    if (!this.filterFunction) {
+      this.filterFunction = this.filterFunction ? this.filterFunction : (v: ItemModelInterface) => true;
+    }
     if (!this.sorterFunction) {
       this.sorterFunction = (a: ItemModelInterface, b: ItemModelInterface) => 0
     }
@@ -78,14 +79,14 @@ export class PageItemsListComponent implements OnInit, OnChanges {
     }
   }
 
-  setCurrentPage(ev){
+  setCurrentPage(ev) {
     this.paginationConfig.currentPage = ev
-    this.paginationConfig = {...this.paginationConfig}
+    this.paginationConfig = { ...this.paginationConfig }
   }
 
-  setItems4Page(ev){
+  setItems4Page(ev) {
     this.paginationConfig.items4page = ev
-    this.paginationConfig = {...this.paginationConfig}
+    this.paginationConfig = { ...this.paginationConfig }
   }
 
   async updateItem(item: ItemModelInterface, slide: {}) {
@@ -100,8 +101,7 @@ export class PageItemsListComponent implements OnInit, OnChanges {
     slide['close']();
     const element = this.service.getDummyItem().getElement();
     const alert = await this.alertCtrl.create({
-      message: ` vuoi davvero cancellare quest${element.genere} ${
-        element.element
+      message: ` vuoi davvero cancellare quest${element.genere} ${element.element
         }?(${item.title})`,
       buttons: [
         {
@@ -142,14 +142,15 @@ export class PageItemsListComponent implements OnInit, OnChanges {
     var count
     if (this.service) {
       this.service.items.subscribe(items => {
-        count = items.filter(this.filterFunction).length
+        count = items.filter(this.filterFunction).length || 0
+        console.log("count",count,items.filter(this.filterFunction))
       })
     }
     return (count) ? count : "loading";
   }
 
   editItem(item: ItemModelInterface) {
-    console.log('editing',item)
+    console.log('editing', item)
     this.router.navigate([this.editModalPage, item.key]);
   }
 

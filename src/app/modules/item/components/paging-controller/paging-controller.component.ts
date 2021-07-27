@@ -58,7 +58,7 @@ export class PagingControllerComponent implements OnInit {
 
   numberOfPage() {
     const sparePage = this.countItems%this.paginationConfig.items4page>0? 1:0
-    return Math.floor(this.countItems / this.paginationConfig.items4page)+sparePage
+    return Math.floor(this.countItems / this.paginationConfig.items4page)+sparePage|| 0
   }
 
   async showToast(msg:string){
