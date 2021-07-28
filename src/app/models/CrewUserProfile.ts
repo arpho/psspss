@@ -92,8 +92,11 @@ export class CrewUserprofileModel extends UserModel {
 
     initialize(item) {
         super.initialize(item)
-
-        this.categories = this.categories || this.instatiateCategories(item.categorieId)
+        if(item && item['categorieId']){
+        this.categories = this.categories || this.instatiateCategories(item.categorieId)}
+        else{
+            this.categories= this.categories ||[]
+        }
         this.references = this.references ? this.references.map(item => new RatingModel().initialize(item)) : []
 
         this.title = `${this.firstName} ${this.lastName}`
