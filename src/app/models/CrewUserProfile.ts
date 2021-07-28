@@ -83,7 +83,7 @@ export class CrewUserprofileModel extends UserModel {
 
     }
     get rate() {
-        const sum = this.references.map((rev: RatingModel) => rev.rate).reduce((acc, value, index, arr) => {
+        const sum = this.references?.map((rev: RatingModel) => rev.rate).reduce((acc, value, index, arr) => {
             return acc + value
         }, 0)
         return sum / this.references.length ||0
