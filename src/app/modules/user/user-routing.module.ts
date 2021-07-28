@@ -42,6 +42,10 @@ const routes: Routes = [
   {
     path: "not-authorized/:message",
     loadChildren: () => import('./pages/not-authorized/not-authorized.module').then(m => m.NotAuthorizedPageModule)
+  },
+  {
+    path: 'users-manager',
+    loadChildren: () => import('./users-manager/users-manager.module').then( m => m.UsersManagerPageModule)
   }
 ];
 @NgModule({
