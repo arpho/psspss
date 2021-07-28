@@ -15,6 +15,7 @@ describe('PagingControllerComponent', () => {
 
     fixture = TestBed.createComponent(PagingControllerComponent);
     component = fixture.componentInstance;
+    component.paginationConfig={items4page:5,paginationActive:true,currentPage:0}
     fixture.detectChanges();
   }));
 

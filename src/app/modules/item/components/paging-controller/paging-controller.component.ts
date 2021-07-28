@@ -19,7 +19,7 @@ export class PagingControllerComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.currentPage = this.paginationConfig.currentPage
+    this.currentPage = this.paginationConfig?.currentPage
 
   }
 
