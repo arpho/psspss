@@ -48,9 +48,9 @@ export class FolderPage implements OnInit {
   }
 
   constructor(private activatedRoute: ActivatedRoute, private router: Router, public service: CrewUserService, public categories: CategoriesService) {
-    const filter4Name = (value: string, item: CrewUserprofileModel) => item.firstName.toLocaleLowerCase().includes(value)
-    const filter4Lastname = (value: string, item: CrewUserprofileModel) => item.lastName.toLocaleLowerCase().includes(value)
-    const filter4Mansione = (value: string, item: CrewUserprofileModel) => item.crewRole.toLocaleLowerCase().includes(value)
+    const filter4Name = (value: string, item: CrewUserprofileModel) => item.firstName.toLowerCase().includes(value.toLowerCase())
+    const filter4Lastname = (value: string, item: CrewUserprofileModel) => item.lastName.toLowerCase().includes(value.toLowerCase())
+    const filter4Mansione = (value: string, item: CrewUserprofileModel) => item.crewRole.toLowerCase().includes(value.toLowerCase())
     const filter4Field = (value: number, item: CrewUserprofileModel) => item.field == value
     const filter4Skill = (value: CategoryModel, item: CrewUserprofileModel) => item.isSkilled(value.key)
     const filter4Rating = (value:number,item:CrewUserprofileModel)=> item.rate>=value-1 &&item.rate<= value
