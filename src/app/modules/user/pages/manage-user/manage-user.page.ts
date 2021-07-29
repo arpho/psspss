@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ModalController, NavParams } from '@ionic/angular';
+import { ModalController, NavParams, ToastController } from '@ionic/angular';
 import { DateQuestion } from 'src/app/modules/dynamic-form/models/question-date';
 import { DropdownQuestion } from 'src/app/modules/dynamic-form/models/question-dropdown';
 import { TextboxQuestion } from 'src/app/modules/dynamic-form/models/question-textbox';
@@ -22,6 +22,7 @@ userFields= []
   constructor(public modalCtrl:ModalController,
     public service:UsersService,
     public navparams:NavParams,
+    public toastController:ToastController
     ) { }
 
    
@@ -84,12 +85,22 @@ userFields= []
   dismiss() {
     this.modalCtrl.dismiss()
   }
+  async showToast(msg){
+    const toast = await this.toastController.create({
+      header:"managed user",
+      message: msg
+    })
+     await toast.present()
+
+  }
 
   async storeUser(user:UserModel){
     this.service.updateItem(user)
     await Promise.all([
     this.service.setCustomClaim(this.user.uid,{accessLevel:this.user.level}),
-    this.service.setCustomClaim(this.user.uid,{enabled:this.user.enabled})])
+    this.service.setCustomClaim(this.user.uid,{enabled:this.user.enabled})]).then(()=>{
+     this.showToast("user updated and claims set")
+    })
 
   }
 
