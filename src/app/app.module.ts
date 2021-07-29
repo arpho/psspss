@@ -17,6 +17,7 @@
   import { CategoriesModule } from './modules/categories/categories.module';
 import { CommonModule } from '@angular/common';
 import { PaginationPipe } from './modules/item/pipes/pagination.pipe';
+import { UsersManagerPage } from './modules/user/pages/users-manager/users-manager.page';
 
   @NgModule({
     declarations: [
@@ -24,6 +25,7 @@ import { PaginationPipe } from './modules/item/pipes/pagination.pipe';
     FilterPopupPage,
     SelectorItemsPage,
     EditUserPage,
+    UsersManagerPage
     ],
     entryComponents: [],
     imports: [BrowserModule,

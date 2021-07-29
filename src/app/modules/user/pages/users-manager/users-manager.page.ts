@@ -13,18 +13,15 @@ export class UsersManagerPage implements OnInit {
   editModalPage = ManageUserPage
 
   constructor(public service: UsersService,
-    public modalCtrl:ModalController,
-    public navParams:NavParams) { }
+  
+   ) { }
 
     user:UserModel
+    title="title"
 
   ngOnInit() {
-    this.user = this.navParams.get('item')
   }
 
-  dismiss() {
-    this.modalCtrl.dismiss()
-  }
 
 
 }
