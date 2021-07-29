@@ -35,6 +35,7 @@ export class AuthService {
             .database()
             .ref(`/userProfile/${newUserCredential.user.uid}/uid`)
             .set(newUserCredential.user.uid);
+            //@TODO set base role
       })
       .catch(error => {
         console.error(error);
