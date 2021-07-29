@@ -18,4 +18,9 @@ export class UsersManagerPage implements OnInit {
   ngOnInit() {
   }
 
+  dismiss() {
+    this.modalCtrl.dismiss()
+  }
+
+
 }
