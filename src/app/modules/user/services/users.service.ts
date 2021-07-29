@@ -9,6 +9,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { CrewUserprofileModel } from "src/app/models/CrewUserProfile";
 import * as functions from "firebase-functions"
 
+
 @Injectable({
   providedIn: "root"
 })
@@ -95,5 +96,10 @@ export class UsersService implements ItemServiceInterface,OnInit {
 
   updateItem(item: ItemModelInterface) {
     return this.usersRef.child(item.key).update(item.serialize());
+  }
+
+  async setCustomClaim(uid:string,claim){
+
+     return await admin.auth().setCustomUserClaims(uid,claim)
   }
 }
