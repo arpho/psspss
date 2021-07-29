@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalController, NavParams } from '@ionic/angular';
+import { UserModel } from '../../models/userModel';
 
 @Component({
   selector: 'app-manage-user',
@@ -8,8 +9,9 @@ import { ModalController, NavParams } from '@ionic/angular';
 })
 export class ManageUserPage implements OnInit {
 title= "gestione Utente"
+user:UserModel
   constructor(public modalCtrl:ModalController,
-    navparams:NavParams,
+    public navparams:NavParams,
     ) { }
 
     dismiss() {
@@ -18,6 +20,8 @@ title= "gestione Utente"
   
 
   ngOnInit() {
+    this.user = this.navparams.get('item')
+    console.log('user',this.user)
   }
 
 }
