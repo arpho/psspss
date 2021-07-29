@@ -7,13 +7,15 @@ import { IonicModule } from '@ionic/angular';
 import { ManageUserPageRoutingModule } from './manage-user-routing.module';
 
 import { ManageUserPage } from './manage-user.page';
+import { DynamicFormModule } from 'src/app/modules/dynamic-form/dynamic-form.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    ManageUserPageRoutingModule
+    ManageUserPageRoutingModule,
+    DynamicFormModule
   ],
   declarations: [ManageUserPage]
 })
