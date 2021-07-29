@@ -26,27 +26,27 @@ export class AuthService {
         newUserCredential.user.sendEmailVerification();
         // recupero uid dell'utente loggato
         const auth = firebase.default.auth()
-        auth.onAuthStateChanged(user=>{
+        auth.onAuthStateChanged(user => {
           const uid = user.uid
           //creo l'utente in userProfile
-        firebase
-        .default
-          .database()
-          .ref(`/userProfile/${uid}/email`)
-          .set(email);
           firebase
-          .default
+            .default
+            .database()
+            .ref(`/userProfile/${uid}/email`)
+            .set(email);
+          firebase
+            .default
             .database()
             .ref(`/userProfile/${uid}/uid`)
             .set(uid);
-            firebase
+          firebase
             .default
-              .database()
-              .ref(`/userProfile/${uid}/signedUser`)
-              .set(true);
+            .database()
+            .ref(`/userProfile/${uid}/signedUser`)
+            .set(true);
         })
-        
-            //@TODO set base role
+
+        //@TODO set base role
       })
       .catch(error => {
         console.error(error);
@@ -57,7 +57,7 @@ export class AuthService {
   logoutUser(): Promise<void> {
     const userId: string = firebase.default.auth().currentUser.uid;
     firebase
-    .default
+      .default
       .database()
       .ref(`/userProfile/${userId}`)
       .off();

@@ -15,7 +15,7 @@ export class UserModel implements ItemModelInterface {
   firstName: string;
   lastName: string;
   title: string;
-  uid:string
+  uid: string
   private _key: string;
   public get key(): string {
     return this._key;
@@ -89,7 +89,7 @@ export class UserModel implements ItemModelInterface {
       firstName: this.notUndefined(this.firstName),
       lastName: this.notUndefined(this.lastName),
       enabled: this.enabled,
-      signedUser:this.signedUser,
+      signedUser: this.signedUser,
       level: this.notUndefined(this.role.value)
     };
   }

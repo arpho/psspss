@@ -6,7 +6,7 @@ import { TextboxQuestion } from 'src/app/modules/dynamic-form/models/question-te
 import { SwitchQuestion } from 'src/app/modules/item/models/question-switch';
 import { DateModel } from '../../models/birthDateModel';
 import { UserModel } from '../../models/userModel';
-import {configs} from '../../../../configs/accessLevel'
+import { configs } from '../../../../configs/accessLevel'
 import { UsersService } from '../../services/users.service';
 
 @Component({
@@ -15,24 +15,24 @@ import { UsersService } from '../../services/users.service';
   styleUrls: ['./manage-user.page.scss'],
 })
 export class ManageUserPage implements OnInit {
-title= "gestione Utente"
+  title = "gestione Utente"
 
-user:UserModel
-userFields= []
-  constructor(public modalCtrl:ModalController,
-    public service:UsersService,
-    public navparams:NavParams,
-    public toastController:ToastController
-    ) { }
+  user: UserModel
+  userFields = []
+  constructor(public modalCtrl: ModalController,
+    public service: UsersService,
+    public navparams: NavParams,
+    public toastController: ToastController
+  ) { }
 
-   
-  
+
+
 
   ngOnInit() {
     this.user = this.navparams.get('item')
-    console.log('user',this.user)
+    console.log('user', this.user)
     this.title = this.user.getTitle().value.toString()
-    this.userFields=[
+    this.userFields = [
       new TextboxQuestion({
         key: 'firstName',
         label: 'nome',
@@ -77,42 +77,42 @@ userFields= []
         key: 'level',
         label: 'Ruolo utente',
         options: configs['accessLevel'],
-        value:this.user? this.user.level:3
+        value: this.user ? this.user.level : 3
       }),
-      ]
+    ]
   }
 
   dismiss() {
     this.modalCtrl.dismiss()
   }
-  async showToast(msg){
+  async showToast(msg) {
     const toast = await this.toastController.create({
-      header:"managed user",
+      header: "managed user",
       message: msg
     })
-     await toast.present()
+    await toast.present()
 
   }
 
-  async storeUser(user:UserModel){
+  async storeUser(user: UserModel) {
     this.service.updateItem(user)
     await Promise.all([
-    this.service.setCustomClaim(this.user.uid,{accessLevel:this.user.level}),
-    this.service.setCustomClaim(this.user.uid,{enabled:this.user.enabled})]).then(()=>{
-     this.showToast("user updated and claims set")
-    })
+      this.service.setCustomClaim(this.user.uid, { accessLevel: this.user.level }),
+      this.service.setCustomClaim(this.user.uid, { enabled: this.user.enabled })]).then(() => {
+        this.showToast("user updated and claims set")
+      })
 
   }
 
-  filter(ev){
-    console.log('user 1',this.user,this.user.key)
-    console.log('filter',ev)
-    Object.assign(this.user,ev)
-    console.log('user 2',this.user,this.user.key)
+  filter(ev) {
+    console.log('user 1', this.user, this.user.key)
+    console.log('filter', ev)
+    Object.assign(this.user, ev)
+    console.log('user 2', this.user, this.user.key)
   }
 
-  submit(ev){
-    console.log('submit',ev)
+  submit(ev) {
+    console.log('submit', ev)
   }
 
 }

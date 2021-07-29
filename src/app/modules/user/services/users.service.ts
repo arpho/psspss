@@ -13,7 +13,7 @@ import * as functions from "firebase-functions"
 @Injectable({
   providedIn: "root"
 })
-export class UsersService implements ItemServiceInterface,OnInit {
+export class UsersService implements ItemServiceInterface, OnInit {
   public usersRef: firebase.default.database.Reference;
   private loggedUser: UserModel;
   items_list: Array<CrewUserprofileModel> = []
@@ -22,10 +22,10 @@ export class UsersService implements ItemServiceInterface,OnInit {
 
 
   constructor() {
-    
+
     this.usersRef = firebase.default.database().ref("/userProfile");
     this.loadItems()
-    
+
   }
   categoriesService?: ItemServiceInterface;
   suppliersService?: ItemServiceInterface;
@@ -52,7 +52,7 @@ export class UsersService implements ItemServiceInterface,OnInit {
     firebase.default.auth().onAuthStateChanged(user => {
       if (user) {
         this.usersRef = firebase.default.database().ref(`/userProfile/`);
-        this.usersRef.on('value', this.populateItems );
+        this.usersRef.on('value', this.populateItems);
       }
     });
   }
@@ -67,9 +67,9 @@ export class UsersService implements ItemServiceInterface,OnInit {
     return this.loggedUser;
   }
 
-  setRole(uid:string,role:number){
-   const data= {uid,role}
-  
+  setRole(uid: string, role: number) {
+    const data = { uid, role }
+
   }
 
   setLoggedUser(key: string) {
@@ -98,8 +98,8 @@ export class UsersService implements ItemServiceInterface,OnInit {
     return this.usersRef.child(item.key).update(item.serialize());
   }
 
-  async setCustomClaim(uid:string,claim){
+  async setCustomClaim(uid: string, claim) {
 
-     return await admin.auth().setCustomUserClaims(uid,claim)
+    return await admin.auth().setCustomUserClaims(uid, claim)
   }
 }

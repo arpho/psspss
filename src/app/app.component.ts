@@ -4,7 +4,7 @@ import { config } from 'firebase-functions';
 import firebase from 'firebase'
 require('firebase/auth')
 import { connectableObservableDescriptor } from 'rxjs/internal/observable/ConnectableObservable';
-import {configs} from './configs/credentials'
+import { configs } from './configs/credentials'
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
@@ -22,23 +22,23 @@ export class AppComponent {
   public labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders'];
   constructor(
     private platform: Platform,
-  ){
+  ) {
 
-    this.initializeApp();{
+    this.initializeApp(); {
       const auth = firebase.auth()
-      auth.onAuthStateChanged(user=>{
-        console.log("authenticated user",user.uid)
-        if (firebase.auth().currentUser !== null) 
-        console.log("user id: " + firebase.auth().currentUser.uid);
-      }) 
+      auth.onAuthStateChanged(user => {
+        console.log("authenticated user", user.uid)
+        if (firebase.auth().currentUser !== null)
+          console.log("user id: " + firebase.auth().currentUser.uid);
+      })
 
-      
-  if (!firebase.apps.length) {
-    // const  cat = this.categoriesService.getDummyItem();
-  }
-  else{
-    console.log('firebase ok ',firebase.auth)
-  }
+
+      if (!firebase.apps.length) {
+        // const  cat = this.categoriesService.getDummyItem();
+      }
+      else {
+        console.log('firebase ok ', firebase.auth)
+      }
       // const  cat = this.categoriesService.getDummyItem();
     }
   }
