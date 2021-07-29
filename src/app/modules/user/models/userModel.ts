@@ -23,7 +23,6 @@ export class UserModel implements ItemModelInterface {
   public set key(value: string) {
     this._key = value;
   }
-  uid: string;
   level: number;
   quickActions: Array<QuickAction>;
   enabled = false;
