@@ -22,6 +22,7 @@ user:UserModel
   ngOnInit() {
     this.user = this.navparams.get('item')
     console.log('user',this.user)
+    this.title = this.user.getTitle().value.toString()
   }
 
 }
