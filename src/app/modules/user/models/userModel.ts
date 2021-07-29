@@ -26,6 +26,7 @@ export class UserModel implements ItemModelInterface {
   level: number;
   quickActions: Array<QuickAction>;
   enabled = false;
+  signedUser = false
   role: RoleModel;
   service: ItemServiceInterface;
 
@@ -88,6 +89,7 @@ export class UserModel implements ItemModelInterface {
       firstName: this.notUndefined(this.firstName),
       lastName: this.notUndefined(this.lastName),
       enabled: this.enabled,
+      signedUser:this.signedUser,
       level: this.notUndefined(this.role.value)
     };
   }

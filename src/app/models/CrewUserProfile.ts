@@ -51,6 +51,7 @@ export class CrewUserprofileModel extends UserModel {
     categorieId: Array<string>
     references: Array<RatingModel>
     crewRole: string
+    signedUser: boolean = false// true if user is registered in firebase with password and email
     field: ActivityFields
     skillsList: Array<CategoryModel>
     skillsId: Array<string> = []// used to store skills id on db
