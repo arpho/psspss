@@ -87,6 +87,8 @@ userFields= []
 
   storeUser(user:UserModel){
     this.service.updateItem(user)
+    this.service.setCustomClaim(this.user.uid,{accessLevel:this.user.level})
+    this.service.setCustomClaim(this.user.uid,{enabled:this.user.enabled})
 
   }
 
