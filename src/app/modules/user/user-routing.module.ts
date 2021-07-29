@@ -50,6 +50,10 @@ const routes: Routes = [
   {
     path: 'users-manager',
     loadChildren: () => import('./pages/users-manager/users-manager.module').then( m => m.UsersManagerPageModule)
+  },
+  {
+    path: 'manage-user',
+    loadChildren: () => import('./pages/manage-user/manage-user.module').then( m => m.ManageUserPageModule)
   }
 ];
 @NgModule({
