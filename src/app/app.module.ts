@@ -18,11 +18,13 @@
 import { CommonModule } from '@angular/common';
 import { PaginationPipe } from './modules/item/pipes/pagination.pipe';
 import { UsersManagerPage } from './modules/user/pages/users-manager/users-manager.page';
+import { ManageUserPageModule } from './modules/user/pages/manage-user/manage-user.module';
 
   @NgModule({
     declarations: [
       AppComponent,
     FilterPopupPage,
+    ManageUserPageModule,
     SelectorItemsPage,
     EditUserPage,
     UsersManagerPage

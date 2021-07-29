@@ -13,7 +13,7 @@ import { DynamicFormModule } from 'src/app/modules/dynamic-form/dynamic-form.mod
   imports: [
     CommonModule,
     FormsModule,
-    IonicModule,
+    IonicModule.forRoot(),
     ManageUserPageRoutingModule,
     DynamicFormModule
   ],
