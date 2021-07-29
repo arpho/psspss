@@ -6,7 +6,7 @@ import { TextboxQuestion } from 'src/app/modules/dynamic-form/models/question-te
 import { SwitchQuestion } from 'src/app/modules/item/models/question-switch';
 import { DateModel } from '../../models/birthDateModel';
 import { UserModel } from '../../models/userModel';
-import {configs} from '../../../../configs/credentials'
+import {configs} from '../../../../configs/accessLevel'
 
 @Component({
   selector: 'app-manage-user',

@@ -6,7 +6,7 @@ import { ItemServiceInterface } from '../../item/models/ItemServiceInterface';
 import { Value } from '../../item/models/value';
 import { DateModel } from './birthDateModel';
 import { RoleModel } from './privilegesLevelModel';
-import { configs } from 'src/app/configs/configs';
+import { configs } from 'src/app/configs/accessLevel';
 import { QuickAction } from '../../item/models/QuickAction';
 // import { EditUserPage } from '../pages/edit-user/edit-user.page';
 export class UserModel implements ItemModelInterface {
