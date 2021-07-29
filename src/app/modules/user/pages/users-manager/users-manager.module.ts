@@ -17,6 +17,6 @@ import { ItemModule } from 'src/app/modules/item/item.module';
     UsersManagerPageRoutingModule,
     ItemModule
   ],
-  declarations: [UsersManagerPage]
+  declarations: []
 })
 export class UsersManagerPageModule {}

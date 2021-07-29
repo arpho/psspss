@@ -7,7 +7,7 @@ import { ModalController, NavParams } from '@ionic/angular';
   styleUrls: ['./manage-user.page.scss'],
 })
 export class ManageUserPage implements OnInit {
-
+title= "gestione Utente"
   constructor(public modalCtrl:ModalController,
     navparams:NavParams,
     ) { }
