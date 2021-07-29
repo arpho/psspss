@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ModalController, NavParams } from '@ionic/angular';
 import { UsersService } from '../../services/users.service';
 import { ManageUserPage } from '../manage-user/manage-user.page';
 
@@ -10,7 +11,9 @@ import { ManageUserPage } from '../manage-user/manage-user.page';
 export class UsersManagerPage implements OnInit {
   editModalPage = ManageUserPage
 
-  constructor(public service: UsersService) { }
+  constructor(public service: UsersService,
+    public modalCtrl:ModalController,
+    public navParams:NavParams) { }
 
   ngOnInit() {
   }
