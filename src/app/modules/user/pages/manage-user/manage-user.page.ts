@@ -7,6 +7,7 @@ import { SwitchQuestion } from 'src/app/modules/item/models/question-switch';
 import { DateModel } from '../../models/birthDateModel';
 import { UserModel } from '../../models/userModel';
 import {configs} from '../../../../configs/accessLevel'
+import { UsersService } from '../../services/users.service';
 
 @Component({
   selector: 'app-manage-user',
@@ -19,6 +20,7 @@ title= "gestione Utente"
 user:UserModel
 userFields= []
   constructor(public modalCtrl:ModalController,
+    public service:UsersService,
     public navparams:NavParams,
     ) { }
 
@@ -83,8 +85,16 @@ userFields= []
     this.modalCtrl.dismiss()
   }
 
+  storeUser(user:UserModel){
+    this.service.updateItem(user)
+
+  }
+
   filter(ev){
+    console.log('user 1',this.user,this.user.key)
     console.log('filter',ev)
+    Object.assign(this.user,ev)
+    console.log('user 2',this.user,this.user.key)
   }
 
   submit(ev){
