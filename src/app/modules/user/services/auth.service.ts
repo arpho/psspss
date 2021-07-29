@@ -24,6 +24,7 @@ export class AuthService {
       .createUserWithEmailAndPassword(email, password)
       .then(newUserCredential => {
         newUserCredential.user.sendEmailVerification();
+        //creo l'utente in userProfile
         firebase
         .default
           .database()
