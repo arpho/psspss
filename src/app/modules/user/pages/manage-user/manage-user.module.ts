@@ -17,6 +17,6 @@ import { DynamicFormModule } from 'src/app/modules/dynamic-form/dynamic-form.mod
     ManageUserPageRoutingModule,
     DynamicFormModule
   ],
-  declarations: [ManageUserPage]
+  declarations: []
 })
 export class ManageUserPageModule {}
