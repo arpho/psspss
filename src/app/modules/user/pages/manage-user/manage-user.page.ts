@@ -66,16 +66,7 @@ userFields= []
         options: configs['accessLevel'],
         value:this.user? this.user.level:3
       }),
-      new SwitchQuestion({
-        key: 'offlineEnabled',
-        label: 'supporto offline ',
-        value: this.user ? this.user.enabled : false,
-        labelTrue: 'supporto offline ok',
-        labelFalse: ' solo cloud ',
-        iconTrue: 'cloud-upload',
-        iconFalse: 'cloud',
-        order: 3
-      }),]
+      ]
   }
 
   dismiss() {
