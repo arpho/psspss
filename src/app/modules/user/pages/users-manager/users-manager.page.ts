@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalController, NavParams } from '@ionic/angular';
+import { UserModel } from '../../models/userModel';
 import { UsersService } from '../../services/users.service';
 import { ManageUserPage } from '../manage-user/manage-user.page';
 
@@ -15,7 +16,10 @@ export class UsersManagerPage implements OnInit {
     public modalCtrl:ModalController,
     public navParams:NavParams) { }
 
+    user:UserModel
+
   ngOnInit() {
+    this.user = this.navParams.get('item')
   }
 
   dismiss() {
