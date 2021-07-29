@@ -53,12 +53,22 @@ userFields= []
         iconFalse: 'remove-circle',
         order: 3
       }),
+      new SwitchQuestion({
+        key: 'signedUser',
+        label: 'autenticato',
+        value: this.user ? this.user.signedUser : false,
+        labelTrue: 'registrato con email',
+        labelFalse: ' utente inserito nel db ',
+        iconTrue: 'mail',
+        iconFalse: 'walk',
+        order: 4
+      }),
       new DateQuestion({
         key: 'birthDate',
         label: 'Data di nascita',
         required: true,
         value: this.user ? new DateModel(this.user.birthDate).formatDate() : new DateModel(new Date()), // "1977-03-16",
-        order: 4
+        order: 5
       }),
       new DropdownQuestion({
         key: 'level',
