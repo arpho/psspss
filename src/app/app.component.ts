@@ -27,7 +27,9 @@ export class AppComponent {
     this.initializeApp();{
       const auth = firebase.auth()
       auth.onAuthStateChanged(user=>{
-        console.log("authenticated user",user)
+        console.log("authenticated user",user.uid)
+        if (firebase.auth().currentUser !== null) 
+        console.log("user id: " + firebase.auth().currentUser.uid);
       }) 
 
       
