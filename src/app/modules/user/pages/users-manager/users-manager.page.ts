@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UsersService } from '../../services/users.service';
+import { ManageUserPage } from '../manage-user/manage-user.page';
 
 @Component({
   selector: 'app-users-manager',
@@ -7,8 +8,9 @@ import { UsersService } from '../../services/users.service';
   styleUrls: ['./users-manager.page.scss'],
 })
 export class UsersManagerPage implements OnInit {
+  editModalPage = ManageUserPage
 
-  constructor(public service:UsersService) { }
+  constructor(public service: UsersService) { }
 
   ngOnInit() {
   }
