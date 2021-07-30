@@ -96,11 +96,11 @@ export class ManageUserPage implements OnInit {
 
   async storeUser(user: UserModel) {
     this.service.updateItem(user)
-    await Promise.all([
+   /*  await Promise.all([
       this.service.setCustomClaim(this.user.uid, { accessLevel: this.user.level }),
       this.service.setCustomClaim(this.user.uid, { enabled: this.user.enabled })]).then(() => {
         this.showToast("user updated and claims set")
-      })
+      }) */
 
   }
 

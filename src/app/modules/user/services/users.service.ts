@@ -4,7 +4,7 @@ import * as firebase from "firebase";
 import { ItemServiceInterface } from "../../item/models/ItemServiceInterface";
 import { UserModel } from "../models/userModel";
 import { ItemModelInterface } from "../../item/models/itemModelInterface";
-import * as admin from "firebase-admin";
+//import * as admin from "firebase-admin";
 import { BehaviorSubject, Observable } from 'rxjs';
 import { CrewUserprofileModel } from "src/app/models/CrewUserProfile";
 import * as functions from "firebase-functions"
@@ -97,9 +97,9 @@ export class UsersService implements ItemServiceInterface, OnInit {
   updateItem(item: ItemModelInterface) {
     return this.usersRef.child(item.key).update(item.serialize());
   }
-
+/* 
   async setCustomClaim(uid: string, claim) {
 
     return await admin.auth().setCustomUserClaims(uid, claim)
-  }
+  } */
 }
