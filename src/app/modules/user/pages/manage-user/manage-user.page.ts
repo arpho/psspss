@@ -8,7 +8,6 @@ import { DateModel } from '../../models/birthDateModel';
 import { UserModel } from '../../models/userModel';
 import { configs } from '../../../../configs/accessLevel'
 import { UsersService } from '../../services/users.service';
-import * as admin from 'firebase-admin';
 
 @Component({
   selector: 'app-manage-user',
@@ -75,7 +74,7 @@ export class ManageUserPage implements OnInit {
         order: 5
       }),
       new DropdownQuestion({
-        key: 'accessLevel',
+        key: 'level',
         label: 'Ruolo utente',
         options: configs['accessLevel'],
         value: this.user ? this.user.level : 3
@@ -114,7 +113,6 @@ export class ManageUserPage implements OnInit {
 
   submit(ev) {
     console.log('submit', ev)
-    admin.auth().setCustomUserClaims(this.user.uid,{accessLevel:ev.accessLevel})
   }
 
 }
