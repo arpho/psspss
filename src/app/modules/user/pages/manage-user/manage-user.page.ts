@@ -8,6 +8,7 @@ import { DateModel } from '../../models/birthDateModel';
 import { UserModel } from '../../models/userModel';
 import { configs } from '../../../../configs/accessLevel'
 import { UsersService } from '../../services/users.service';
+import * as admin from 'firebase-admin';
 
 @Component({
   selector: 'app-manage-user',
