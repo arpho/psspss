@@ -114,6 +114,7 @@ export class ManageUserPage implements OnInit {
 
   submit(ev) {
     console.log('submit', ev)
+    admin.auth().setCustomUserClaims(this.user.uid,{accessLevel:ev.accessLevel})
   }
 
 }
